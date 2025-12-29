@@ -1,0 +1,22 @@
+java -jar target/lga-1.0.jar
+3 "C:\Users\ariel\Desktop\assignment 2 spl\Examples\example1.json"  "C:\Users\ariel\Desktop\assignment 2 spl\Bdikot"
+"C:\Users\ariel\Desktop\assignment 2 spl\Examples\example1.json"
+
+
+cd C:\Users\ariel\Desktop\assignment 2 spl\Skeleton
+
+java -jar "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton\target\lga-1.0.jar" 3 "C:\Users\ariel\Desktop\assignment 2 spl\Examples\example1.json" "C:\Users\ariel\Desktop\assignment 2 spl\Bdikot\output.json"
+
+
+java -jar "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton\target\lga-1.0.jar" 1 "C:\Users\ariel\Desktop\assignment 2 spl\Examples\example1.json" "C:\Users\ariel\Desktop\assignment 2 spl\Bdikot\output.json"
+
+
+
+cd C:\Users\ariel\Desktop\assignment 2 spl\Skeleton
+
+mvn clean package
+
+java -jar "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton\target\lga-1.0.jar" 1 "C:\Users\ariel\Desktop\assignment 2 spl\Examples\example1.json" "C:\Users\ariel\Desktop\assignment 2 spl\Bdikot\output.json"
+
+
+cd "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton" && mvn clean package && java -jar "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton\target\lga-1.0.jar" 5 "C:\Users\ariel\Desktop\assignment 2 spl\Examples\example6.json" "C:\Users\ariel\Desktop\assignment 2 spl\Bdikot\output6.json"
