@@ -24,9 +24,9 @@ public class TiredExecutor {
     public void submit(Runnable task) {
         // TODO
         try {
-            System.out.println("Banana");
+            //System.out.println("Banana");
             TiredThread first = idleMinHeap.take();
-            System.out.println("apple");
+            //System.out.println("apple");
             inFlight.incrementAndGet();
             Runnable wrappedTask = () -> { // so we can track when the task finishes
                 try {
@@ -36,21 +36,21 @@ public class TiredExecutor {
                     idleMinHeap.add(first);
                 }
             };
-            System.out.println("kiwi");
+            //System.out.println("kiwi");
             first.newTask(wrappedTask);
         } catch (InterruptedException e) {
-            System.out.println("interupted submitting");
+            //System.out.println("interupted submitting");
             Thread.currentThread().interrupt();
         }
     }
 
     public void submitAll(Iterable<Runnable> tasks) {
         // TODO: submit tasks one by one and wait until all finish
-        System.out.println("called submit all");
+        //System.out.println("called submit all");
         for (Runnable task : tasks) {
-            System.out.println("running submit");
+            //System.out.println("running submit");
             submit(task);
-            System.out.println("finished running submit");
+            //System.out.println("finished running submit");
         }
         while (inFlight.get() > 0) {  // haven't finished executing all yet 
             //System.out.println("all tasks haven't finished");
@@ -61,7 +61,7 @@ public class TiredExecutor {
                 break;
             }
         }
-        System.out.println("finished submit all");
+        //System.out.println("finished submit all");
     }
 
     public void shutdown() throws InterruptedException {
@@ -76,11 +76,13 @@ public class TiredExecutor {
 
     public synchronized String getWorkerReport() {
         // TODO: return readable statistics for each worker
-        String output = "";
+        String output = "\n";
         for (int i = 0; i < workers.length; i++) {
-            output+= "Worker " + workers[i].getWorkerId() + ": " + "fatigue = " + workers[i].getFatigue() 
-            + ", time used = " + workers[i].getTimeUsed() + ", time idle = " + workers[i].getTimeIdle()
-            + ", is busy? = " + workers[i].isBusy() + "\n";
+            output+= "----Worker " + workers[i].getWorkerId() + "---- \n" + 
+            "fatigue = " + workers[i].getFatigue() + "\n" +
+            "time used = " + workers[i].getTimeUsed()+ "\n" + 
+            "time idle = " + workers[i].getTimeIdle() + "\n" +
+            "is busy? = " + workers[i].isBusy() + "\n";
         }
         return output;
     }

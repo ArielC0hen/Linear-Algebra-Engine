@@ -11,6 +11,13 @@ public class SharedVector {
     /////////////////////
     // try {} finally {} so if the code results in error the object wont stay locked forever
     /////////////////////
+    
+
+
+    ///////////////NOTE////////
+    /// We know technically speaking many of the functions here don't require locking or resource ordering
+    /// because of the way we run the functions on different vectors in the matrix, but we don't want the
+    /// class to be "executor dependent" so we implement everything normally just in case
 
     public SharedVector(double[] vector, VectorOrientation orientation) {
         // TODO: store vector data and its orientation
@@ -27,10 +34,10 @@ public class SharedVector {
         double output;
         try {
             output = vector[index];
+            return output;
         } finally {
             readUnlock();
         }
-        return output;
     }
 
     public int length() {// vecmult can make vector "change lengths"
@@ -78,7 +85,6 @@ public class SharedVector {
         writeLock();
         try {
             if (orientation == VectorOrientation.ROW_MAJOR) {
-                System.out.println("set to column major&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
                 orientation = VectorOrientation.COLUMN_MAJOR;
             } else {
                 orientation = VectorOrientation.ROW_MAJOR;
@@ -116,6 +122,9 @@ public class SharedVector {
             }
             ///
             try {
+                if (vector.length != other.vector.length) {
+                    throw new IllegalArgumentException ("Vectors aren't of same length! (add)");
+                }
                 for (int i = 0; i < vector.length; i++) {
                     vector[i] += other.vector[i];
                 }
@@ -133,7 +142,7 @@ public class SharedVector {
 
     public void negate() {
         // TODO: negate vector
-        System.out.println("negating and what not");
+        //System.out.println("negating and what not");
         writeLock();
         try { 
             for (int i = 0; i < vector.length; i++) {
@@ -146,9 +155,6 @@ public class SharedVector {
 
     public double dot(SharedVector other) {
         // TODO: compute dot product (row · column)
-        if (this.length() != other.length()) {
-            throw new IllegalArgumentException("The vectors arent of the same length!");
-        }
         ///for deadlock
         SharedVector first = this;
         SharedVector second = other;
@@ -161,6 +167,9 @@ public class SharedVector {
         second.readLock();
         double sum = 0;
         try {
+            if (this.length() != other.length()) {
+                throw new IllegalArgumentException("The vectors arent of the same length!");
+            }
             for (int i = 0; i < vector.length; i++) {
                 sum += vector[i] * other.vector[i];
             }
@@ -179,8 +188,8 @@ public class SharedVector {
         }
         if (matrix.getOrientation() == VectorOrientation.COLUMN_MAJOR) {
             if (matrix.length() > 0 && matrix.get(0).length() != length()) {
-                System.out.println(toString());
-                System.out.println(matrix.toString());
+                //System.out.println(toString());
+                //System.out.println(matrix.toString());
                 throw new IllegalArgumentException("Can't multiply");
             }
             double[] result = new double[matrix.length()]; // 1 x m
@@ -196,11 +205,11 @@ public class SharedVector {
         } else { // row major 
             int numOfCols = matrix.get(0).length();
             if (matrix.length() > 0 && matrix.length() != length()) {
-                System.out.println("vector length: " + length());
-                System.out.println(toString());
-                System.out.println("num of row: " + matrix.length());
-                System.out.println("matrix orientation: " + matrix.getOrientation());
-                System.out.println(matrix.toString());
+                //System.out.println("vector length: " + length());
+                //System.out.println(toString());
+                //System.out.println("num of row: " + matrix.length());
+                //System.out.println("matrix orientation: " + matrix.getOrientation());
+                //System.out.println(matrix.toString());
                 throw new IllegalArgumentException("Can't multiply");
             }
             double[] result = new double[numOfCols]; // 1 x m
@@ -209,10 +218,10 @@ public class SharedVector {
                 double[] col = new double[matrix.length()];
                 for (int j = 0; j < matrix.length(); j++) {
                     col[j] = matrix.get(j).get(i);
-                    System.out.println("col[" + j + "] = " + col[j]);
+                    //System.out.println("col[" + j + "] = " + col[j]);
                 }
                 SharedVector colVector = new SharedVector(col, VectorOrientation.COLUMN_MAJOR);
-                System.out.println("dot with col " + i + " = " + dot(colVector));
+                //System.out.println("dot with col " + i + " = " + dot(colVector));
                 result[i] = dot(colVector);
             }
             writeLock();
@@ -225,17 +234,16 @@ public class SharedVector {
     }
 
 
-    //// DEKETE LATER
+    //// for testing
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        String s = "[";
         for (int i = 0; i < vector.length; i++) {
-            sb.append(vector[i]);
+            s += vector[i];
             if (i < vector.length - 1) {
-                sb.append(", ");
+                s += ", ";
             }
         }
-        sb.append("]");
-        return sb.toString();
+        s += "]";
+        return s;
     }
 }

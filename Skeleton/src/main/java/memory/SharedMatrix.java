@@ -82,10 +82,6 @@ public class SharedMatrix {
 
     public VectorOrientation getOrientation() {
         // TODO: return orientation
-        System.out.println("CALLED FOR MATRIX ORIENATATION");
-        for (int i = 0; i < vectors.length; i++) {
-            System.out.println(vectors[i].getOrientation());
-        }
         return vectors[0].getOrientation();
     }
 

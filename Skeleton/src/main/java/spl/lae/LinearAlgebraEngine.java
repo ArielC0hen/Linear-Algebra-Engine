@@ -51,11 +51,12 @@ public class LinearAlgebraEngine {
 
     public ComputationNode run(ComputationNode computationRoot) {
         while (computationRoot.getNodeType() != ComputationNodeType.MATRIX) {
-            System.out.println("ran");
+            //System.out.println("ran");
             ComputationNode almostLeaf = computationRoot.findResolvable(); // finds the first "calculatable" node (all of its children are matrices)
             loadAndCompute(almostLeaf);
         }
-        System.out.println("done");
+        //System.out.println("done");
+        System.out.println(getWorkerReport());
         return computationRoot;
     }
 
@@ -67,14 +68,23 @@ public class LinearAlgebraEngine {
         ComputationNodeType operand = node.getNodeType();
         leftMatrix = new SharedMatrix(children.get(0).getMatrix()); /// FUCK YOU
         if (operand == ComputationNodeType.NEGATE) {
-            System.out.println("negate");
+            if (children.size() > 1) {
+                throw new IllegalArgumentException("Negate is an unary operand but it was given more than 1 matrix to work with");
+            }
+            //System.out.println("negate");
             executor.submitAll(createNegateTasks());
-            System.out.println("done negate");
+            //System.out.println("done negate");
         } else if (operand == ComputationNodeType.TRANSPOSE) {
-            System.out.println("transpose");
+            if (children.size() > 1) {
+                throw new IllegalArgumentException("Transpose is an unary operand but it was given more than 1 matrix to work with");
+            }
+            //System.out.println("transpose");
             executor.submitAll(createTransposeTasks());
         } else {
-            System.out.println("add or mult");
+            if (children.size() == 1) {
+                throw new IllegalArgumentException("Add/Mult are binary operands but they were given only 1 matrix");
+            }
+            //System.out.println("add or mult");
             for (int i = 1; i < children.size(); i++) {
                 rightMatrix = new SharedMatrix(children.get(i).getMatrix());
                 List<Runnable> tasks;
@@ -133,14 +143,14 @@ public class LinearAlgebraEngine {
             };
             tasks.add(task);
         }
-        System.out.println(tasks.size());
+        //System.out.println(tasks.size());
         return tasks;
     }
 
     public List<Runnable> createTransposeTasks() {
         // TODO: return tasks that transpose rows
-        System.out.println("CALLLED FOR TRANSPOSE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        System.out.println(leftMatrix.toString());
+        //System.out.println("CALLLED FOR TRANSPOSE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        //System.out.println(leftMatrix.toString());
         List<Runnable> tasks = new ArrayList<Runnable>();
         for (int i = 0; i < leftMatrix.length(); i++) {
             final int index = i; // i cant be used directly because it's not final (dumb)
