@@ -46,7 +46,7 @@ public class testMatrixAddition {
         }
     }
 
-public static void getOrientationTester() {
+    public static void getOrientationTester() {
         System.out.println("Checking the getOrientation function in SharedMatrix");
 
         System.out.println("---Check 1 (Row Major)---");
