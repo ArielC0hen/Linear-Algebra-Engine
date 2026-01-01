@@ -38,7 +38,7 @@ public class testMatrixAddition {
             c1sm.get(i).transpose();
         }
         double[][] c2res = c1sm.readRowMajor();
-        double[][] c2a = 
+        double[][] c2a = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         if (Arrays.equals(c1m, c1res)) {
             System.out.println("Success!");
         } else {
