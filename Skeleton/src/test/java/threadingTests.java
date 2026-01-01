@@ -16,9 +16,10 @@ public class threadingTests {
 
         double initialFatigue = thread.getFatigue();
         
-        // Run a dummy task to increase timeUsed
         thread.newTask(() -> {
-            try { Thread.sleep(50); } catch (InterruptedException e) {}
+            try { 
+                Thread.sleep(50); 
+            } catch (InterruptedException e) {}
         });
 
         // Wait for task to finish [cite: 393, 394]
