@@ -26,7 +26,7 @@ public class threadingTests {
             } catch (InterruptedException e) {}
         });
         while(thread1.isBusy() || thread2.isBusy()) { 
-            Thread.sleep(10);
+            Thread.sleep(20);
         }
         if (thread1.compareTo(thread2) < 0) {
             System.out.println("Success!");
