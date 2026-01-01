@@ -31,6 +31,8 @@ public class testMatrixAddition {
         }
         System.out.println("wanted: "+ c1sa);
         System.out.println("got: " + c1s1);
+
+        
     }
 
     public static void dotTester() {
