@@ -11,7 +11,7 @@ public class threadingTests {
 
 
     public void testCompareTo() {
-        TiredThread thread = new TiredThread(1, 1.0);
+        TiredThread thread1 = new TiredThread(1, 1.0);
         thread.start(); 
         thread.shutdown();
         thread.join(1000);
