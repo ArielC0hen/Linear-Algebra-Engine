@@ -16,7 +16,6 @@ public class testEngine {
 
         System.out.println("---Check 1 (negate)---");
 
-        // --- Check 1: Standard 2x2 negation ---
         System.out.println("standard");
         double[][] c1m1 = {{1, 2}, {3, 4}};
         ComputationNode c1cn1 = new ComputationNode(c1m1);
@@ -30,7 +29,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 2: Empty matrix negation ---
         System.out.println("empty matrix");
         double[][] c2m1 = {{}};
         ComputationNode c2cn1 = new ComputationNode(c2m1);
@@ -44,7 +42,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 3: Error check (2 children should throw) ---
         System.out.println("2 arguments (exception expetced)");
         double[][] c3m1 = {{1, 2}, {3, 4}};
         double[][] c3m2 = {{5, 6}, {7, 8}};
