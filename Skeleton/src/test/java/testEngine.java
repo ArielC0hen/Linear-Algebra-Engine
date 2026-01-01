@@ -122,7 +122,9 @@ public class testEngine {
         ComputationNode c4cn1 = new ComputationNode(c4m1);
         List<ComputationNode> c4children = Arrays.asList(c4cn1);
         ComputationNode c4r = new ComputationNode(ComputationNodeType.ADD, c4children);
-        double[][] c4res = engine.run(c4r).getMatrix();
+        try {
+            double[][] c4res = engine.run(c4r).getMatrix();
+        }
         System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");   
     }
 }
