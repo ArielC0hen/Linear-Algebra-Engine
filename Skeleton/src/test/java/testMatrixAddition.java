@@ -27,7 +27,7 @@ public class testMatrixAddition {
         double[][] c1m2 = {{9.0, 8.0}, {7.0, 6.0}};
         c1sm.loadRowMajor(c1m2);
         double[][] c1res = c1sm.readRowMajor();
-        if (Arrays.deepEquals(c1m2, c1res)) {
+        if (Arrays.equals(c1m2, c1res)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
