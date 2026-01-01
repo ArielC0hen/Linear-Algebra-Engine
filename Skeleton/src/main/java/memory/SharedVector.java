@@ -204,6 +204,7 @@ public class SharedVector {
             if (matrix.length() > 0 && matrix.length() != length()) {
                 throw new IllegalArgumentException("Can't multiply");
             }
+            System.out.println("HERE 2");
             double[] result = new double[numOfCols]; // 1 x m
             // forced to create columns manually :)
             for (int i = 0; i < numOfCols; i++) {
