@@ -115,8 +115,6 @@ public class LinearAlgebraEngine {
 
     public List<Runnable> createTransposeTasks() {
         // TODO: return tasks that transpose rows
-        //System.out.println("CALLLED FOR TRANSPOSE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        //System.out.println(leftMatrix.toString());
         List<Runnable> tasks = new ArrayList<Runnable>();
         for (int i = 0; i < leftMatrix.length(); i++) {
             final int index = i; // i cant be used directly because it's not final (dumb)
