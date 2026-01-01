@@ -10,23 +10,23 @@ public class threadingTests {
     }
 
     public void testNewTaskExecution() throws InterruptedException {
-    TiredThread thread = new TiredThread(1, 1.0);
-    thread.start();
-    
-    // Use an AtomicBoolean to track if the task actually ran
-    java.util.concurrent.atomic.AtomicBoolean taskRan = new java.util.concurrent.atomic.AtomicBoolean(false);
-    
-    thread.newTask(() -> {
-        taskRan.set(true);
-    });
+        TiredThread thread = new TiredThread(1, 1.0);
+        thread.start();
+        
+        // Use an AtomicBoolean to track if the task actually ran
+        java.util.concurrent.atomic.AtomicBoolean taskRan = new java.util.concurrent.atomic.AtomicBoolean(false);
+        
+        thread.newTask(() -> {
+            taskRan.set(true);
+        });
 
-    // Wait for the thread to process the task
-    Thread.sleep(100); 
+        // Wait for the thread to process the task
+        Thread.sleep(100); 
 
-    assertTrue(taskRan.get(), "The task submitted via newTask should have executed.");
-    
-    thread.shutdown();
-    thread.join();
+        assertTrue(taskRan.get(), "The task submitted via newTask should have executed.");
+        
+        thread.shutdown();
+        thread.join();
     }
 
     public void testCompareTo() throws InterruptedException {
