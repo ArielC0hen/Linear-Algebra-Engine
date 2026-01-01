@@ -19,7 +19,7 @@ public class threadingTests {
         thread.newTask(() -> {
             taskRan.set(true);
         });
-        Thread.join(100); 
+        Thread.sleep(100); 
         if (taskRan.get()) {
             System.out.println("Success!");
         } else {
