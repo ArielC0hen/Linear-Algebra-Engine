@@ -14,6 +14,8 @@ public class testMatrixAddition {
         dotTester();
         vecMultTester();
         //////////////////
+        getOrientationTester();
+        getTester();
         readRowMajorTester();
         loadRowMajorTester();
         loadColumnMajorTester();
