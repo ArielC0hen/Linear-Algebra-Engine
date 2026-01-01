@@ -17,12 +17,12 @@ public class threadingTests {
         thread2.start();
         thread1.newTask(() -> {
             try { 
-                Thread.sleep(50); 
+                Thread.sleep(30); 
             } catch (InterruptedException e) {}
         });
         thread2.newTask(() -> {
             try { 
-                Thread.sleep(100); 
+                Thread.sleep(150); 
             } catch (InterruptedException e) {}
         });
         while(thread1.isBusy() || thread2.isBusy()) { 
