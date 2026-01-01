@@ -46,6 +46,28 @@ public class testMatrixAddition {
         }
     }
 
+    public static void getTester() {
+        System.out.println("Checking the get function in SharedMatrix");
+
+        System.out.println("---Check 1 (standard)---");
+        double[][] c1m = {{1.0, 2.0}, {3.0, 4.0}};
+        SharedMatrix c1sm = new SharedMatrix(c1m);
+        SharedVector c1sv = c1sm.get(1); // should be [3.0, 4.0]
+        if (c1sv.get(0) == 3.0 && c1sv.get(1) == 4.0) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 2 (out of bounds, exception expected)---");
+        try {
+            c1sm.get(5);
+            System.out.println("Fail... (didn't throw an exception)");
+        } catch (Exception e) {
+            System.out.println("Success! (threw an exception)");
+        }
+    }
+
     public static void getOrientationTester() {
         System.out.println("Checking the getOrientation function in SharedMatrix");
 
