@@ -51,7 +51,7 @@ public class TiredExecutor {
         }
         while (inFlight.get() > 0) {  // haven't finished executing all yet 
             try {
-                Thread.sleep(5); // we know busy wait isnt ideal but synchoronize was causing problems
+                Thread.sleep(5); // we know busy wait isnt ideal
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break;
