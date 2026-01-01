@@ -5,7 +5,7 @@ import scheduling.TiredExecutor;
 import scheduling.TiredThread;
 
 
-public void testSimpleAddition() {
+public class testSimpleAddition() {
     LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
 
     // Create Matrix A: [[1, 2], [3, 4]]
