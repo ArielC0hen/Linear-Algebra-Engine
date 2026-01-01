@@ -39,7 +39,7 @@ public class SharedMatrix {
             }
             this.vectors = newVectors;
         } else {
-            
+            SharedVector[] newVectors = new SharedVector[matrix[0].length];
         }
     }
 
