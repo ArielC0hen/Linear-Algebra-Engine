@@ -12,7 +12,7 @@ public class threadingTests {
 
     public void testCompareTo() throws InterruptedException {
         TiredThread thread1 = new TiredThread(1, 1.0);
-        TiredThread thread2 = new TiredThread(1, 1.0);
+        TiredThread thread2 = new TiredThread(2, 1.0);
         thread1.start(); 
         thread2.start();
         thread1.newTask(() -> {
