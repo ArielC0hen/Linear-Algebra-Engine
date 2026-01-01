@@ -11,8 +11,6 @@ public class threadingTests {
 
 
     public void testFatigueCalculation() throws InterruptedException {
-        // Fatigue factor is random 0.5-1.5 in specification, 
-        // but current implementation constructor uses provided factor [cite: 325, 382]
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start();
 
