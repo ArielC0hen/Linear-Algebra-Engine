@@ -25,6 +25,9 @@ public class threadingTests {
                 Thread.sleep(100); 
             } catch (InterruptedException e) {}
         });
+        while(thread1.isBusy() || thread2.isBusy()) { 
+            Thread.sleep(3); 
+        }
         thread.shutdown();
         thread.join(1000);
         if (!thread.isAlive()) {
