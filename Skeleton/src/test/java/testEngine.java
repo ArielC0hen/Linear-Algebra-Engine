@@ -31,7 +31,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 2: Multiply by zero matrix ---
         System.out.println("multiply by zero matrix");
         double[][] c2m1 = {{1, 2}, {3, 4}};
         double[][] c2m2 = {{0, 0}, {0, 0}};
@@ -47,8 +46,7 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 3: Non-square matrices 2x3 * 3x2 ---
-        System.out.println("non-square multiplication");
+        System.out.println("non square multiplication");
         double[][] c3m1 = {{1, 2, 3}, {4, 5, 6}};
         double[][] c3m2 = {{7, 8}, {9, 10}, {11, 12}};
         ComputationNode c3cn1 = new ComputationNode(c3m1);
