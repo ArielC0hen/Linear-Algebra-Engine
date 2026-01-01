@@ -13,19 +13,17 @@ public class threadingTests {
     public void testFatigueCalculation() throws InterruptedException {
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start();
-
-        double initialFatigue = thread.getFatigue();
-        
+        double initialFatigue = thread.getFatigue();        
         thread.newTask(() -> {
             try { 
                 Thread.sleep(50); 
             } catch (InterruptedException e) {}
-        });
-
-        
+        });        
         while(thread.isBusy()) { 
             Thread.sleep(3); 
         }
+
+        if ()
 
         assertTrue(thread.getFatigue() > initialFatigue, "Fatigue should increase after work");
         thread.shutdown();
