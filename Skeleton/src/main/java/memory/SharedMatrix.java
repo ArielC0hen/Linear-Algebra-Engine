@@ -38,6 +38,8 @@ public class SharedMatrix {
                 newVectors[i] = new SharedVector (col,VectorOrientation.COLUMN_MAJOR);
             }
             this.vectors = newVectors;
+        } else {
+            
         }
     }
 
