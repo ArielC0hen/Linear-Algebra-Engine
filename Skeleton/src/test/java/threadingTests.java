@@ -11,7 +11,7 @@ public class threadingTests {
         thread.start();
         
         // Use an AtomicBoolean to track if the task actually ran
-        AtomicBoolean taskRan = AtomicBoolean(false);
+        AtomicBoolean taskRan = new AtomicBoolean(false);
         
         thread.newTask(() -> {
             taskRan.set(true);
