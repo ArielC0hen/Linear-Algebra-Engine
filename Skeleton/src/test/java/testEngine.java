@@ -23,32 +23,32 @@ public class testEngine {
     }
 
     public void testMatrixAddition() {
-    LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
+        LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
 
-    // 1. Create Data
-    double[][] dataA = {{1, 2}, {3, 4}};
-    double[][] dataB = {{5, 6}, {7, 8}};
-    SharedMatrix matrixA = new SharedMatrix(dataA);
-    SharedMatrix matrixB = new SharedMatrix(dataB);
+        // 1. Create Data
+        double[][] dataA = {{1, 2}, {3, 4}};
+        double[][] dataB = {{5, 6}, {7, 8}};
+        SharedMatrix matrixA = new SharedMatrix(dataA);
+        SharedMatrix matrixB = new SharedMatrix(dataB);
 
-    // 2. Build Leaf Nodes
-    ComputationNode leafA = new ComputationNode("MATRIX", new ArrayList<>());
-    leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
-    
-    ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
-    leafB.setMatrix(matrixB);
+        // 2. Build Leaf Nodes
+        ComputationNode leafA = new ComputationNode("MATRIX", new ArrayList<>());
+        leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
+        
+        ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
+        leafB.setMatrix(matrixB);
 
-    // 3. Build Root Node (ADD)
-    List<ComputationNode> children = Arrays.asList(leafA, leafB);
-    ComputationNode root = new ComputationNode("ADD", children);
+        // 3. Build Root Node (ADD)
+        List<ComputationNode> children = Arrays.asList(leafA, leafB);
+        ComputationNode root = new ComputationNode("ADD", children);
 
-    // 4. Run and Verify
-    ComputationResult result = engine.loadAndCompute(root);
-    SharedMatrix resMat = result.getMatrix();
+        // 4. Run and Verify
+        ComputationResult result = engine.loadAndCompute(root);
+        SharedMatrix resMat = result.getMatrix();
 
-    // Expected: [[6, 8], [10, 12]]
-    assertEquals(6.0, resMat.get(0).get(0), 0.001);
-    assertEquals(12.0, resMat.get(1).get(1), 0.001);
+        // Expected: [[6, 8], [10, 12]]
+        assertEquals(6.0, resMat.get(0).get(0), 0.001);
+        assertEquals(12.0, resMat.get(1).get(1), 0.001);
     }
 
 }
