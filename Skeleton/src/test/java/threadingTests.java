@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -24,6 +25,10 @@ public class threadingTests {
         TiredExecutor executor = new TiredExecutor(2);
         long startTime = System.currentTimeMillis();
 
+        List<Runnable> tasks = new ArrayList<Runnable>();
+        for (int i = 0; i < 3; i++) {
+            Runnable
+        }
         List<Runnable> tasks = Arrays.asList(
             () -> { try { Thread.sleep(100); } catch (InterruptedException e) {} },
             () -> { try { Thread.sleep(100); } catch (InterruptedException e) {} }
