@@ -41,11 +41,11 @@ public class testMatrixAddition {
         for (int i = 0; i < c2sm.length(); i++) {
             c2sm.get(i).transpose();
         }
-        c1sv1.vecMatMul(c1sm);
+        c2sv1.vecMatMul(c2sm);
         double[] c1a = {21.0, 54.0, 76.0};
         SharedVector c1sva = new SharedVector(c1a, VectorOrientation.ROW_MAJOR);
-        String c1s1 = c1sva.toString();
-        String c1sa = c1sva.toString();
+        String c2s1 = c2sva.toString();
+        String c2sa = c2sva.toString();
         if (c1s1.equals(c1sa)) {
             System.out.println("Success!");
         } else {
