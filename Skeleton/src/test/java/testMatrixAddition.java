@@ -24,7 +24,7 @@ public class testMatrixAddition {
 
     }
 
-public static void loadColumnMajorTester() {
+    public static void loadColumnMajorTester() {
         System.out.println("Checking the loadColumnMajor Function in SharedMatrix");
 
         System.out.println("---Check 1 (standard)---");
