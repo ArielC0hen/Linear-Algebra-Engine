@@ -18,7 +18,6 @@ public class testEngine {
         System.out.println("standard");
         double[][] c1m1 = {{1, 2}, {3, 4}};
         double[][] c1m2 = {{5, 6}, {7, 8}};
-
         ComputationNode c1cn1 = new ComputationNode(c1m1);
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
