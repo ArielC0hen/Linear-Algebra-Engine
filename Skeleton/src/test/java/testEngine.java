@@ -26,7 +26,8 @@ public class testEngine {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
 
         System.out.println("---Check 1 (addition)---");
-        // 1. Create Data
+
+        System.out.println("standard");
         double[][] dataA = {{1, 2}, {3, 4}};
         double[][] dataB = {{5, 6}, {7, 8}};
         SharedMatrix matrixA = new SharedMatrix(dataA);
