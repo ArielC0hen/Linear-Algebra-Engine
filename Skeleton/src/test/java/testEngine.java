@@ -31,19 +31,11 @@ public class testEngine {
         double[][] c1m1 = {{1, 2}, {3, 4}};
         double[][] c1m2 = {{5, 6}, {7, 8}};
 
-        // 2. Build Leaf Nodes
         ComputationNode c1cn1 = new ComputationNode(c1m1);
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
         ComputationNode c1r = new ComputationNode("ADD", c1children);
-
-        // 3. Build Root Node (ADD)
-        List<ComputationNode> children = Arrays.asList(c1cn1, c1cn2);
-        ComputationNode root = new ComputationNode("ADD", children);
-
-        // 4. Run and Verify
-        ComputationNode result = engine.run(c1r);
-        SharedMatrix resMat = result.getMatrix();
+        ComputationNode c1res = engine.run(c1r);
 
         // Expected: [[6, 8], [10, 12]]
         assertEquals(6.0, resMat.get(0).get(0), 0.001);
