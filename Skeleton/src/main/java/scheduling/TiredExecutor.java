@@ -46,7 +46,7 @@ public class TiredExecutor {
         }
         while (inFlight.get() > 0) {  // haven't finished executing all yet 
             try {
-                Thread.sleep(5); // we know busy wait isnt ideal
+                Thread.sleep(5); // notify was causing problems
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break;
