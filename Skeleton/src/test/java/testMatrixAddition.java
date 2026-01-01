@@ -26,7 +26,9 @@ public class testMatrixAddition {
         SharedMatrix c1sm = new SharedMatrix(c1m);
         double[][] c1res = c1sm.readRowMajor();
         if (Arrays.equals(c1m, c1res)) {
-            
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
         }
 
     }
