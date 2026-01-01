@@ -22,7 +22,7 @@ public class threadingTests {
             } catch (InterruptedException e) {}
         });
 
-        // Wait for task to finish [cite: 393, 394]
+        
         while(thread.isBusy()) { Thread.onSpinWait(); }
 
         assertTrue(thread.getFatigue() > initialFatigue, "Fatigue should increase after work");
