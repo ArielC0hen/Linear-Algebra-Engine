@@ -18,6 +18,69 @@ public class testMatrixAddition {
 
     }
 
+public static void loadColumnMajorTester() {
+        System.out.println("Checking the loadColumnMajor Function in SharedMatrix");
+
+        System.out.println("---Check 1 (standard)---");
+        double[][] c1m1 = {{1.0, 1.0}, {1.0, 1.0}};
+        SharedMatrix c1sm = new SharedMatrix(c1m1);
+        double[][] c1m2 = {{9.0, 8.0}, {7.0, 6.0}};
+        c1sm.loadColumnMajor(c1m2);
+        double[][] c1res = c1sm.readRowMajor();
+        if (Arrays.deepEquals(c1m2, c1res)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 2 (resizing matrix)---");
+        double[][] c2m1 = {{1.0, 2.0}, {3.0, 4.0}};
+        SharedMatrix c2sm = new SharedMatrix(c2m1);
+        // Load a matrix with different dimensions (1x3 instead of 2x2)
+        double[][] c2m2 = {{10.0, 20.0, 30.0}};
+        c2sm.loadColumnMajor(c2m2);
+        double[][] c2res = c2sm.readRowMajor();
+        if (Arrays.deepEquals(c2m2, c2res)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 3 (loading empty matrix)---");
+        double[][] c3m1 = {{5.0, 5.0}};
+        SharedMatrix c3sm = new SharedMatrix(c3m1);
+        double[][] c3m2 = {}; 
+        c3sm.loadColumnMajor(c3m2);
+        double[][] c3res = c3sm.readRowMajor();
+        // Since loadColumnMajor skips if empty, check if it kept old data or is empty
+        if (c3res.length == 0 || Arrays.deepEquals(c3res, c3m1)) { 
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 4 (verify orientation)---");
+        double[][] c4m = {{1.1, 2.2}, {3.3, 4.4}};
+        SharedMatrix c4sm = new SharedMatrix();
+        c4sm.loadColumnMajor(c4m);
+        if (c4sm.getOrientation() == VectorOrientation.COLUMN_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 5 (same matrix)---");
+        double[][] c5m = {{1.0, 0.0}, {0.0, 1.0}};
+        SharedMatrix c5sm = new SharedMatrix(c5m);
+        c5sm.loadColumnMajor(c5m);
+        double[][] c5res = c5sm.readRowMajor();
+        if (Arrays.deepEquals(c5m, c5res)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+    }    
+
     public static void loadRowMajorTester() {
         System.out.println("Checking the loadRowMajor Function in SharedMatrix");
 
