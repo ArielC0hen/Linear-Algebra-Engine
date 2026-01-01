@@ -26,7 +26,7 @@ public class threadingTests {
         if (thread.getFatigue() > initFatigue) {
             System.out.println("Success! (fatigue increased)");
         } else {
-            System.out.println("Fail... (fatigue increased)");
+            System.out.println("Fail... (fatigue stayed the same after use)");
         }
 
         assertTrue(thread.getFatigue() > initialFatigue, "Fatigue should increase after work");
