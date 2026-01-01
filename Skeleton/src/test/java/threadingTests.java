@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import scheduling.TiredThread;
 
 public class threadingTests {
