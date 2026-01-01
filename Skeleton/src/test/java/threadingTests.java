@@ -10,6 +10,17 @@ public class threadingTests {
     }
 
 
+    public void testCompareTo() {
+        TiredThread thread = new TiredThread(1, 1.0);
+        thread.start(); 
+        thread.shutdown();
+        thread.join(1000);
+        if (!thread.isAlive()) {
+            System.out.println("Success! (thread terminated)");
+        } else {
+          System.out.println("Fail... (thread is still running)");  
+        }
+    }
 
     public void testFatigueCalculation() throws InterruptedException {
         TiredThread thread = new TiredThread(1, 1.0);
