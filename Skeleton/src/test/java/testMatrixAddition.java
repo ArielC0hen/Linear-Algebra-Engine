@@ -221,4 +221,26 @@ public class testMatrixAddition {
             System.out.println("Fail...");
         }
     }
+
+    public static void tranposeTester() {
+        System.out.println("---Check 1 (row -> column)---");
+        double[] c1v1 = {1.0,2.0,3.0};
+        SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
+        c1sv1.transpose();
+        if (c1sv1.getOrientation() == VectorOrientation.COLUMN_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 2 (column -> row)---");
+        double[] c2v1 = {1.0,2.0,3.0};
+        SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.COLUMN_MAJOR);
+        c2sv1.transpose();
+        if (c2sv1.getOrientation() == VectorOrientation.ROW_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+    }
 }
