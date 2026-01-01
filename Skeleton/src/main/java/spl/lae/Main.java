@@ -24,6 +24,7 @@ public class Main {
         ComputationNode root = parser.parse(inputPath);
         ComputationNode resultNode = engine.run(root);
         double[][] result = resultNode.getMatrix();
+        System.out.println(engine.e);
         OutputWriter.write(result, outputPath);
       } catch (Exception e) {
         OutputWriter.write(e.getMessage(), outputPath);
