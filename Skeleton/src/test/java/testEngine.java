@@ -57,7 +57,7 @@ public class testEngine {
 
         try {
             double[][] c3res = engine.run(c3r).getMatrix();
-            System.out.println("Fail... no exception thrown");
+            System.out.println("Fail... (no exception thrown)");
         } catch (IllegalArgumentException e) {
             System.out.println("Success! Exception correctly thrown: " + e.getMessage());
         } catch (Exception e) {
