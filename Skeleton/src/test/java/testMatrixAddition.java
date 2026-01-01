@@ -51,7 +51,7 @@ public class testMatrixAddition {
         double[][] c3m2 = {}; 
         c3sm.loadRowMajor(c3m2);
         double[][] c3res = c3sm.readRowMajor();
-        if (c3res.length == 0) {
+        if (c3res.length == 0) { // check if empty
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
