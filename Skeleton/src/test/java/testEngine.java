@@ -13,10 +13,10 @@ public class testEngine {
         testMatrixMultiplication();
     }
 
-    public static void testComplexCombinations() {
+    public static void nestingTester() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 1 (complex combinations)---");
+        System.out.println("---Check 5 (complex combinations)---");
 
         // --- Step 1: Define basic matrices ---
         double[][] c1m1 = {{1, 2}, {3, 4}};
