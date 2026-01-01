@@ -8,6 +8,7 @@ public class testMatrixAddition {
         System.out.println("Checking Vector and Matrix functions!!!!!");
         addTester();
         dotTester();
+        vecMultTester();
 
     }
 
