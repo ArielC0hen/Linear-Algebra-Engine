@@ -60,8 +60,7 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 4: Dimension mismatch (should fail in worker thread) ---
-        System.out.println("dimension mismatch (exception expected)");
+        System.out.println("different dimensions (exception expected)");
         double[][] m7 = {{1, 2}, {3, 4}};
         double[][] m8 = {{5, 6, 7}, {8, 9, 10}};
         ComputationNode cn7 = new ComputationNode(m7);
