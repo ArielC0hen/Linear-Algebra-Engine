@@ -34,8 +34,7 @@ public class threadingTests {
             };
             tasks.add(task);
         }
-
-        executor.submitAll(tasks); // Should block until both finish [cite: 440]
+        executor.submitAll(tasks);
         long duration = System.currentTimeMillis() - startTime;
 
         assertTrue(duration >= 100, "submitAll should block for the duration of tasks");
