@@ -44,7 +44,7 @@ public class testEngine {
             }
             System.out.println(); // Move to next row
         }
-        double[][] c2a = {{}};
+        double[][] c2a = new double[0][0];
         if (Arrays.equals(c2res, c2a)) {
             System.out.println("Success!");
         } else {
