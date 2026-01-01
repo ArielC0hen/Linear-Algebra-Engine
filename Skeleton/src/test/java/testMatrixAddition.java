@@ -44,7 +44,27 @@ public class testMatrixAddition {
         } else {
             System.out.println("Fail...");
         }
+    }
 
+    public static void lengthTester() {
+        System.out.println("Checking the length function in SharedMatrix");
+
+        System.out.println("---Check 1 (standard)---");
+        double[][] c1m = {{1.0}, {2.0}, {3.0}};
+        SharedMatrix c1sm = new SharedMatrix(c1m);
+        if (c1sm.length() == 3) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 2 (empty)---");
+        SharedMatrix c2sm = new SharedMatrix();
+        if (c2sm.length() == 0) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }
 
     public static void vecMultTester() {
