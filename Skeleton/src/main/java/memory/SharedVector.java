@@ -202,7 +202,7 @@ public class SharedVector {
             }  
         } else { // row major 
             int numOfCols = matrix.get(0).length();
-            if (matrix.length() > 0 && matrix.length() != length()) {
+            if (matrix.length() > 0 && numOfCols != length()) {
                 throw new IllegalArgumentException("Can't multiply");
             }
             System.out.println("HERE 2");
