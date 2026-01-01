@@ -226,6 +226,8 @@ public class testMatrixAddition {
     }
 
     public static void negateTester() {
+        System.out.println("Checking the negate function in SharedVector");
+
         System.out.println("---Check 1 (standard)---");
         double[] c1v1 = {1.0,-2.0,3.0};
         SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
