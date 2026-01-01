@@ -26,12 +26,7 @@ public class threadingTests {
             } catch (InterruptedException e) {}
         });
         while(thread1.isBusy() || thread2.isBusy()) { 
-            try {
-                Thread.sleep(3);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } 
+            Thread.sleep(3); 
         }
         if (thread1.getFatigue() < thread2.getFatigue()) {
             System.out.println("Success!");
