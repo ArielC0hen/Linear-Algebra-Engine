@@ -46,6 +46,28 @@ public class testMatrixAddition {
         }
     }
 
+public static void getOrientationTester() {
+        System.out.println("Checking the getOrientation function in SharedMatrix");
+
+        System.out.println("---Check 1 (Row Major)---");
+        double[][] c1m = {{1.0, 2.0}};
+        SharedMatrix c1sm = new SharedMatrix(c1m);
+        if (c1sm.getOrientation() == VectorOrientation.ROW_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        System.out.println("---Check 2 (empty matrix, exception expected)---");
+        SharedMatrix c2sm = new SharedMatrix();
+        try {
+            c2sm.getOrientation();
+            System.out.println("Fail... (didn't throw an exception)");
+        } catch (Exception e) {
+            System.out.println("Success! (threw an exception)");
+        }
+    }
+
     public static void lengthTester() {
         System.out.println("Checking the length function in SharedMatrix");
 
