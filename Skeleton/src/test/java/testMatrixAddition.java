@@ -18,6 +18,8 @@ public class testMatrixAddition {
 
     public static void readRowMajorTester () {
         System.out.println("Checking the readRowMajor Function in SharedMatrix");
+
+        System.out.println();
     }
 
     public static void vecMultTester() {
