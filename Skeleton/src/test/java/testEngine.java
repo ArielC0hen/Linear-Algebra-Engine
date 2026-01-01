@@ -37,7 +37,7 @@ public class testEngine {
         ComputationNode c1r = new ComputationNode("ADD", c1children);
         double[][] c1res = engine.run(c1r).getMatrix();
         double[][] c1a = {{6, 8}, {10, 12}};
-        if (Arrays.deepEquals(c1m2, c1res)) {
+        if (Arrays.deepEquals(c1res, c1a)) {
             
         }
     }
