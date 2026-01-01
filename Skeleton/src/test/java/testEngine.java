@@ -14,7 +14,7 @@ public class testEngine {
     public static void testMatrixNegate() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 3 (negate)---");
+        System.out.println("---Check 1 (negate)---");
 
         // --- Check 1: Standard 2x2 negation ---
         System.out.println("standard");
