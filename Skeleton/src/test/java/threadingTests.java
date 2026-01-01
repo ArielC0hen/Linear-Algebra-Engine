@@ -1,3 +1,4 @@
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -20,6 +21,25 @@ public class threadingTests {
         /////////////  
         submitAllTester();
     }
+
+    public void testShutdownInterruption() throws InterruptedException {
+    TiredExecutor executor = new TiredExecutor(2);
+    
+    Thread shutdownThread = new Thread(() -> {
+        try {
+            executor.shutdown();
+        } catch (InterruptedException e) {
+            // Expected if the thread is interrupted while joining 
+            System.out.println("Shutdown interrupted successfully");
+        }
+    });
+
+    shutdownThread.start();
+    shutdownThread.interrupt(); // Interrupt the thread performing the shutdown
+    shutdownThread.join(1000);
+    
+    assertFalse(shutdownThread.isAlive(), "Shutdown thread should finish even if interrupted");
+}
 
     public static void submitAllTester() throws InterruptedException {
         System.out.println("Testing submitAll in TiredExecutor");
