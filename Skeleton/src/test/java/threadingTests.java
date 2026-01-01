@@ -6,7 +6,9 @@ public class threadingTests {
     
     public static void main(String[] args) throws InterruptedException {
         shutdownTester();
-        
+        newTaskTester();
+        fatigueCalculationTester();
+        compareToTester();    
     }
 
     public static void newTaskTester() throws InterruptedException {
