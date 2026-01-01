@@ -119,10 +119,10 @@ public class testEngine {
 
         System.out.println("1 argument (exception expected)");
         double[][] c4m1 = {{1, 2}, {3, 4}};
-        ComputationNode c4cn1 = new ComputationNode(c3m1);
+        ComputationNode c4cn1 = new ComputationNode(c4m1);
         List<ComputationNode> c4children = Arrays.asList(c4cn1);
         ComputationNode c4r = new ComputationNode(ComputationNodeType.ADD, c4children);
-        double[][] c4res = engine.run(c3r).getMatrix();
+        double[][] c4res = engine.run(c4r).getMatrix();
         System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");   
     }
 }
