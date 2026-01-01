@@ -13,6 +13,8 @@ public class testEngine {
         testMatrixMultiplication();
     }
 
+    
+
     public static void testMatrixTranspose() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
