@@ -60,6 +60,7 @@ public class threadingTests {
     }
 
     public void testFatigueCalculation() throws InterruptedException {
+        System.out.println("Testing fatigue calculation in TiredThread");
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start();
         double initFatigue = thread.getFatigue();        
@@ -81,6 +82,7 @@ public class threadingTests {
     }
 
     public void testShutdown() throws InterruptedException {
+        System.out.println("Testing shutdown in TiredThread");
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start(); 
         thread.shutdown();
