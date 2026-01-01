@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 import memory.SharedMatrix;
 import memory.SharedVector;
 import memory.VectorOrientation;
