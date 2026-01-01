@@ -226,7 +226,7 @@ public class testMatrixAddition {
         System.out.println("---Check 1 (standard)---");
         double[] c1v1 = {1.0,2.0,3.0};
         SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
-        c1sv1.transpose();
+        c1sv1.negate();
         if (c1sv1.getOrientation() == VectorOrientation.COLUMN_MAJOR) {
             System.out.println("Success!");
         } else {
