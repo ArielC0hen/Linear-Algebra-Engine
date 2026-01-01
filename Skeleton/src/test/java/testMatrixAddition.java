@@ -34,7 +34,11 @@ public class testMatrixAddition {
         System.out.println("---Check 1 (Column Matrix)---");
         double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c2sm = new SharedMatrix(c2m);
-        double[][] c1res = c1sm.readRowMajor();
+        for (int i = 0; i < c1sm.length(); i++) {
+            c1sm.get(i).transpose();
+        }
+        double[][] c2res = c1sm.readRowMajor();
+        double[][] c2a = 
         if (Arrays.equals(c1m, c1res)) {
             System.out.println("Success!");
         } else {
