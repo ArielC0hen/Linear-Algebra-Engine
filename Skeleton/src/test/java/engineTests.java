@@ -1,6 +1,6 @@
 import memory.SharedMatrix;
 import memory.SharedVector;
-import scheduling.TiredExecutor;;
+import scheduling.TiredExecutor;
 
 
 public void testSimpleAddition() {
