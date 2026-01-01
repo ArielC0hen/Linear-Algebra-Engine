@@ -21,7 +21,7 @@ public class threadingTests {
     }
 
     @Test
-    public void testSubmitAllBlocksUntilDone() throws InterruptedException {
+    public void submitAllTester() throws InterruptedException {
         TiredExecutor executor = new TiredExecutor(3);
         long startTime = System.currentTimeMillis();
         List<Runnable> tasks = new ArrayList<Runnable>();
