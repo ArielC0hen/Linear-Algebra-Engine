@@ -32,7 +32,7 @@ public class testMatrixAddition {
         System.out.println("wanted: "+ c1sa);
         System.out.println("got: " + c1s1);
 
-        System.out.println("---Check 1 (Row x Row Matrix)---");
+        System.out.println("---Check 2 (Row x Row Matrix)---");
         double[] c2v1 = {3.0, 6.0, 2.0};
         SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.ROW_MAJOR); 
         double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
