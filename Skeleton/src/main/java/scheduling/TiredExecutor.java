@@ -31,6 +31,7 @@ public class TiredExecutor {
                 } finally {
                     inFlight.decrementAndGet();
                     idleMinHeap.add(first);
+                    inFlight.notifyAll();
                 }
             };
             first.newTask(wrappedTask);
