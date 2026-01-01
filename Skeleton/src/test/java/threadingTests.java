@@ -11,10 +11,7 @@ public class threadingTests {
     public void testNewTaskExecution() throws InterruptedException {
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start();
-        
-        // Use an AtomicBoolean to track if the task actually ran
         AtomicBoolean taskRan = new AtomicBoolean(false);
-        
         thread.newTask(() -> {
             taskRan.set(true);
         });
