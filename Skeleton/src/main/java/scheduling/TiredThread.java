@@ -61,7 +61,6 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
      */
     public void newTask(Runnable task) {
         // TODO
-        // after very thorough research, add throws IllegalStateException if it fails (the queue is full)
         try {
             handoff.put(task); // blocks until there’s space
         } catch (InterruptedException e) {
