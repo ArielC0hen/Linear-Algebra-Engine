@@ -182,14 +182,11 @@ public class SharedVector {
 
     public void vecMatMul(SharedMatrix matrix) {
         // TODO: compute row-vector × matrix
-        /// boring checks
         if (orientation != VectorOrientation.ROW_MAJOR) {
             throw new IllegalArgumentException("Vector must be row major");
         }
         if (matrix.getOrientation() == VectorOrientation.COLUMN_MAJOR) {
             if (matrix.length() > 0 && matrix.get(0).length() != length()) {
-                //System.out.println(toString());
-                //System.out.println(matrix.toString());
                 throw new IllegalArgumentException("Can't multiply");
             }
             double[] result = new double[matrix.length()]; // 1 x m
