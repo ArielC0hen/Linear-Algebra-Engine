@@ -10,7 +10,7 @@ public class threadingTests {
     }
 
     public static void newTaskTester() throws InterruptedException {
-        
+        System.out.println("Testing newTask in TiredThread");
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start();
         AtomicBoolean taskRan = new AtomicBoolean(false);
