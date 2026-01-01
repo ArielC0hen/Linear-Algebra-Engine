@@ -121,25 +121,4 @@ public class SharedMatrix {
             vecs[i].writeUnlock();
         }
     }
-
-    ///// DELETE LATER
-    public String toString() {
-        String result;
-        double [][] matrix = readRowMajor();
-        String s = "";
-        for (int i = 0; i < matrix.length; i++) {
-            s +="[";
-            for (int j = 0; j < matrix[0].length; j++) {
-                s+= matrix[i][j];
-                if (j < matrix[0].length - 1) {
-                    s += ", ";
-                }
-            }
-            sb.append("]");
-            if (i < matrix.length - 1) {
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
-    }
 }
