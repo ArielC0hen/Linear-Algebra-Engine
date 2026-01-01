@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import scheduling.TiredExecutor;
 import scheduling.TiredThread;
 
-public class threadingTests {
+public class testEngine {
     
     public static void main(String[] args) throws InterruptedException {
         shutdownTester();
