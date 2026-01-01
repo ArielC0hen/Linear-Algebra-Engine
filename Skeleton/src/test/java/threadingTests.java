@@ -30,10 +30,6 @@ public class threadingTests {
             Runnable task = () -> {Thread.sleep(100);};
             tasks.add(task);
         }
-        List<Runnable> tasks = Arrays.asList(
-            () -> { try { Thread.sleep(100); } catch (InterruptedException e) {} },
-            () -> { try { Thread.sleep(100); } catch (InterruptedException e) {} }
-        );
 
         executor.submitAll(tasks); // Should block until both finish [cite: 440]
         long duration = System.currentTimeMillis() - startTime;
