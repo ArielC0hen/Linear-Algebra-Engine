@@ -47,7 +47,7 @@ public class TiredExecutor {
         }
         while (inFlight.get() > 0) {  // haven't finished executing all yet 
             try {
-                Thread.sleep(5);
+                inFlight.wait();;
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break;
