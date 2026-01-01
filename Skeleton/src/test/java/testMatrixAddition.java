@@ -227,9 +227,9 @@ public class testMatrixAddition {
         double[] c1v1 = {1.0,-2.0,3.0};
         SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
         double[] c1a = {-1.0,2.0,-3.0};
-        SharedVector c1a = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
+        SharedVector c1sva = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
         c1sv1.negate();
-        if (c1sv1.toString().equals(c)) {
+        if (c1sv1.toString().equals(c1sva.toString())) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
