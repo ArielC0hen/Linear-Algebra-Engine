@@ -11,7 +11,7 @@ public class testEngine {
     }
 
     public static void testMatrixAddition() {
-        LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
+        LinearAlgebraEngine engine = new LinearAlgebraEngine(5);
 
         System.out.println("---Check 1 (addition)---");
 
