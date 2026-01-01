@@ -70,6 +70,18 @@ public class testEngine {
         ComputationNode c4r = new ComputationNode(ComputationNodeType.MULTIPLY, c4children);
         double[][] c4res = engine.run(c4r).getMatrix();
         System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
+
+        System.out.println("1 argument (exception expected)");
+        double[][] c5m1 = {{1, 2}, {3, 4}};
+        ComputationNode c5cn1 = new ComputationNode(c5m1);
+        List<ComputationNode> c5children = Arrays.asList(c5cn1);
+        ComputationNode c5r = new ComputationNode(ComputationNodeType.MULTIPLY, c5children);
+        try {
+            double[][] c5res = engine.run(c5r).getMatrix();
+            System.out.println("Fail.. (no exception thrown)");
+        } catch (Exception e) {
+            System.out.println("Success! (exception thrown)");
+        } 
     }
 
     public static void testMatrixAddition() {
