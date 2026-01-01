@@ -6,6 +6,7 @@ public class testMatrixAddition {
 
     public static void main(String[] args) {
         System.out.println("Checking Vector and Matrix functions!!!!!");
+        tranposeTest();
         addTester();
         dotTester();
         vecMultTester();
