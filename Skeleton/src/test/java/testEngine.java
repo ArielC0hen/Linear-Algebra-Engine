@@ -30,11 +30,9 @@ public class testEngine {
         System.out.println("standard");
         double[][] c1m1 = {{1, 2}, {3, 4}};
         double[][] c1m2 = {{5, 6}, {7, 8}};
-        SharedMatrix c1sm1 = new SharedMatrix(c1m1);
-        SharedMatrix c1sm2 = new SharedMatrix(c1m2);
 
         // 2. Build Leaf Nodes
-        ComputationNode c1leaf1 = new ComputationNode();
+        ComputationNode c1leaf1 = new ComputationNode(c1m1);
         leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
         
         ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
