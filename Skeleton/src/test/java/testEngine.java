@@ -1,15 +1,7 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import memory.SharedMatrix;
 import parser.ComputationNode;
 import parser.ComputationNodeType;
-import scheduling.TiredExecutor;
-import scheduling.TiredThread;
 import spl.lae.LinearAlgebraEngine;
 
 public class testEngine {
