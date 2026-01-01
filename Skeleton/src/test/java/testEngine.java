@@ -35,11 +35,9 @@ public class testEngine {
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
         ComputationNode c1r = new ComputationNode("ADD", c1children);
-        ComputationNode c1res = engine.run(c1r);
-
-        // Expected: [[6, 8], [10, 12]]
-        assertEquals(6.0, resMat.get(0).get(0), 0.001);
-        assertEquals(12.0, resMat.get(1).get(1), 0.001);
+        double[][] c1res = engine.run(c1r).getMatrix();
+        double[][] c1a = {{6, 8}, {10, 12}};
+        if (c1res.equals(c1a))
     }
 
 }
