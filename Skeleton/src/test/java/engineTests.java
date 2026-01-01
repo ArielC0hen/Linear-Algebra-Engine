@@ -1,9 +1,7 @@
-import spl.lae;
-
 import parser.*;
 import memory.*;
 import scheduling.*;
-
+import spl.lae;
 import java.util.ArrayList;
 import java.util.List;
 
