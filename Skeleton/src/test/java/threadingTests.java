@@ -27,7 +27,12 @@ public class threadingTests {
 
         List<Runnable> tasks = new ArrayList<Runnable>();
         for (int i = 0; i < 3; i++) {
-            Runnable task = () -> {Thread.sleep(100);};
+            Runnable task = () -> {try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }};
             tasks.add(task);
         }
 
