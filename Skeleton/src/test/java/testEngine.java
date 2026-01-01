@@ -14,7 +14,7 @@ public class testEngine {
     public static void testMatrixMultiplication() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 1 (multiplication)---");
+        System.out.println("---Check 2 (multiplication)---");
 
         System.out.println("standard 2x2");
         double[][] c1m1 = {{1, 2}, {3, 4}};
