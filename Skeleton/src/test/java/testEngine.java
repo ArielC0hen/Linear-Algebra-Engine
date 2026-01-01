@@ -45,7 +45,7 @@ public class testEngine {
         }
 
         // --- Check 3: Error check (2 children should throw) ---
-        System.out.println("error check (2 children)");
+        System.out.println("2 arguments (e)");
         double[][] c3m1 = {{1, 2}, {3, 4}};
         double[][] c3m2 = {{5, 6}, {7, 8}};
         ComputationNode c3cn1 = new ComputationNode(c3m1);
