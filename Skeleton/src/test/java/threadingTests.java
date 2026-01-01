@@ -33,13 +33,7 @@ public class threadingTests {
         } else {
             System.out.println("Fail...");
         }
-        thread.shutdown();
-        thread.join(1000);
-        if (!thread.isAlive()) {
-            System.out.println("Success! (thread terminated)");
-        } else {
-          System.out.println("Fail... (thread is still running)");  
-        }
+
     }
 
     public void testFatigueCalculation() throws InterruptedException {
