@@ -16,7 +16,9 @@ public class testMatrixAddition {
 
     }
 
-    public static void 
+    public static void readRowMajorTester () {
+        
+    }
 
     public static void vecMultTester() {
         System.out.println("Checking the vecMult function in SharedVector");
