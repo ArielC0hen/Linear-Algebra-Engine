@@ -19,6 +19,10 @@ public class testMatrixAddition {
         SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR); 
         double[][] c1m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m);
+        // manual transpose
+        for (int i = 0; i < c1sm.length(); i++) {
+            c1sm.get(i).transpose();
+        }
         c1sv1.vecMatMul(c1sm);
         double[] c1a = {21.0, 54.0, 76.0};
         SharedVector c1sva = new SharedVector(c1a, VectorOrientation.ROW_MAJOR);
@@ -37,7 +41,6 @@ public class testMatrixAddition {
         SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.ROW_MAJOR); 
         double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c2sm = new SharedMatrix(c2m);
-
         c2sv1.vecMatMul(c2sm);
         double[] c2a = {21.0, 54.0, 76.0};
         SharedVector c2sva = new SharedVector(c2a, VectorOrientation.ROW_MAJOR);
