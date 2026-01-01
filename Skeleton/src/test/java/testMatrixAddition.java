@@ -54,7 +54,7 @@ public class testMatrixAddition {
         System.out.println("wanted: "+ c2sa);
         System.out.println("got: " + c2s1);
 
-        System.out.println("---Check 1 (invalid dimensions, exception expected)---");
+        System.out.println("---Check 3 (invalid dimensions, exception expected)---");
         double[] c3v1 = {3.0, 6.0, 2.0};
         SharedVector c3sv1 = new SharedVector(c3v1, VectorOrientation.ROW_MAJOR); 
         double[][] c3m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}};
