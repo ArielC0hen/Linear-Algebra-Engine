@@ -20,7 +20,7 @@ public class threadingTests {
                 Thread.sleep(50); 
             } catch (InterruptedException e) {}
         });
-        thread1.newTask(() -> {
+        thread2.newTask(() -> {
             try { 
                 Thread.sleep(100); 
             } catch (InterruptedException e) {}
