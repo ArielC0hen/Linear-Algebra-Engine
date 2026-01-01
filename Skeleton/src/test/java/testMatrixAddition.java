@@ -201,5 +201,6 @@ public class testMatrixAddition {
 
     public static void tranposeTest() {
         System.out.println("---Check 1 (row -> column)---");
+        SharedVector c1v1 = new SharedVector(null, )
     }
 }
