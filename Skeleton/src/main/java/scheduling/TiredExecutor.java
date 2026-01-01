@@ -29,12 +29,7 @@ public class TiredExecutor {
                 try {
                     task.run();
                 } finally {
-
-                    synchronized (inFlight) {
-                        inFlight.decrementAndGet();
-                        inFlight.notifyAll(); // wake up anyone waiting in submitAll
-                    }
-                    //inFlight.decrementAndGet();
+                    inFlight.decrementAndGet();
                     idleMinHeap.add(first);
                 }
             };
