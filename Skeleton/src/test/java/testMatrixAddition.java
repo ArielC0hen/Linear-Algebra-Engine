@@ -51,8 +51,8 @@ public class testMatrixAddition {
         } else {
             System.out.println("Fail...");
         }
-        System.out.println("wanted: "+ c1sa);
-        System.out.println("got: " + c1s1);
+        System.out.println("wanted: "+ c2sa);
+        System.out.println("got: " + c2s1);
     }
 
     public static void dotTester() {
