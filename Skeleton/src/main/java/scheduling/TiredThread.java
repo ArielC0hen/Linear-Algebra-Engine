@@ -38,10 +38,6 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
         return fatigueFactor * timeUsed.get();
     }
 
-    public double fatigueFactor() { //DELETE LATER
-        return fatigueFactor;
-    }
-
     public boolean isBusy() {
         return busy.get();
     }
