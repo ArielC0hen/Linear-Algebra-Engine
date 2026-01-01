@@ -1,5 +1,12 @@
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.junit.jupiter.api.Test;
+
+import scheduling.TiredExecutor;
 import scheduling.TiredThread;
 
 public class threadingTests {
@@ -11,7 +18,23 @@ public class threadingTests {
         compareToTester();  
         /////////////  
     }
-    
+
+    @Test
+    public void testSubmitAllBlocksUntilDone() throws InterruptedException {
+        TiredExecutor executor = new TiredExecutor(2);
+        long startTime = System.currentTimeMillis();
+
+        List<Runnable> tasks = Arrays.asList(
+            () -> { try { Thread.sleep(100); } catch (InterruptedException e) {} },
+            () -> { try { Thread.sleep(100); } catch (InterruptedException e) {} }
+        );
+
+        executor.submitAll(tasks); // Should block until both finish [cite: 440]
+        long duration = System.currentTimeMillis() - startTime;
+
+        assertTrue(duration >= 100, "submitAll should block for the duration of tasks");
+        executor.shutdown();
+    }
 
 
     public static void newTaskTester() throws InterruptedException {
