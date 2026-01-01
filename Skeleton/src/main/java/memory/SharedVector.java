@@ -189,6 +189,7 @@ public class SharedVector {
             if (matrix.length() > 0 && matrix.get(0).length() != length()) {
                 throw new IllegalArgumentException("Can't multiply");
             }
+            System.out.println("HERE 1");
             double[] result = new double[matrix.length()]; // 1 x m
             for (int i = 0; i < matrix.length(); i++) {
                 result[i] = dot(matrix.get(i));
