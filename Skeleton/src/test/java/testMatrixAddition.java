@@ -17,6 +17,7 @@ public class testMatrixAddition {
         double[] c1v1 = {3.0, 6.0, 2.0};
         SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR); 
         double[] c1col1 = {1.0, 2.0, 3.0};
+        
     }
 
     public static void dotTester() {
