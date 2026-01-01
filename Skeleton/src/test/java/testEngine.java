@@ -8,9 +8,9 @@ public class testEngine {
     
     public static void main(String[] args) throws InterruptedException {
         testMatrixNegate();
+        testMatrixTranspose();
         testMatrixAddition();
         testMatrixMultiplication();
-        testMatrixTranspose();
     }
 
     public static void testMatrixTranspose() {
