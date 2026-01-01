@@ -26,22 +26,18 @@ public class testEngine {
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         ComputationNode c1cn3 = new ComputationNode(c1m3);
 
-        // --- Step 2: Add first two matrices ---
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
         ComputationNode c1r = new ComputationNode(ComputationNodeType.ADD, c1children);
         ComputationNode c1resNode = engine.run(c1r);
 
-        // --- Step 3: Multiply result by third matrix ---
         List<ComputationNode> c2children = Arrays.asList(c1resNode, c1cn3);
         ComputationNode c2r = new ComputationNode(ComputationNodeType.MULTIPLY, c2children);
         ComputationNode c2resNode = engine.run(c2r);
 
-        // --- Step 4: Negate the multiplication result ---
         List<ComputationNode> c3children = Arrays.asList(c2resNode);
         ComputationNode c3r = new ComputationNode(ComputationNodeType.NEGATE, c3children);
         ComputationNode c3resNode = engine.run(c3r);
 
-        // --- Step 5: Transpose the negated result ---
         List<ComputationNode> c4children = Arrays.asList(c3resNode);
         ComputationNode c4r = new ComputationNode(ComputationNodeType.TRANSPOSE, c4children);
         double[][] c4res = engine.run(c4r).getMatrix();
