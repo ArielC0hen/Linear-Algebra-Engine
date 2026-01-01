@@ -5,7 +5,7 @@ import scheduling.TiredThread;
 public class threadingTests {
     
     public static void main(String[] args) {
-        
+        shutdownTester();
         
     }
 
