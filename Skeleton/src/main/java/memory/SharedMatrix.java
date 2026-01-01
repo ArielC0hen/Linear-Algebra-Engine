@@ -86,7 +86,7 @@ public class SharedMatrix {
     public VectorOrientation getOrientation() {
         // TODO: return orientation
         if (vectors.length == 0) { // empty matrix
-            throw new IllegalArgumentException("index is out of bound");
+            throw new IllegalArgumentException("");
         }
         return vectors[0].getOrientation();
     }
