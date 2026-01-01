@@ -11,6 +11,7 @@ public class testEngine {
         testMatrixTranspose();
         testMatrixAddition();
         testMatrixMultiplication();
+        nestingTester();
     }
 
     public static void nestingTester() {
