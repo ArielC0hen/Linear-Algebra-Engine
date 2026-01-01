@@ -37,6 +37,7 @@ public class testEngine {
         List<ComputationNode> c2children = Arrays.asList(c2cn1);
         ComputationNode c2r = new ComputationNode(ComputationNodeType.TRANSPOSE, c2children);
         double[][] c2res = engine.run(c2r).getMatrix();
+        System.out.println(c2res.toString());
         double[][] c2a = {{}};
         if (Arrays.deepEquals(c2res, c2a)) {
             System.out.println("Success!");
