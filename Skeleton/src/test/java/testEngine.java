@@ -13,7 +13,7 @@ public class testEngine {
     public static void testMatrixMultiplication() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 1 (multiplication)---");
+        System.out.println("---Check 2 (multiplication)---");
 
         // --- Standard 2x2 multiplication ---
         System.out.println("standard 2x2");
