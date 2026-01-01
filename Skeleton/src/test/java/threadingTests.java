@@ -1,3 +1,4 @@
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import scheduling.TiredThread;
@@ -31,4 +32,15 @@ public class threadingTests {
         thread.shutdown();
         thread.join();
     }
+
+    public void testShutdown() throws InterruptedException {
+        TiredThread thread = new TiredThread(1, 1.0);
+        thread.start();
+        assertTrue(thread.isAlive());
+        
+        thread.shutdown(); // Sends POISON_PILL [cite: 390]
+        thread.join(1000); 
+        assertFalse(thread.isAlive(), "Thread should terminate after shutdown");
+    }
+
 }
