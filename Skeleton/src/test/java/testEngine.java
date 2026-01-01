@@ -1,12 +1,12 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import memory.SharedMatrix;
 import parser.ComputationNode;
-import parser.ComputationNodeType;
 import scheduling.TiredExecutor;
 import scheduling.TiredThread;
 import spl.lae.LinearAlgebraEngine;
@@ -22,32 +22,34 @@ public class testEngine {
         submitAllTester();
     }
 
-    public void testSimpleAddition() {
-        LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
+    public void testMatrixAddition() {
+    LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
 
-        // Create Matrix A: [[1, 2], [3, 4]]
-        double[][] dataA = {{1.0, 2.0}, {3.0, 4.0}};
-        SharedMatrix matrixA = new SharedMatrix(dataA);
+    // 1. Create Data
+    double[][] dataA = {{1, 2}, {3, 4}};
+    double[][] dataB = {{5, 6}, {7, 8}};
+    SharedMatrix matrixA = new SharedMatrix(dataA);
+    SharedMatrix matrixB = new SharedMatrix(dataB);
 
-        // Create Matrix B: [[5, 6], [7, 8]]
-        double[][] dataB = {{5.0, 6.0}, {7.0, 8.0}};
-        SharedMatrix matrixB = new SharedMatrix(dataB);
+    // 2. Build Leaf Nodes
+    ComputationNode leafA = new ComputationNode("MATRIX", new ArrayList<>());
+    leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
+    
+    ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
+    leafB.setMatrix(matrixB);
 
-        // Build the tree
-        ComputationNode nodeA = new ComputationNode(ComputationNodeType.MATRIX, matrixA);
-        ComputationNode nodeB = new ComputationNode(ComputationNodeType.MATRIX, matrixB);
-        ComputationNode addNode = new ComputationNode(ComputationNodeType.ADD);
-        addNode.addChild(nodeA);
-        addNode.addChild(nodeB);
+    // 3. Build Root Node (ADD)
+    List<ComputationNode> children = Arrays.asList(leafA, leafB);
+    ComputationNode root = new ComputationNode("ADD", children);
 
-        // Run
-        ComputationResult result = engine.loadAndCompute(addNode);
-        SharedMatrix resultMat = result.getMatrix();
+    // 4. Run and Verify
+    ComputationResult result = engine.loadAndCompute(root);
+    SharedMatrix resMat = result.getMatrix();
 
-        // Verify: Result should be [[6, 8], [10, 12]]
-        assertEquals(6.0, resultMat.get(0).get(0));
-        assertEquals(12.0, resultMat.get(1).get(1));
-    }
+    // Expected: [[6, 8], [10, 12]]
+    assertEquals(6.0, resMat.get(0).get(0), 0.001);
+    assertEquals(12.0, resMat.get(1).get(1), 0.001);
+}
     
 
     public static void submitAllTester() throws InterruptedException {
