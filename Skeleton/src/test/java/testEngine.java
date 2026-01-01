@@ -54,6 +54,6 @@ public class testEngine {
         List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
         ComputationNode c3r = new ComputationNode(ComputationNodeType.ADD, c3children);
         double[][] c3res = engine.run(c3r).getMatrix();
-        System.out.println("");
+        System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
     }
 }
