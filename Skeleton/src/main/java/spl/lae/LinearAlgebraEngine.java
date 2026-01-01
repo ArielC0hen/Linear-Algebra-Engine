@@ -18,44 +18,11 @@ public class LinearAlgebraEngine {
         executor = new TiredExecutor(numThreads);
     }
 
-    /*
-    public ComputationNode run(ComputationNode computationRoot) {
-        // TODO: resolve computation tree step by step until final matrix is produced
-        if (computationRoot.getNodeType() == ComputationNodeType.MATRIX) {
-            return computationRoot;
-        }
-        List<ComputationNode> children = computationRoot.getChildren();
-        ComputationNodeType operand = computationRoot.getNodeType();
-        leftMatrix = new sharedMatrix(run(children.get(0)).getMatrix()); // start from the bottom
-        if (operand == ComputationNodeType.NEGATE) {
-            executor.submitAll(createNegateTasks());
-        } else if (operand == ComputationNodeType.TRANSPOSE) {
-            executor.submitAll(createTransposeTasks());
-        } else {
-            for (int i = 1; i < children.size(); i++) {
-                rightMatrix = new SharedMatrix(run(children.get(i)).getMatrix()); // start from the bottom
-                List<Runnable> tasks;
-                if (operand == ComputationNodeType.ADD) {
-                    tasks = createAddTasks();
-                } else if (operand == ComputationNodeType.MULTIPLY) {
-                    tasks = createMultiplyTasks();
-                } else {
-                    throw new Exception("Undefined operand");
-                }
-                executor.submitAll(tasks);
-            }
-        }
-        return leftMatrix;
-    }
-    */
-
     public ComputationNode run(ComputationNode computationRoot) {
         while (computationRoot.getNodeType() != ComputationNodeType.MATRIX) {
-            //System.out.println("ran");
             ComputationNode almostLeaf = computationRoot.findResolvable(); // finds the first "calculatable" node (all of its children are matrices)
             loadAndCompute(almostLeaf);
         }
-        //System.out.println("done");
         System.out.println(getWorkerReport());
         return computationRoot;
     }
