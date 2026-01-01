@@ -25,7 +25,7 @@ public class threadingTests {
     public void testShutdownInterruption() throws InterruptedException {
     TiredExecutor executor = new TiredExecutor(2);
     
-    tiredThread shutdownThread = new Thread(() -> {
+    TiredThread shutdownThread = new Thread(() -> {
         try {
             executor.shutdown();
         } catch (InterruptedException e) {
