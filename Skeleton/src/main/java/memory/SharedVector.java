@@ -201,10 +201,7 @@ public class SharedVector {
                 writeUnlock();
             }  
         } else { // row major 
-            int numOfCols = matrix.get(0).length();
-            if (matrix.length() > 0 && numOfCols != length()) {
-                throw new IllegalArgumentException("Can't multiply");
-            }
+int numOfCols = matrix.get(0).length(); if (matrix.length() > 0 && matrix.length() != length()) { throw new IllegalArgumentException("Can't multiply"); }
             System.out.println("HERE 2");
             double[] result = new double[numOfCols]; // 1 x m
             // forced to create columns manually :)
