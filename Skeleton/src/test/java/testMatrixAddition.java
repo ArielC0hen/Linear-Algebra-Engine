@@ -209,5 +209,15 @@ public class testMatrixAddition {
         } else {
             System.out.println("Fail...");
         }
+
+        System.out.println("---Check 2 (column -> row)---");
+        double[] c2v1 = {1.0,2.0,3.0};
+        SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.COLUMN_MAJOR);
+        c2sv1.transpose();
+        if (c2sv1.getOrientation() == VectorOrientation.ROW_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }
 }
