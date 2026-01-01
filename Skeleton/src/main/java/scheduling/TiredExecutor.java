@@ -23,9 +23,7 @@ public class TiredExecutor {
     public void submit(Runnable task) {
         // TODO
         try {
-            //System.out.println("Banana");
             TiredThread first = idleMinHeap.take();
-            //System.out.println("apple");
             inFlight.incrementAndGet();
             Runnable wrappedTask = () -> { // so we can track when the task finishes
                 try {
@@ -35,24 +33,18 @@ public class TiredExecutor {
                     idleMinHeap.add(first);
                 }
             };
-            //System.out.println("kiwi");
             first.newTask(wrappedTask);
         } catch (InterruptedException e) {
-            //System.out.println("interupted submitting");
             Thread.currentThread().interrupt();
         }
     }
 
     public void submitAll(Iterable<Runnable> tasks) {
         // TODO: submit tasks one by one and wait until all finish
-        //System.out.println("called submit all");
         for (Runnable task : tasks) {
-            //System.out.println("running submit");
             submit(task);
-            //System.out.println("finished running submit");
         }
         while (inFlight.get() > 0) {  // haven't finished executing all yet 
-            //System.out.println("all tasks haven't finished");
             try {
                 Thread.sleep(5);
             } catch (InterruptedException e) {
@@ -60,7 +52,6 @@ public class TiredExecutor {
                 break;
             }
         }
-        //System.out.println("finished submit all");
     }
 
     public void shutdown() throws InterruptedException {
