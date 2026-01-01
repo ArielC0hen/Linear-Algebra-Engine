@@ -29,7 +29,7 @@ public class testEngine {
         ComputationNode c1cn1 = new ComputationNode(c1m1);
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
-        ComputationNode c1r = new ComputationNode("ADD", c1children);
+        ComputationNode c1r = new ComputationNode(Op, c1children);
         double[][] c1res = engine.run(c1r).getMatrix();
         double[][] c1a = {{6, 8}, {10, 12}};
         if (Arrays.deepEquals(c1res, c1a)) {
