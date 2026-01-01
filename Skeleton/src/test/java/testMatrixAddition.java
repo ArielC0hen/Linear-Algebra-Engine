@@ -64,8 +64,7 @@ public class testMatrixAddition {
         System.out.println("---Check 3 (empty matrix)---");
         double[][] c3m = {};
         SharedMatrix c3sm = new SharedMatrix(c3m);
-        double[][] c2res = c1sm.readRowMajor();
-        double[][] c2a = {{1.0, 4.0, 7.0}, {2.0, 5.0, 8.0}, {3.0, 6.0, 9.0}};
+        double[][] c3res = c3sm.readRowMajor();
         if (Arrays.equals(c2a, c2res)) {
             System.out.println("Success!");
         } else {
