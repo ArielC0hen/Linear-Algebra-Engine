@@ -28,7 +28,7 @@ public class threadingTests {
         while(thread1.isBusy() || thread2.isBusy()) { 
             Thread.sleep(10);
         }
-        if (thread1.getFatigue() < thread2.getFatigue()) {
+        if (thread1.compareTo(thread2) == -1) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
