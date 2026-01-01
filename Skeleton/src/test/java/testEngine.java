@@ -30,5 +30,20 @@ public class testEngine {
         } else {
             System.out.println("Fail...");
         }
+
+        System.out.println("empty matrices");
+        double[][] c2m1 = {{}};
+        double[][] c2m2 = {{}};
+        ComputationNode c2cn1 = new ComputationNode(c2m1);
+        ComputationNode c2cn2 = new ComputationNode(c2m2);
+        List<ComputationNode> c2children = Arrays.asList(c2cn1, c2cn2);
+        ComputationNode c2r = new ComputationNode(ComputationNodeType.ADD, c2children);
+        double[][] c2res = engine.run(c2r).getMatrix();
+        double[][] c2a = {{}};
+        if (Arrays.deepEquals(c2res, c2a)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }
 }
