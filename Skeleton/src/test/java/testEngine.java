@@ -13,7 +13,7 @@ public class testEngine {
         testMatrixMultiplication();
     }
 
-    
+
 
     public static void testMatrixTranspose() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
@@ -40,7 +40,7 @@ public class testEngine {
         ComputationNode c2r = new ComputationNode(ComputationNodeType.TRANSPOSE, c2children);
         double[][] c2res = engine.run(c2r).getMatrix();
         double[][] c2a = new double[0][0]; // {{}} lo avad mesiba mesoyoomet
-        if (Arrays.equals(c2res, c2a)) {
+        if (Arrays.deepEquals(c2res, c2a)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
