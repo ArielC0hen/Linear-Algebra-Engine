@@ -20,7 +20,8 @@ public class testMatrixAddition {
         double[][] c1m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m);
         c1sv1.vecMatMul(c1sm);
-        
+        double[] c1a = {21.0, 54.0, 76.0};
+        SharedVector c1s = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR); 
     }
 
     public static void dotTester() {
