@@ -14,7 +14,8 @@ public class testMatrixAddition {
         dotTester();
         vecMultTester();
         //////////////////
-        
+        loadRowMajorTester();
+        loadColumnMajorTester();
         
 
     }
