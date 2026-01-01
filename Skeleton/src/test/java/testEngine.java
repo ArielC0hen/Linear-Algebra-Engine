@@ -34,7 +34,7 @@ public class testEngine {
         SharedMatrix c1sm2 = new SharedMatrix(c1m2);
 
         // 2. Build Leaf Nodes
-        ComputationNode c1leaf1 = new ComputationNode("MATRIX", new ArrayList<>());
+        ComputationNode c1leaf1 = new ComputationNode();
         leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
         
         ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
