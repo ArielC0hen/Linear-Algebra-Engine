@@ -123,6 +123,7 @@ public class LinearAlgebraEngine {
             };
             tasks.add(task);
         }
+        System.out.println(getWorkerReport());
         return tasks;
     }
 
