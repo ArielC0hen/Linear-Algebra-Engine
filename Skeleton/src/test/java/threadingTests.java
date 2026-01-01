@@ -22,6 +22,7 @@ public class threadingTests {
     }
 
     public static void submitAllTester() throws InterruptedException {
+        System.out.println("Testing submitAll in TiredExecutor");
         TiredExecutor executor = new TiredExecutor(3);
         long startTime = System.currentTimeMillis();
         List<Runnable> tasks = new ArrayList<Runnable>();
