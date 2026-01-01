@@ -24,11 +24,13 @@ public class testMatrixAddition {
         SharedVector c1sva = new SharedVector(c1a, VectorOrientation.ROW_MAJOR);
         String c1s1 = c1sva.toString();
         String c1sa = c1sva.toString();
-        if (c1sva.toString().equals(c1sva.toString())) {
+        if (c1s1.equals(c1sa)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
         }
+        System.out.println("wanted: "+ c1sa);
+        System.out.println("got: " + c1s1);
     }
 
     public static void dotTester() {
