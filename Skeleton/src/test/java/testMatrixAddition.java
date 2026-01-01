@@ -17,7 +17,7 @@ public class testMatrixAddition {
     }
 
     public static void readRowMajorTester () {
-        
+        System.out.println("Checking the ");
     }
 
     public static void vecMultTester() {
