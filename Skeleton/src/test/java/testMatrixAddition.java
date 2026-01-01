@@ -236,7 +236,7 @@ public class testMatrixAddition {
         }
 
         System.out.println("---Check 2 (empty vector)---");
-        double[] c2v1 = {1.0,2.0,3.0};
+        double[] c2v1 = {};
         SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.COLUMN_MAJOR);
         c2sv1.transpose();
         if (c2sv1.getOrientation() == VectorOrientation.ROW_MAJOR) {
