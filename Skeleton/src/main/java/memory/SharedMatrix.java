@@ -85,6 +85,7 @@ public class SharedMatrix {
 
     public VectorOrientation getOrientation() {
         // TODO: return orientation
+        
         return vectors[0].getOrientation();
     }
 
