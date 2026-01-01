@@ -10,6 +10,7 @@ public class testEngine {
         testMatrixNegate();
         testMatrixAddition();
         testMatrixMultiplication();
+        testMatrixTranspose();
     }
 
     public static void testMatrixTranspose() {
