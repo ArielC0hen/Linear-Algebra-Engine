@@ -95,6 +95,7 @@ public class TiredThread extends Thread implements Comparable<TiredThread> {
                 long usedStart = System.nanoTime();
                 task.run();
                 long usedEnd = System.nanoTime();
+                System.out.println("updated time used");
                 timeUsed.getAndAdd(usedEnd - usedStart);                
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
