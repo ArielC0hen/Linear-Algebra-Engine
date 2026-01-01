@@ -73,7 +73,7 @@ public class SharedMatrix {
     public SharedVector get(int index) {
         // TODO: return vector at index
         if (index >= vectors.length) {
-            
+            throw new IllegalArgumentException("index is out of bound");
         }
         return vectors[index];
     }
