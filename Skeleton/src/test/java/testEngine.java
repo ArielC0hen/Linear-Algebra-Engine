@@ -7,9 +7,9 @@ import spl.lae.LinearAlgebraEngine;
 public class testEngine {
     
     public static void main(String[] args) throws InterruptedException {
+        testMatrixNegate();
         testMatrixAddition();
         testMatrixMultiplication();
-        testMatrixNegate();
     }
 
     public static void testMatrixNegate() {
