@@ -10,6 +10,71 @@ public class testEngine {
         testMatrixAddition();
     }
 
+public static void testMatrixMultiplication() {
+    LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
+
+    System.out.println("---Check 1 (multiplication)---");
+
+    // --- Standard 2x2 multiplication ---
+    System.out.println("standard 2x2");
+    double[][] m1 = {{1, 2}, {3, 4}};
+    double[][] m2 = {{5, 6}, {7, 8}};
+    ComputationNode cn1 = new ComputationNode(m1);
+    ComputationNode cn2 = new ComputationNode(m2);
+    List<ComputationNode> children = Arrays.asList(cn1, cn2);
+    ComputationNode r = new ComputationNode(ComputationNodeType.MULTIPLY, children);
+    double[][] res = engine.run(r).getMatrix();
+    double[][] expected = {{19, 22}, {43, 50}};
+    if (Arrays.deepEquals(res, expected)) {
+        System.out.println("Success!");
+    } else {
+        System.out.println("Fail...");
+    }
+
+    // --- Check 2: Multiply by zero matrix ---
+    System.out.println("multiply by zero matrix");
+    double[][] m3 = {{1, 2}, {3, 4}};
+    double[][] m4 = {{0, 0}, {0, 0}};
+    ComputationNode cn3 = new ComputationNode(m3);
+    ComputationNode cn4 = new ComputationNode(m4);
+    List<ComputationNode> children2 = Arrays.asList(cn3, cn4);
+    ComputationNode r2 = new ComputationNode(ComputationNodeType.MULTIPLY, children2);
+    double[][] res2 = engine.run(r2).getMatrix();
+    double[][] expected2 = {{0, 0}, {0, 0}};
+    if (Arrays.deepEquals(res2, expected2)) {
+        System.out.println("Success!");
+    } else {
+        System.out.println("Fail...");
+    }
+
+    // --- Check 3: Non-square matrices (2x3 * 3x2) ---
+    System.out.println("non-square multiplication");
+    double[][] m5 = {{1, 2, 3}, {4, 5, 6}};
+    double[][] m6 = {{7, 8}, {9, 10}, {11, 12}};
+    ComputationNode cn5 = new ComputationNode(m5);
+    ComputationNode cn6 = new ComputationNode(m6);
+    List<ComputationNode> children3 = Arrays.asList(cn5, cn6);
+    ComputationNode r3 = new ComputationNode(ComputationNodeType.MULTIPLY, children3);
+    double[][] res3 = engine.run(r3).getMatrix();
+    double[][] expected3 = {{58, 64}, {139, 154}};
+    if (Arrays.deepEquals(res3, expected3)) {
+        System.out.println("Success!");
+    } else {
+        System.out.println("Fail...");
+    }
+
+    // --- Check 4: Dimension mismatch (should fail in worker thread) ---
+    System.out.println("dimension mismatch (exception expected)");
+    double[][] m7 = {{1, 2}, {3, 4}};
+    double[][] m8 = {{5, 6, 7}, {8, 9, 10}};
+    ComputationNode cn7 = new ComputationNode(m7);
+    ComputationNode cn8 = new ComputationNode(m8);
+    List<ComputationNode> children4 = Arrays.asList(cn7, cn8);
+    ComputationNode r4 = new ComputationNode(ComputationNodeType.MULTIPLY, children4);
+    double[][] res4 = engine.run(r4).getMatrix();
+    System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
+}
+
     public static void testMatrixAddition() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
