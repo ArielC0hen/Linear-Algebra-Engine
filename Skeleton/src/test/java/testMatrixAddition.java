@@ -32,6 +32,7 @@ public class testMatrixAddition {
         } else {
             System.out.println("Fail...");
         }
+        
 
     public static void readRowMajorTester () {
         System.out.println("Checking the readRowMajor Function in SharedMatrix");
