@@ -1,8 +1,6 @@
 package scheduling;
 
 import java.util.concurrent.PriorityBlockingQueue;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TiredExecutor {
@@ -15,7 +13,7 @@ public class TiredExecutor {
         // TODO
         workers = new TiredThread[numThreads];
         for (int i = 0; i < numThreads; i++) {
-            
+
             workers[i] = new TiredThread(i, 0);
             workers[i].start();
             idleMinHeap.add(workers[i]);
