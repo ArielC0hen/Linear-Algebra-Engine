@@ -53,11 +53,7 @@ public class testEngine {
         ComputationNode c3cn2 = new ComputationNode(c3m2);
         List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
         ComputationNode c3r = new ComputationNode(ComputationNodeType.ADD, c3children);
-        try {
-            double[][] c3res = engine.run(c3r).getMatrix();
-            System.out.println("Fail... (no exception thrown)");
-        } catch (Exception e) {
-            System.out.println("Success! (exception thrown)");
-        }
+        double[][] c3res = engine.run(c3r).getMatrix();
+        System.out.println("");
     }
 }
