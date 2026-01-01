@@ -23,7 +23,6 @@ public class LinearAlgebraEngine {
             ComputationNode almostLeaf = computationRoot.findResolvable(); // finds the first "calculatable" node (all of its children are matrices)
             loadAndCompute(almostLeaf);
         }
-        System.out.println(getWorkerReport());
         return computationRoot;
     }
 
