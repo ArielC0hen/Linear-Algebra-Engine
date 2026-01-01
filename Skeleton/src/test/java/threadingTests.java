@@ -37,7 +37,7 @@ public class threadingTests {
         thread.start(); 
         thread.shutdown(); // Sends POISON_PILL [cite: 390]
         thread.join(1000);
-        if (condition) {
+        if (thread.isAlive()) {
             
         } 
         assertFalse(thread.isAlive(), "Thread should terminate after shutdown");
