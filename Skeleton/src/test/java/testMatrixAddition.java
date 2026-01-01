@@ -46,7 +46,7 @@ public class testMatrixAddition {
         SharedVector c2sva = new SharedVector(c2a, VectorOrientation.ROW_MAJOR);
         String c2s1 = c2sva.toString();
         String c2sa = c2sva.toString();
-        if (c1s1.equals(c1sa)) {
+        if (c2s1.equals(c2sa)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
