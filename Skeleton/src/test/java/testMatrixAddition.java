@@ -32,7 +32,7 @@ public class testMatrixAddition {
         }
 
         System.out.println("---Check 1 (Row Matrix)---");
-        double[][] c1m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+        double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m);
         double[][] c1res = c1sm.readRowMajor();
         if (Arrays.equals(c1m, c1res)) {
