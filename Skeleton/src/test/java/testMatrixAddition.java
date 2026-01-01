@@ -22,7 +22,8 @@ public class testMatrixAddition {
         c1sv1.vecMatMul(c1sm);
         double[] c1a = {21.0, 54.0, 76.0};
         SharedVector c1sva = new SharedVector(c1a, VectorOrientation.ROW_MAJOR);
-        
+        String s1 = c1sva.toString();
+        String c
         if (c1sva.toString().equals(c1sva.toString())) {
             System.out.println("Success!");
         } else {
