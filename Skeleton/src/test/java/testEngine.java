@@ -45,5 +45,23 @@ public class testEngine {
         } else {
             System.out.println("Fail...");
         }
+
+        System.out.println("different dimensions (exception expected)");
+        double[][] c3m1 = {{1, 2}, {3, 4}};
+        double[][] c3m2 = {{5, 6, 7}, {8, 9, 10}}; // different number of columns
+
+        ComputationNode c3cn1 = new ComputationNode(c3m1);
+        ComputationNode c3cn2 = new ComputationNode(c3m2);
+        List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
+        ComputationNode c3r = new ComputationNode(ComputationNodeType.ADD, c3children);
+
+        try {
+            double[][] c3res = engine.run(c3r).getMatrix();
+            System.out.println("Fail... no exception thrown");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Success! Exception correctly thrown: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Fail... unexpected exception type: " + e.getClass().getName());
+        }
     }
 }
