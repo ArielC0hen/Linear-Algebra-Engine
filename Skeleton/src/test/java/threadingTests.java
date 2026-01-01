@@ -28,6 +28,11 @@ public class threadingTests {
         while(thread1.isBusy() || thread2.isBusy()) { 
             Thread.sleep(3); 
         }
+        if (thread1.getFatigue() < thread2.getFatigue()) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
         thread.shutdown();
         thread.join(1000);
         if (!thread.isAlive()) {
