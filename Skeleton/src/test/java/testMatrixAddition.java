@@ -59,18 +59,10 @@ public class testMatrixAddition {
         SharedVector c3sv1 = new SharedVector(c3v1, VectorOrientation.ROW_MAJOR); 
         double[][] c3m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}};
         SharedMatrix c3sm = new SharedMatrix(c3m);
-        c2sv1.vecMatMul(c2sm);
-        double[] c2a = {21.0, 54.0, 76.0};
-        SharedVector c2sva = new SharedVector(c2a, VectorOrientation.ROW_MAJOR);
-        String c2s1 = c2sva.toString();
-        String c2sa = c2sva.toString();
-        if (c2s1.equals(c2sa)) {
-            System.out.println("Success!");
-        } else {
-            System.out.println("Fail...");
-        }
-        System.out.println("wanted: "+ c2sa);
-        System.out.println("got: " + c2s1);
+        try {
+            c3sv1.vecMatMul(c3sm);
+            System.out.println("Failed... (didn't throw an exception)");
+        } catch (Exception)
     }
 
     public static void dotTester() {
