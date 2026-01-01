@@ -8,6 +8,7 @@ public class testEngine {
     
     public static void main(String[] args) throws InterruptedException {
         testMatrixAddition();
+        testMatrixMultiplication();
     }
 
     public static void testMatrixMultiplication() {
