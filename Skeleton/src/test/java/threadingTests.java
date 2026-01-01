@@ -39,7 +39,9 @@ public class threadingTests {
         thread.join(1000);
         if (thread.isAlive()) {
             
-        } 
+        } else {
+            
+        }
         assertFalse(thread.isAlive(), "Thread should terminate after shutdown");
     }
 
