@@ -52,8 +52,7 @@ public static void loadColumnMajorTester() {
         double[][] c3m2 = {}; 
         c3sm.loadColumnMajor(c3m2);
         double[][] c3res = c3sm.readRowMajor();
-        // Since loadColumnMajor skips if empty, check if it kept old data or is empty
-        if (c3res.length == 0 || Arrays.deepEquals(c3res, c3m1)) { 
+        if (c3res.length == 0) { 
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
