@@ -1,3 +1,5 @@
+package spl.lae;
+
 import parser.*;
 import memory.*;
 import scheduling.*;
