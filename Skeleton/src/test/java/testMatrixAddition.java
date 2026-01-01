@@ -10,6 +10,10 @@ public class testMatrixAddition {
 
     }
 
+    public static void vecMultTester() {
+        
+    }
+
     public static void dotTester() {
         System.out.println("Checking the dot function in SharedVector");
 
