@@ -18,7 +18,6 @@ public class testEngine {
 
         System.out.println("---Check 5 (complex combinations)---");
 
-        // --- Step 1: Define basic matrices ---
         double[][] c1m1 = {{1, 2}, {3, 4}};
         double[][] c1m2 = {{5, 6}, {7, 8}};
         double[][] c1m3 = {{2, 0}, {1, 2}};
