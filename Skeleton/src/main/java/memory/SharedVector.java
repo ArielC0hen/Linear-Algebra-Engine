@@ -210,10 +210,8 @@ public class SharedVector {
                 double[] col = new double[matrix.length()];
                 for (int j = 0; j < matrix.length(); j++) {
                     col[j] = matrix.get(j).get(i);
-                    //System.out.println("col[" + j + "] = " + col[j]);
                 }
                 SharedVector colVector = new SharedVector(col, VectorOrientation.COLUMN_MAJOR);
-                //System.out.println("dot with col " + i + " = " + dot(colVector));
                 result[i] = dot(colVector);
             }
             writeLock();
