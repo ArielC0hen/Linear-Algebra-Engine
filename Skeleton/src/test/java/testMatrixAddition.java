@@ -99,6 +99,7 @@ public class testMatrixAddition {
         } catch (Exception e) {
             System.out.println("Success! (threw an exception)");
         }
+        
 
         System.out.println("---Check 3 (empty vectors)---");
         double[] c3v1 = {};
