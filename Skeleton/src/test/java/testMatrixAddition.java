@@ -65,7 +65,7 @@ public class testMatrixAddition {
         SharedVector c4sv2 = new SharedVector(c4v2, VectorOrientation.ROW_MAJOR);
         try {
             c4sv1.dot(c4sv2);
-            System.out.println("Failed... (didn't throw an error");
+            System.out.println("Failed... (didn't throw an error)");
         } catch (Exception e) {
             System.out.println("Success... (threw an exception)");
         }
