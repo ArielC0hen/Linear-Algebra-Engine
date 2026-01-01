@@ -28,10 +28,10 @@ public class testEngine {
         System.out.println("---Check 1 (addition)---");
 
         System.out.println("standard");
-        double[][] dataA = {{1, 2}, {3, 4}};
-        double[][] dataB = {{5, 6}, {7, 8}};
-        SharedMatrix matrixA = new SharedMatrix(dataA);
-        SharedMatrix matrixB = new SharedMatrix(dataB);
+        double[][] c1m1 = {{1, 2}, {3, 4}};
+        double[][] c1m2 = {{5, 6}, {7, 8}};
+        SharedMatrix c1sm1 = new SharedMatrix(c1m1);
+        SharedMatrix c1sm2 = new SharedMatrix(c1m2);
 
         // 2. Build Leaf Nodes
         ComputationNode leafA = new ComputationNode("MATRIX", new ArrayList<>());
