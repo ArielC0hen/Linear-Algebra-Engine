@@ -47,17 +47,14 @@ public class TiredExecutor {
         for (Runnable task : tasks) {
             submit(task);
         }
-        //synchronized (inFlight) {
-            while (inFlight.get() > 0) {  // haven't finished executing all yet 
-                try {
-                    //inFlight.wait();;
-                    Thread.sleep(5);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    break;
-                }
+        while (inFlight.get() > 0) {  // haven't finished executing all yet 
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
             }
-        //}
+        }
     }
 
     public void shutdown() throws InterruptedException {
