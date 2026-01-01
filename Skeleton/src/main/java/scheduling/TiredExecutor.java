@@ -78,9 +78,12 @@ public class TiredExecutor {
         }
         double averageFatigue = totalFatigue / workers.length;
         double fairness = 0;
+        double delta = 0;
         for (int i = 0; i < workers.length; i++) {
-            fairness += (workers[i].getFatigue() - averageFatigue)
+            delta = workers[i].getFatigue() - averageFatigue;
+            fairness += Math.pow(delta, 2);
         }
+        output += 
         return output;
     }
 }
