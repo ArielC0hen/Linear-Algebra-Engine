@@ -11,10 +11,10 @@ public class testEngine {
         testMatrixTranspose();
         testMatrixAddition();
         testMatrixMultiplication();
-        nestingTester();
+        testNesting();
     }
 
-    public static void nestingTester() {
+    public static void testNesting() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
         System.out.println("---Check 5 (complex combinations)---");
