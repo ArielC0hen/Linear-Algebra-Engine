@@ -21,7 +21,10 @@ public class testMatrixAddition {
         SharedMatrix c1sm = new SharedMatrix(c1m);
         c1sv1.vecMatMul(c1sm);
         double[] c1a = {21.0, 54.0, 76.0};
-        SharedVector c1s = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR); 
+        SharedVector c1sva = new SharedVector(c1a, VectorOrientation.ROW_MAJOR);
+        if (c1sva.toString().equals(c1sva)) {
+            
+        }
     }
 
     public static void dotTester() {
