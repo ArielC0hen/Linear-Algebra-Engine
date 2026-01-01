@@ -51,7 +51,6 @@ public class testMatrixAddition {
         double[][] c3m2 = {}; 
         c3sm.loadRowMajor(c3m2);
         double[][] c3res = c3sm.readRowMajor();
-        // Since readRowMajor returns new double[0][0] for empty, we check length
         if (c3res.length == 0) {
             System.out.println("Success!");
         } else {
