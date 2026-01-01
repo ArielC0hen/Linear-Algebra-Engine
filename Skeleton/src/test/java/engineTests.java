@@ -1,6 +1,7 @@
 import memory.SharedMatrix;
 import memory.SharedVector;
-import spl.lae;
+import scheduling.TiredExecutor;;
+
 
 public void testSimpleAddition() {
     LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
