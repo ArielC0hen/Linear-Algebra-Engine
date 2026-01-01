@@ -83,7 +83,7 @@ public class TiredExecutor {
             delta = workers[i].getFatigue() - averageFatigue;
             fairness += Math.pow(delta, 2);
         }
-        output += "--Fairness: "
+        output += "--Fairness: " + fairness;
         return output;
     }
 }
