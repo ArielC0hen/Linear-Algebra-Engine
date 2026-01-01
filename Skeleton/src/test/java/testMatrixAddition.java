@@ -32,6 +32,18 @@ public class testMatrixAddition {
         } else {
             System.out.println("Fail...");
         }
+
+        System.out.println("---Check 2 (resizing matrix)---");
+        double[][] c2m1 = {{1.0, 2.0}, {3.0, 4.0}};
+        SharedMatrix c2sm = new SharedMatrix(c2m1);
+        double[][] c2m2 = {{10.0}, {20.0}, {30.0}};
+        c2sm.loadRowMajor(c2m2);
+        double[][] c2res = c2sm.readRowMajor();
+        if (Arrays.deepEquals(c2m2, c2res)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }    
 
     public static void readRowMajorTester () {
