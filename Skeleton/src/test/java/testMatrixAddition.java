@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import memory.SharedMatrix;
 import memory.SharedVector;
 import memory.VectorOrientation;
@@ -23,7 +25,9 @@ public class testMatrixAddition {
         double[][] c1m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m);
         double[][] c1res = c1sm.readRowMajor();
-        
+        if (Arrays.equals(c1m, c1res)) {
+            
+        }
 
     }
 
