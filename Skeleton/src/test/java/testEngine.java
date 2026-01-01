@@ -17,7 +17,6 @@ public class testEngine {
 
         System.out.println("---Check 1 (transpose)---");
 
-        // --- Check 1: Standard 2x2 transpose ---
         System.out.println("standard");
         double[][] c1m1 = {{1, 2}, {3, 4}};
         ComputationNode c1cn1 = new ComputationNode(c1m1);
@@ -31,7 +30,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 2: Empty matrix transpose ---
         System.out.println("empty matrix");
         double[][] c2m1 = {{}};
         ComputationNode c2cn1 = new ComputationNode(c2m1);
@@ -45,7 +43,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 3: Non-square matrix transpose ---
         System.out.println("non-square matrix");
         double[][] c3m1 = {{1, 2, 3}, {4, 5, 6}};
         ComputationNode c3cn1 = new ComputationNode(c3m1);
