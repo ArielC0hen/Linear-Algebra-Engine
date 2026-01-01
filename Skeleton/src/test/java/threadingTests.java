@@ -35,12 +35,12 @@ public class threadingTests {
     public void testShutdown() throws InterruptedException {
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start(); 
-        thread.shutdown(); // Sends POISON_PILL [cite: 390]
+        thread.shutdown();
         thread.join(1000);
         if (thread.isAlive()) {
             
         } else {
-            
+
         }
         assertFalse(thread.isAlive(), "Thread should terminate after shutdown");
     }
