@@ -48,7 +48,7 @@ public class testEngine {
 
         System.out.println("different dimensions (exception expected)");
         double[][] c3m1 = {{1, 2}, {3, 4}};
-        double[][] c3m2 = {{5, 6, 7}, {8, 9, 10}}; // different number of columns
+        double[][] c3m2 = {{5, 6, 7}, {8, 9, 10}};
 
         ComputationNode c3cn1 = new ComputationNode(c3m1);
         ComputationNode c3cn2 = new ComputationNode(c3m2);
