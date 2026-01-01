@@ -12,49 +12,49 @@ public class testEngine {
     }
 
     public static void testMatrixNegate() {
-    LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
+        LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-    System.out.println("---Check 1 (negate)---");
+        System.out.println("---Check 1 (negate)---");
 
-    // --- Check 1: Standard 2x2 negation ---
-    System.out.println("standard");
-    double[][] c1m1 = {{1, 2}, {3, 4}};
-    ComputationNode c1cn1 = new ComputationNode(c1m1);
-    List<ComputationNode> c1children = Arrays.asList(c1cn1);
-    ComputationNode c1r = new ComputationNode(ComputationNodeType.NEGATE, c1children);
-    double[][] c1res = engine.run(c1r).getMatrix();
-    double[][] c1a = {{-1, -2}, {-3, -4}};
-    if (Arrays.deepEquals(c1res, c1a)) {
-        System.out.println("Success!");
-    } else {
-        System.out.println("Fail...");
+        // --- Check 1: Standard 2x2 negation ---
+        System.out.println("standard");
+        double[][] c1m1 = {{1, 2}, {3, 4}};
+        ComputationNode c1cn1 = new ComputationNode(c1m1);
+        List<ComputationNode> c1children = Arrays.asList(c1cn1);
+        ComputationNode c1r = new ComputationNode(ComputationNodeType.NEGATE, c1children);
+        double[][] c1res = engine.run(c1r).getMatrix();
+        double[][] c1a = {{-1, -2}, {-3, -4}};
+        if (Arrays.deepEquals(c1res, c1a)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        // --- Check 2: Empty matrix negation ---
+        System.out.println("empty matrix");
+        double[][] c2m1 = {{}};
+        ComputationNode c2cn1 = new ComputationNode(c2m1);
+        List<ComputationNode> c2children = Arrays.asList(c2cn1);
+        ComputationNode c2r = new ComputationNode(ComputationNodeType.NEGATE, c2children);
+        double[][] c2res = engine.run(c2r).getMatrix();
+        double[][] c2a = {{}};
+        if (Arrays.deepEquals(c2res, c2a)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        // --- Check 3: Error check (2 children should throw) ---
+        System.out.println("error check (2 children)");
+        double[][] c3m1 = {{1, 2}, {3, 4}};
+        double[][] c3m2 = {{5, 6}, {7, 8}};
+        ComputationNode c3cn1 = new ComputationNode(c3m1);
+        ComputationNode c3cn2 = new ComputationNode(c3m2);
+        List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
+        ComputationNode c3r = new ComputationNode(ComputationNodeType.NEGATE, c3children);
+        double[][] c3res = engine.run(c3r).getMatrix();
+        System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
     }
-
-    // --- Check 2: Empty matrix negation ---
-    System.out.println("empty matrix");
-    double[][] c2m1 = {{}};
-    ComputationNode c2cn1 = new ComputationNode(c2m1);
-    List<ComputationNode> c2children = Arrays.asList(c2cn1);
-    ComputationNode c2r = new ComputationNode(ComputationNodeType.NEGATE, c2children);
-    double[][] c2res = engine.run(c2r).getMatrix();
-    double[][] c2a = {{}};
-    if (Arrays.deepEquals(c2res, c2a)) {
-        System.out.println("Success!");
-    } else {
-        System.out.println("Fail...");
-    }
-
-    // --- Check 3: Error check (2 children should throw) ---
-    System.out.println("error check (2 children)");
-    double[][] c3m1 = {{1, 2}, {3, 4}};
-    double[][] c3m2 = {{5, 6}, {7, 8}};
-    ComputationNode c3cn1 = new ComputationNode(c3m1);
-    ComputationNode c3cn2 = new ComputationNode(c3m2);
-    List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
-    ComputationNode c3r = new ComputationNode(ComputationNodeType.NEGATE, c3children);
-    double[][] c3res = engine.run(c3r).getMatrix();
-    System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
-}
 
     public static void testMatrixMultiplication() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
