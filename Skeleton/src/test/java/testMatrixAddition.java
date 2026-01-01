@@ -13,7 +13,7 @@ public class testMatrixAddition {
     public static void vecMultTester() {
         System.out.println("Checking the vecMult function in SharedVector");
 
-        System.out.println("---Check 1 (standard)---");
+        System.out.println("---Check 1 (Row x Column Matrix)---");
         double[] c1v1 = {3.0, 8.0, 1.0};
     }
 
