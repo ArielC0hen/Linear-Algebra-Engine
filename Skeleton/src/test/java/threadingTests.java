@@ -22,7 +22,7 @@ public class threadingTests {
 
     @Test
     public void testSubmitAllBlocksUntilDone() throws InterruptedException {
-        TiredExecutor executor = new TiredExecutor(2);
+        TiredExecutor executor = new TiredExecutor(3);
         long startTime = System.currentTimeMillis();
         List<Runnable> tasks = new ArrayList<Runnable>();
         for (int i = 0; i < 3; i++) {
