@@ -33,10 +33,11 @@ public class testMatrixAddition {
         System.out.println("got: " + c1s1);
 
         System.out.println("---Check 1 (Row x Row Matrix)---");
-        double[] c1v1 = {3.0, 6.0, 2.0};
-        SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR); 
-        double[][] c1m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
-        SharedMatrix c1sm = new SharedMatrix(c1m);
+        double[] c2v1 = {3.0, 6.0, 2.0};
+        SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.ROW_MAJOR); 
+        double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+        SharedMatrix c2sm = new SharedMatrix(c2m);
+        c2sm.
         c1sv1.vecMatMul(c1sm);
         double[] c1a = {21.0, 54.0, 76.0};
         SharedVector c1sva = new SharedVector(c1a, VectorOrientation.ROW_MAJOR);
