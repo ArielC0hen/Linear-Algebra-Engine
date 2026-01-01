@@ -46,7 +46,7 @@ public class testEngine {
         ComputationNode root = new ComputationNode("ADD", children);
 
         // 4. Run and Verify
-        ComputationNode result = engine.loadAndCompute(root);
+        ComputationNode result = engine.run(c1r);
         SharedMatrix resMat = result.getMatrix();
 
         // Expected: [[6, 8], [10, 12]]
