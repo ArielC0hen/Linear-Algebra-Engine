@@ -39,7 +39,7 @@ public class testMatrixAddition {
         }
         double[][] c2res = c1sm.readRowMajor();
         double[][] c2a = {{1.0, 4.0, 7.0}, {2.0, 5.0, 8.0}, {3.0, 6.0, 9.0}};
-        if (Arrays.equals(c1m, c1res)) {
+        if (Arrays.equals(c2a, c2res)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
