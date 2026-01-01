@@ -37,7 +37,7 @@ public class testMatrixAddition {
         SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.ROW_MAJOR); 
         double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c2sm = new SharedMatrix(c2m);
-        for (double[] ds : c2m) {
+        for (SharedVector sv : c2sm) {
             
         }
         c1sv1.vecMatMul(c1sm);
