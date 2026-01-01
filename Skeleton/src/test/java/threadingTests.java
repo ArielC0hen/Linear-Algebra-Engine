@@ -45,7 +45,7 @@ public class threadingTests {
                 Thread.sleep(150); 
             } catch (InterruptedException e) {}
         });
-        while(thread1.isBusy() || thread2.isBusy()) { 
+        while(!thread1.isBusy() || !thread2.isBusy()) { 
             Thread.sleep(20);
         }
         while(thread1.isBusy() || thread2.isBusy()) { 
