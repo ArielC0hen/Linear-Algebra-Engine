@@ -115,7 +115,7 @@ public class testEngine {
         List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
         ComputationNode c3r = new ComputationNode(ComputationNodeType.ADD, c3children);
         double[][] c3res = engine.run(c3r).getMatrix();
-        System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
+        System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^"); // can't catch exceptions in different threads :(
 
         System.out.println("1 argument (exception expected)");
         double[][] c4m1 = {{1, 2}, {3, 4}};
