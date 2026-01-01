@@ -56,7 +56,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 4: 2 arguments (exception expected) ---
         System.out.println("2 arguments (exception expected)");
         double[][] c4m1 = {{1, 2}, {3, 4}};
         double[][] c4m2 = {{5, 6}, {7, 8}};
