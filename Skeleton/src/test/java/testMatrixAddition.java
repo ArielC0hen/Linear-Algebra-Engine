@@ -62,7 +62,9 @@ public class testMatrixAddition {
         try {
             c3sv1.vecMatMul(c3sm);
             System.out.println("Failed... (didn't throw an exception)");
-        } catch (Exception)
+        } catch (Exception e) {
+            
+        }
     }
 
     public static void dotTester() {
