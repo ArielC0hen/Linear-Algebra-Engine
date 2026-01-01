@@ -79,6 +79,7 @@ public class TiredExecutor {
         String output = "\n";
         for (int i = 0; i < workers.length; i++) {
             output+= "----Worker " + workers[i].getWorkerId() + "---- \n" + 
+            
             "fatigue = " + workers[i].getFatigue() + "\n" +
             "time used = " + workers[i].getTimeUsed()+ "\n" + 
             "time idle = " + workers[i].getTimeIdle() + "\n" +

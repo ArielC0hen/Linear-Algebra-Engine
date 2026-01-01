@@ -20,3 +20,5 @@ java -jar "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton\target\lga-1.0.jar" 
 
 
 cd "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton" && mvn clean package && java -jar "C:\Users\ariel\Desktop\assignment 2 spl\Skeleton\target\lga-1.0.jar" 5 "C:\Users\ariel\Desktop\assignment 2 spl\Examples\example6.json" "C:\Users\ariel\Desktop\assignment 2 spl\Bdikot\output6.json"
+
+cd "C:\Users\Ariel Cohen\Desktop\Linear-Algebra-Engine\Skeleton" && mvn clean package && java -jar "C:\Users\ariel\Desktop\Linear-Algebra-Engine\Skeleton\target\lga-1.0.jar" 5 "C:\Users\ariel\Desktop\Linear-Algebra-Engine\Examples\example6.json" "C:\Users\ariel\Desktop\Linear-Algebra-Engine\Bdikot\output6.json"
