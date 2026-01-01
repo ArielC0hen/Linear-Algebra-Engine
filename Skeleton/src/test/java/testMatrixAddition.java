@@ -66,6 +66,17 @@ public class testMatrixAddition {
         } else {
             System.out.println("Fail...");
         }
+
+        System.out.println("---Check 5 (same matrix)---");
+        double[][] c5m = {{1.0, 0.0}, {0.0, 1.0}};
+        SharedMatrix c5sm = new SharedMatrix(c5m);
+        c5sm.loadRowMajor(c5m);
+        double[][] c5res = c5sm.readRowMajor();
+        if (Arrays.deepEquals(c5m, c5res)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }    
 
     public static void readRowMajorTester () {
