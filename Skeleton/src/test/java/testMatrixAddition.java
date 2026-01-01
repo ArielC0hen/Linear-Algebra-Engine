@@ -75,6 +75,7 @@ public class testMatrixAddition {
         System.out.println("Checking the add function in SharedVector");
 
         System.out.println("---Check 1 (standard, row vectors)---");
+        System.out.println("---Check 1 (standard, row vectors)---");
         double[] c1v1 = {1.0, 2.0};
         double[] c1v2 = {5.0, 6.0};
         double[] c1a = {6.0,8.0};
