@@ -11,6 +11,8 @@ public class testEngine {
         testMatrixMultiplication();
     }
 
+    
+
     public static void testMatrixMultiplication() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
