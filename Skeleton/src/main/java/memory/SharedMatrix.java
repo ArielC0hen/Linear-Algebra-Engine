@@ -126,13 +126,13 @@ public class SharedMatrix {
     public String toString() {
         String result;
         double [][] matrix = readRowMajor();
-        StringBuilder sb = new StringBuilder();
+        String s = "";
         for (int i = 0; i < matrix.length; i++) {
-            sb.append("[");
+            s +="[";
             for (int j = 0; j < matrix[0].length; j++) {
-                sb.append(matrix[i][j]);
+                s+= matrix[i][j];
                 if (j < matrix[0].length - 1) {
-                    sb.append(", ");
+                    s += ", ";
                 }
             }
             sb.append("]");
