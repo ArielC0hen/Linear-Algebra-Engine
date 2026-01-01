@@ -17,7 +17,7 @@ public class threadingTests {
         double initFatigue = thread.getFatigue();        
         thread.newTask(() -> {
             try { 
-                thread.sleep(50); 
+                Thread.sleep(50); 
             } catch (InterruptedException e) {}
         });        
         while(thread.isBusy()) { 
