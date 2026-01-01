@@ -30,7 +30,7 @@ public class testEngine {
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
         ComputationNode c1r = new ComputationNode(ComputationNodeType.ADD, c1children);
         ComputationNode c1resNode = engine.run(c1r);
-
+        // {{1+5, 2+6}, {3+7, 4+8}} = {{6,8},{10,12}}
         List<ComputationNode> c2children = Arrays.asList(c1resNode, c1cn3);
         ComputationNode c2r = new ComputationNode(ComputationNodeType.MULTIPLY, c2children);
         ComputationNode c2resNode = engine.run(c2r);
