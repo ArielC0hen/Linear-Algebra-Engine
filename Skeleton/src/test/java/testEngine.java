@@ -41,19 +41,9 @@ public class testEngine {
         // {{-20,-16},{-32,-24}}
         List<ComputationNode> c4children = Arrays.asList(c3resNode);
         ComputationNode c4r = new ComputationNode(ComputationNodeType.TRANSPOSE, c4children);
-        double[][] c4res = engine.run(c4r).getMatrix();
-
-        // --- Expected result calculation manually ---
-        // Step 1: ADD
-        // {{1+5, 2+6}, {3+7, 4+8}} = {{6,8},{10,12}}
-        // Step 2: MULTIPLY by {{2,0},{1,2}}
-        // {{6*2+8*1,6*0+8*2},{10*2+12*1,10*0+12*2}} = {{20,16},{32,24}}
-        // Step 3: NEGATE
-        // {{-20,-16},{-32,-24}}
-        // Step 4: TRANSPOSE
         // {{-20,-32},{-16,-24}}
+        double[][] c4res = engine.run(c4r).getMatrix();
         double[][] c4a = {{-20, -32}, {-16, -24}};
-
         if (Arrays.deepEquals(c4res, c4a)) {
             System.out.println("Success!");
         } else {
