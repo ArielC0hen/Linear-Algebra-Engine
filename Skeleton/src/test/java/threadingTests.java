@@ -10,7 +10,7 @@ public class threadingTests {
     }
 
 
-    public void testCompareTo() {
+    public void testCompareTo() throws InterruptedException {
         TiredThread thread1 = new TiredThread(1, 1.0);
         TiredThread thread2 = new TiredThread(1, 1.0);
         thread1.start(); 
@@ -35,6 +35,10 @@ public class threadingTests {
         } else {
             System.out.println("Fail...");
         }
+        thread1.shutdown();
+        thread2.shutdown();
+        thread1.join();
+        thread2.join();
 
     }
 
