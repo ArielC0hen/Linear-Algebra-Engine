@@ -79,8 +79,6 @@ public class threadingTests {
         while (thread.isBusy()) {
             Thread.sleep(10);
         }
-        System.out.println(thread.getFatigue());
-        System.out.println(thread.getTimeUsed());
         if (thread.getFatigue() > initFatigue) {
             System.out.println("Success! (fatigue increased)");
         } else {
