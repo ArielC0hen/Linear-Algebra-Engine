@@ -52,7 +52,7 @@ public class testMatrixAddition {
         System.out.println("---Check 1 (standard)---");
         double[][] c1m = {{1.0, 2.0}, {3.0, 4.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m);
-        SharedVector c1sv = c1sm.get(1); // should be [3.0, 4.0]
+        SharedVector c1sv = c1sm.get(1);
         if (c1sv.get(0) == 3.0 && c1sv.get(1) == 4.0) {
             System.out.println("Success!");
         } else {
