@@ -17,7 +17,7 @@ public class testMatrixAddition {
         System.out.println("---Check 1 (Row x Column Matrix)---");
         double[] c1v1 = {3.0, 6.0, 2.0};
         SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR); 
-        double[] c1M = {1.0, 2.0, 3.0},
+        double[] c1M = {1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, 
         ;
         double[] c1v3 = {4.0, 5.0, 6.0};
         double[] c1v4 = {7.0, 8.0, 9.0};
