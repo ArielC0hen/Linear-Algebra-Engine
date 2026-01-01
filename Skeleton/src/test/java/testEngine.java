@@ -14,15 +14,10 @@ import spl.lae.LinearAlgebraEngine;
 public class testEngine {
     
     public static void main(String[] args) throws InterruptedException {
-        shutdownTester();
-        newTaskTester();
-        fatigueCalculationTester();
-        compareToTester();  
-        /////////////  
-        submitAllTester();
+        testMatrixAddition();
     }
 
-    public void testMatrixAddition() {
+    public static void testMatrixAddition() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(2);
 
         System.out.println("---Check 1 (addition)---");
