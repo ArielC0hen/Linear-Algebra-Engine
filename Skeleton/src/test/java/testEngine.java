@@ -38,7 +38,9 @@ public class testEngine {
         double[][] c1res = engine.run(c1r).getMatrix();
         double[][] c1a = {{6, 8}, {10, 12}};
         if (Arrays.deepEquals(c1res, c1a)) {
-            
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
         }
     }
 
