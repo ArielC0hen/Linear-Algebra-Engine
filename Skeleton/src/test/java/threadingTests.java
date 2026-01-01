@@ -37,7 +37,7 @@ public class threadingTests {
         executor.submitAll(tasks);
         long duration = System.currentTimeMillis() - startTime;
         if (duration >= 100) {
-            System.out.println("Success! (waited for the tasks to finish");
+            System.out.println("Success! (waited for the tasks to finish)");
         } else {
             System.out.println("Fail... (didn't wait for the tasks to finish)");
         }
