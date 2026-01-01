@@ -21,7 +21,7 @@ public class testMatrixAddition {
     public static void loadRowMajorTester() {
         System.out.println("Checking the loadRowMajor Function in SharedMatrix");
 
-        System.out.println("---Check 1 (Standard Load)---");
+        System.out.println("---Check 1 (standard)---");
         double[][] c1m1 = {{1.0, 1.0}, {1.0, 1.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m1);
         double[][] c1m2 = {{9.0, 8.0}, {7.0, 6.0}};
