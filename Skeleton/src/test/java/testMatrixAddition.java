@@ -124,7 +124,7 @@ public class testMatrixAddition {
             c4sv1.dot(c4sv2);
             System.out.println("Failed... (didn't throw an error)");
         } catch (Exception e) {
-            System.out.println("Success... (threw an exception)");
+            System.out.println("Success! (threw an exception)");
         }
     }
 
