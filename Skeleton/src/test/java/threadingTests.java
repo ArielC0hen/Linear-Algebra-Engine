@@ -36,7 +36,11 @@ public class threadingTests {
         }
         executor.submitAll(tasks);
         long duration = System.currentTimeMillis() - startTime;
-        if (duration >= )
+        if (duration >= 300) {
+            System.out.println("Success! (waited for the tasks to finish");
+        } else {
+            System.out.println("Fail... (didn't wait for the tasks to finish)");
+        }
         assertTrue(duration >= 100, "submitAll should block for the duration of tasks");
         executor.shutdown();
     }
