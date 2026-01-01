@@ -36,7 +36,7 @@ public class threadingTests {
         }
         executor.submitAll(tasks);
         long duration = System.currentTimeMillis() - startTime;
-        if (duration)
+        if (duration >=)
         assertTrue(duration >= 100, "submitAll should block for the duration of tasks");
         executor.shutdown();
     }
