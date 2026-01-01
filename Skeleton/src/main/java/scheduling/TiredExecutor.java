@@ -74,7 +74,10 @@ public class TiredExecutor {
             "time used = " + workers[i].getTimeUsed()+ "\n" + 
             "time idle = " + workers[i].getTimeIdle() + "\n" +
             "is busy? = " + workers[i].isBusy() + "\n";
+            totalFatigue += workers[i].getFatigue();
         }
+        double averageFatigue = totalFatigue / workers.length;
+        
         return output;
     }
 }
