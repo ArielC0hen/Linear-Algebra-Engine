@@ -37,7 +37,7 @@ public class testEngine {
         List<ComputationNode> c2children = Arrays.asList(c2cn1);
         ComputationNode c2r = new ComputationNode(ComputationNodeType.TRANSPOSE, c2children);
         double[][] c2res = engine.run(c2r).getMatrix();
-        double[][] c2a = new double[0][0];
+        double[][] c2a = new double[0][0]; // {{}} lo avad mesiba mesoyoomet
         if (Arrays.equals(c2res, c2a)) {
             System.out.println("Success!");
         } else {
