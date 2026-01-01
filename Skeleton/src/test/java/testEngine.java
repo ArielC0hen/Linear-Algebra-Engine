@@ -45,7 +45,7 @@ public class testEngine {
             System.out.println(); // Move to next row
         }
         double[][] c2a = {{}};
-        if (Arrays.deepEquals(c2res, c2a)) {
+        if (Arrays.equals(c2res, c2a)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
