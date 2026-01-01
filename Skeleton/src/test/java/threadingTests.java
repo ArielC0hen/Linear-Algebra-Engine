@@ -20,7 +20,11 @@ public class threadingTests {
                 Thread.sleep(50); 
             } catch (InterruptedException e) {}
         });
-        
+        thread1.newTask(() -> {
+            try { 
+                Thread.sleep(100); 
+            } catch (InterruptedException e) {}
+        });
         thread.shutdown();
         thread.join(1000);
         if (!thread.isAlive()) {
