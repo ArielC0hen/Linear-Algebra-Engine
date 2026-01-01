@@ -69,9 +69,12 @@ public class threadingTests {
             try { 
                 Thread.sleep(50); 
             } catch (InterruptedException e) {}
-        });        
-        while(thread.isBusy()) { 
-            Thread.sleep(10); 
+        });  
+        while (!thread.isBusy()) {
+            Thread.sleep(10);
+        }
+        while (thread.isBusy()) {
+            Thread.sleep(10);
         }
         System.out.println(thread.getFatigue());
         System.out.println(thread.getTimeUsed());
