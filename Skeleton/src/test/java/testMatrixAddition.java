@@ -19,7 +19,9 @@ public class testMatrixAddition {
         double[] c1v2 = {1.0, 2.0, 3.0};
         double[] c1v3 = {4.0, 5.0, 6.0};
         double[] c1v4 = {7.0, 8.0, 9.0};
-        SharedVector c1sv2 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR); 
+        SharedVector c1sv2 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR);
+        SharedVector c1sv3 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR); 
+        SharedVector c1sv4 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR); 
     }
 
     public static void dotTester() {
