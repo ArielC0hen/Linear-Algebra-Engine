@@ -40,7 +40,7 @@ public class threadingTests {
         if (!thread.isAlive()) {
             System.out.println("Success! (thread terminated)");
         } else {
-          System.out.println("Fail... (thread is still running)");  
+          System.out.println("Fail... (thread is still running after a long time)");  
         }
     }
 
