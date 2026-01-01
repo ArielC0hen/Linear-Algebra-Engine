@@ -124,10 +124,9 @@ public class testEngine {
         ComputationNode c4r = new ComputationNode(ComputationNodeType.ADD, c4children);
         try {
             double[][] c4res = engine.run(c4r).getMatrix();
-            System.out.println("Fail.. (no exception thrown");
+            System.out.println("Fail.. (no exception thrown)");
         } catch (Exception e) {
-            System.out.println("Success! (exception thrown");
-        }
-        System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");   
+            System.out.println("Success! (exception thrown)");
+        }  
     }
 }
