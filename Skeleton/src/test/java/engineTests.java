@@ -1,4 +1,4 @@
-package spl.lae;
+import spl.lae;
 
 import parser.*;
 import memory.*;
