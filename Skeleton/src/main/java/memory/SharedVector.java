@@ -202,11 +202,6 @@ public class SharedVector {
         } else { // row major 
             int numOfCols = matrix.get(0).length();
             if (matrix.length() > 0 && matrix.length() != length()) {
-                //System.out.println("vector length: " + length());
-                //System.out.println(toString());
-                //System.out.println("num of row: " + matrix.length());
-                //System.out.println("matrix orientation: " + matrix.getOrientation());
-                //System.out.println(matrix.toString());
                 throw new IllegalArgumentException("Can't multiply");
             }
             double[] result = new double[numOfCols]; // 1 x m
