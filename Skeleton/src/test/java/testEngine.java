@@ -11,70 +11,69 @@ public class testEngine {
         //testMatrixMultiplication();
     }
 
-public static void testMatrixMultiplication() {
-    LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
+    public static void testMatrixMultiplication() {
+        LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-    System.out.println("---Check 1 (multiplication)---");
+        System.out.println("---Check 1 (multiplication)---");
 
-    // --- Check 1: Standard 2x2 multiplication ---
-    System.out.println("standard 2x2");
-    double[][] c1m1 = {{1, 2}, {3, 4}};
-    double[][] c1m2 = {{5, 6}, {7, 8}};
-    ComputationNode c1cn1 = new ComputationNode(c1m1);
-    ComputationNode c1cn2 = new ComputationNode(c1m2);
-    List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
-    ComputationNode c1r = new ComputationNode(ComputationNodeType.MULTIPLY, c1children);
-    double[][] c1res = engine.run(c1r).getMatrix();
-    double[][] c1a = {{19, 22}, {43, 50}};
-    if (Arrays.deepEquals(c1res, c1a)) {
-        System.out.println("Success!");
-    } else {
-        System.out.println("Fail...");
+        System.out.println("standard 2x2");
+        double[][] c1m1 = {{1, 2}, {3, 4}};
+        double[][] c1m2 = {{5, 6}, {7, 8}};
+        ComputationNode c1cn1 = new ComputationNode(c1m1);
+        ComputationNode c1cn2 = new ComputationNode(c1m2);
+        List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
+        ComputationNode c1r = new ComputationNode(ComputationNodeType.MULTIPLY, c1children);
+        double[][] c1res = engine.run(c1r).getMatrix();
+        double[][] c1a = {{19, 22}, {43, 50}};
+        if (Arrays.deepEquals(c1res, c1a)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        // --- Check 2: Multiply by zero matrix ---
+        System.out.println("multiply by zero matrix");
+        double[][] c2m1 = {{1, 2}, {3, 4}};
+        double[][] c2m2 = {{0, 0}, {0, 0}};
+        ComputationNode c2cn1 = new ComputationNode(c2m1);
+        ComputationNode c2cn2 = new ComputationNode(c2m2);
+        List<ComputationNode> c2children = Arrays.asList(c2cn1, c2cn2);
+        ComputationNode c2r = new ComputationNode(ComputationNodeType.MULTIPLY, c2children);
+        double[][] c2res = engine.run(c2r).getMatrix();
+        double[][] c2a = {{0, 0}, {0, 0}};
+        if (Arrays.deepEquals(c2res, c2a)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        // --- Check 3: Non-square matrices 2x3 * 3x2 ---
+        System.out.println("non-square multiplication");
+        double[][] c3m1 = {{1, 2, 3}, {4, 5, 6}};
+        double[][] c3m2 = {{7, 8}, {9, 10}, {11, 12}};
+        ComputationNode c3cn1 = new ComputationNode(c3m1);
+        ComputationNode c3cn2 = new ComputationNode(c3m2);
+        List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
+        ComputationNode c3r = new ComputationNode(ComputationNodeType.MULTIPLY, c3children);
+        double[][] c3res = engine.run(c3r).getMatrix();
+        double[][] c3a = {{58, 64}, {139, 154}};
+        if (Arrays.deepEquals(c3res, c3a)) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
+
+        // --- Check 4: Dimension mismatch (exception expected) ---
+        System.out.println("dimension mismatch (exception expected)");
+        double[][] c4m1 = {{1, 2}, {3, 4}};
+        double[][] c4m2 = {{5, 6, 7}, {8, 9, 10}};
+        ComputationNode c4cn1 = new ComputationNode(c4m1);
+        ComputationNode c4cn2 = new ComputationNode(c4m2);
+        List<ComputationNode> c4children = Arrays.asList(c4cn1, c4cn2);
+        ComputationNode c4r = new ComputationNode(ComputationNodeType.MULTIPLY, c4children);
+        double[][] c4res = engine.run(c4r).getMatrix();
+        System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
     }
-
-    // --- Check 2: Multiply by zero matrix ---
-    System.out.println("multiply by zero matrix");
-    double[][] c2m1 = {{1, 2}, {3, 4}};
-    double[][] c2m2 = {{0, 0}, {0, 0}};
-    ComputationNode c2cn1 = new ComputationNode(c2m1);
-    ComputationNode c2cn2 = new ComputationNode(c2m2);
-    List<ComputationNode> c2children = Arrays.asList(c2cn1, c2cn2);
-    ComputationNode c2r = new ComputationNode(ComputationNodeType.MULTIPLY, c2children);
-    double[][] c2res = engine.run(c2r).getMatrix();
-    double[][] c2a = {{0, 0}, {0, 0}};
-    if (Arrays.deepEquals(c2res, c2a)) {
-        System.out.println("Success!");
-    } else {
-        System.out.println("Fail...");
-    }
-
-    // --- Check 3: Non-square matrices 2x3 * 3x2 ---
-    System.out.println("non-square multiplication");
-    double[][] c3m1 = {{1, 2, 3}, {4, 5, 6}};
-    double[][] c3m2 = {{7, 8}, {9, 10}, {11, 12}};
-    ComputationNode c3cn1 = new ComputationNode(c3m1);
-    ComputationNode c3cn2 = new ComputationNode(c3m2);
-    List<ComputationNode> c3children = Arrays.asList(c3cn1, c3cn2);
-    ComputationNode c3r = new ComputationNode(ComputationNodeType.MULTIPLY, c3children);
-    double[][] c3res = engine.run(c3r).getMatrix();
-    double[][] c3a = {{58, 64}, {139, 154}};
-    if (Arrays.deepEquals(c3res, c3a)) {
-        System.out.println("Success!");
-    } else {
-        System.out.println("Fail...");
-    }
-
-    // --- Check 4: Dimension mismatch (exception expected) ---
-    System.out.println("dimension mismatch (exception expected)");
-    double[][] c4m1 = {{1, 2}, {3, 4}};
-    double[][] c4m2 = {{5, 6, 7}, {8, 9, 10}};
-    ComputationNode c4cn1 = new ComputationNode(c4m1);
-    ComputationNode c4cn2 = new ComputationNode(c4m2);
-    List<ComputationNode> c4children = Arrays.asList(c4cn1, c4cn2);
-    ComputationNode c4r = new ComputationNode(ComputationNodeType.MULTIPLY, c4children);
-    double[][] c4res = engine.run(c4r).getMatrix();
-    System.out.println("^THERE SHOULD BE AN EXCEPTION HERE^");
-}
 
     public static void testMatrixAddition() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
