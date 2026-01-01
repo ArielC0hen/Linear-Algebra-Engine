@@ -16,7 +16,9 @@ public class threadingTests {
             taskRan.set(true);
         });
         Thread.sleep(100); 
-
+        if (taskRan.get()) {
+            System.out.println("Success!");
+        }
         assertTrue(taskRan.get(), "The task submitted via newTask should have executed.");
         
         thread.shutdown();
