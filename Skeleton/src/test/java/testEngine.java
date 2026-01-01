@@ -32,14 +32,15 @@ public class testEngine {
         double[][] c1m2 = {{5, 6}, {7, 8}};
 
         // 2. Build Leaf Nodes
-        ComputationNode c1leaf1 = new ComputationNode(c1m1);
+        ComputationNode c1cn1 = new ComputationNode(c1m1);
+        ComputationNode c1cn2 = new ComputationNode(c1m2);
         leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
         
         ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
         leafB.setMatrix(matrixB);
 
         // 3. Build Root Node (ADD)
-        List<ComputationNode> children = Arrays.asList(leafA, leafB);
+        List<ComputationNode> children = Arrays.asList(c1cn1, c1cn2);
         ComputationNode root = new ComputationNode("ADD", children);
 
         // 4. Run and Verify
