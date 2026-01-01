@@ -79,7 +79,7 @@ public class testEngine {
     public static void testMatrixNegate() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 1 (negate)---");
+        System.out.println("---Check 2 (negate)---");
 
         System.out.println("standard");
         double[][] c1m1 = {{1, 2}, {3, 4}};
@@ -125,7 +125,7 @@ public class testEngine {
     public static void testMatrixMultiplication() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 2 (multiplication)---");
+        System.out.println("---Check 4 (multiplication)---");
 
         System.out.println("standard 2x2");
         double[][] c1m1 = {{1, 2}, {3, 4}};
@@ -198,7 +198,7 @@ public class testEngine {
     public static void testMatrixAddition() {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
-        System.out.println("---Check 1 (addition)---");
+        System.out.println("---Check 3 (addition)---");
 
         System.out.println("standard");
         double[][] c1m1 = {{1, 2}, {3, 4}};
