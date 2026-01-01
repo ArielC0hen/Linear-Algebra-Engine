@@ -15,7 +15,6 @@ public class testEngine {
 
         System.out.println("---Check 2 (multiplication)---");
 
-        // --- Standard 2x2 multiplication ---
         System.out.println("standard 2x2");
         double[][] m1 = {{1, 2}, {3, 4}};
         double[][] m2 = {{5, 6}, {7, 8}};
@@ -31,7 +30,6 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 2: Multiply by zero matrix ---
         System.out.println("multiply by zero matrix");
         double[][] m3 = {{1, 2}, {3, 4}};
         double[][] m4 = {{0, 0}, {0, 0}};
