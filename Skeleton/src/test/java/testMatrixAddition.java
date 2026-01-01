@@ -57,7 +57,15 @@ public class testMatrixAddition {
             System.out.println("Fail...");
         }
 
-        
+        System.out.println("---Check 4 (verify orientation)---");
+        double[][] c4m = {{1.1, 2.2}};
+        SharedMatrix c4sm = new SharedMatrix();
+        c4sm.loadRowMajor(c4m);
+        if (c4sm.getOrientation() == VectorOrientation.ROW_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }    
 
     public static void readRowMajorTester () {
