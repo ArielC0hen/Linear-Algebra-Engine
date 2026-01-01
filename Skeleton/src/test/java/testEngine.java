@@ -18,15 +18,12 @@ public class testEngine {
         LinearAlgebraEngine engine = new LinearAlgebraEngine(3);
 
         System.out.println("---Check 5 (complex combinations)---");
-
         double[][] c1m1 = {{1, 2}, {3, 4}};
         double[][] c1m2 = {{5, 6}, {7, 8}};
         double[][] c1m3 = {{2, 0}, {1, 2}};
-
         ComputationNode c1cn1 = new ComputationNode(c1m1);
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         ComputationNode c1cn3 = new ComputationNode(c1m3);
-
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
         ComputationNode c1r = new ComputationNode(ComputationNodeType.ADD, c1children);
         ComputationNode c1resNode = engine.run(c1r);
