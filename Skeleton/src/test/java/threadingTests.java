@@ -37,7 +37,6 @@ public class threadingTests {
         thread2.shutdown();
         thread1.join();
         thread2.join();
-
     }
 
     public void testFatigueCalculation() throws InterruptedException {
