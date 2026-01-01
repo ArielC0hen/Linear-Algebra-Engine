@@ -62,7 +62,7 @@ public class testEngine {
         }
 
         // --- Check 4: Dimension mismatch (exception expected) ---
-        System.out.println("dimension mismatch (exception expected)");
+        System.out.println("different dimensions (exception expected)");
         double[][] c4m1 = {{1, 2}, {3, 4}};
         double[][] c4m2 = {{5, 6, 7}, {8, 9, 10}};
         ComputationNode c4cn1 = new ComputationNode(c4m1);
