@@ -27,7 +27,7 @@ public class threadingTests {
     
     thread.shutdown();
     thread.join();
-}
+    }
 
     public void testCompareTo() throws InterruptedException {
         System.out.println("Testing compareTo in TiredThread");
