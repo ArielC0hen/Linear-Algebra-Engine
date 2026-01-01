@@ -177,7 +177,7 @@ public class testMatrixAddition {
         double[][] c3m = {};
         SharedMatrix c3sm = new SharedMatrix(c3m);
         double[][] c3res = c3sm.readRowMajor();
-        if (Arrays.equals(c3m, c3res)) {
+        if (Arrays.deepEquals(c3m, c3res)) {
             System.out.println("Success!");
         } else {
             System.out.println("Fail...");
