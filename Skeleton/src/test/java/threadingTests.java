@@ -24,7 +24,7 @@ public class threadingTests {
 
         
         while(thread.isBusy()) { 
-            Thread.onSpinWait(); 
+            Thread.sleep(3); 
         }
 
         assertTrue(thread.getFatigue() > initialFatigue, "Fatigue should increase after work");
