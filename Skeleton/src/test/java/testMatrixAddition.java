@@ -37,7 +37,7 @@ public class testMatrixAddition {
     public static void readRowMajorTester () {
         System.out.println("Checking the readRowMajor Function in SharedMatrix");
 
-        System.out.println("---Check 1 (Row Matrix)---");
+        System.out.println("---Check 1 (row matrix)---");
         double[][] c1m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c1sm = new SharedMatrix(c1m);
         double[][] c1res = c1sm.readRowMajor();
@@ -47,7 +47,7 @@ public class testMatrixAddition {
             System.out.println("Fail...");
         }
 
-        System.out.println("---Check 2 (Column Matrix)---");
+        System.out.println("---Check 2 (column matrix)---");
         double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
         SharedMatrix c2sm = new SharedMatrix(c2m);
         for (int i = 0; i < c2sm.length(); i++) {
