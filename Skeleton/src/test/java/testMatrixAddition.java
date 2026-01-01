@@ -55,10 +55,10 @@ public class testMatrixAddition {
         System.out.println("got: " + c2s1);
 
         System.out.println("---Check 1 (invalid dimensions, error expected)---");
-        double[] c2v1 = {3.0, 6.0, 2.0};
-        SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.ROW_MAJOR); 
-        double[][] c2m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
-        SharedMatrix c2sm = new SharedMatrix(c2m);
+        double[] c3v1 = {3.0, 6.0, 2.0};
+        SharedVector c3sv1 = new SharedVector(c3v1, VectorOrientation.ROW_MAJOR); 
+        double[][] c3m = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}};
+        SharedMatrix c3sm = new SharedMatrix(c3m);
         c2sv1.vecMatMul(c2sm);
         double[] c2a = {21.0, 54.0, 76.0};
         SharedVector c2sva = new SharedVector(c2a, VectorOrientation.ROW_MAJOR);
