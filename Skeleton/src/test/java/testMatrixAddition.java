@@ -1,3 +1,4 @@
+import memory.SharedMatrix;
 import memory.SharedVector;
 import memory.VectorOrientation;
 
@@ -20,8 +21,9 @@ public class testMatrixAddition {
         double[] c1v3 = {4.0, 5.0, 6.0};
         double[] c1v4 = {7.0, 8.0, 9.0};
         SharedVector c1sv2 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR);
-        SharedVector c1sv3 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR); 
-        SharedVector c1sv4 = new SharedVector(c1v2, VectorOrientation.COLUMN_MAJOR); 
+        SharedVector c1sv3 = new SharedVector(c1v3, VectorOrientation.COLUMN_MAJOR); 
+        SharedVector c1sv4 = new SharedVector(c1v4, VectorOrientation.COLUMN_MAJOR);
+        SharedMatrix c1M = new S 
     }
 
     public static void dotTester() {
