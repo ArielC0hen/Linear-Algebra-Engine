@@ -8,8 +8,11 @@ public class threadingTests {
         shutdownTester();
         newTaskTester();
         fatigueCalculationTester();
-        compareToTester();    
+        compareToTester();  
+        /////////////  
     }
+    
+
 
     public static void newTaskTester() throws InterruptedException {
         System.out.println("Testing newTask in TiredThread");
