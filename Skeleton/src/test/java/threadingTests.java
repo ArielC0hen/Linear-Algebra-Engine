@@ -15,8 +15,6 @@ public class threadingTests {
         thread.newTask(() -> {
             taskRan.set(true);
         });
-
-        // Wait for the thread to process the task
         Thread.sleep(100); 
 
         assertTrue(taskRan.get(), "The task submitted via newTask should have executed.");
