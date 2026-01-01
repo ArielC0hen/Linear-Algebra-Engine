@@ -45,8 +45,7 @@ public class testEngine {
             System.out.println("Fail...");
         }
 
-        // --- Check 3: Non-square matrices (2x3 * 3x2) ---
-        System.out.println("non-square multiplication");
+        System.out.println("non square multiplication");
         double[][] m5 = {{1, 2, 3}, {4, 5, 6}};
         double[][] m6 = {{7, 8}, {9, 10}, {11, 12}};
         ComputationNode cn5 = new ComputationNode(m5);
