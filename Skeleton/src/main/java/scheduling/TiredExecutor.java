@@ -13,7 +13,7 @@ public class TiredExecutor {
         // TODO
         workers = new TiredThread[numThreads];
         for (int i = 0; i < numThreads; i++) {
-
+            double fatigueFactor = rand
             workers[i] = new TiredThread(i, 0);
             workers[i].start();
             idleMinHeap.add(workers[i]);
