@@ -42,6 +42,7 @@ public class threadingTests {
         while(thread1.isBusy() || thread2.isBusy()) { 
             Thread.sleep(20);
         }
+        Thread.sleep(100);
         if (thread1.compareTo(thread2) < 0) {
             System.out.println("Success!");
         } else {
