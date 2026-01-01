@@ -26,7 +26,7 @@ public class threadingTests {
             } catch (InterruptedException e) {}
         });
         while(thread1.isBusy() || thread2.isBusy()) { 
-            Thread.sleep(3);
+            Thread.sleep(10);
         }
         if (thread1.getFatigue() < thread2.getFatigue()) {
             System.out.println("Success!");
@@ -49,7 +49,7 @@ public class threadingTests {
             } catch (InterruptedException e) {}
         });        
         while(thread.isBusy()) { 
-            Thread.sleep(3); 
+            Thread.sleep(10); 
         }
         if (thread.getFatigue() > initFatigue) {
             System.out.println("Success! (fatigue increased)");
