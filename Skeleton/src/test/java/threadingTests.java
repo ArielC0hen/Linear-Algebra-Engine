@@ -23,7 +23,7 @@ public class threadingTests {
             Thread.sleep(3); 
         }
 
-        if ()
+        if (thread.getFatigue() >)
 
         assertTrue(thread.getFatigue() > initialFatigue, "Fatigue should increase after work");
         thread.shutdown();
