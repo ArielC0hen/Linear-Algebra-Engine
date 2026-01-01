@@ -17,13 +17,12 @@ public class threadingTests {
         double initFatigue = thread.getFatigue();        
         thread.newTask(() -> {
             try { 
-                Thread.sleep(50); 
+                thread.sleep(50); 
             } catch (InterruptedException e) {}
         });        
         while(thread.isBusy()) { 
             Thread.sleep(3); 
         }
-
         if (thread.getFatigue() > initFatigue) {
             System.out.println("Success! (fatigue increased)");
         } else {
