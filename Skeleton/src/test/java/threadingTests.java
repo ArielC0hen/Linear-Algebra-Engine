@@ -23,7 +23,9 @@ public class threadingTests {
         });
 
         
-        while(thread.isBusy()) { Thread.onSpinWait(); }
+        while(thread.isBusy()) { 
+            Thread.onSpinWait(); 
+        }
 
         assertTrue(thread.getFatigue() > initialFatigue, "Fatigue should increase after work");
         thread.shutdown();
