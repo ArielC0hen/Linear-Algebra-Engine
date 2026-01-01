@@ -201,6 +201,13 @@ public class testMatrixAddition {
 
     public static void tranposeTest() {
         System.out.println("---Check 1 (row -> column)---");
-        SharedVector c1v1 = new SharedVector({1.0,3}, VectorOrientation.COLUMN_MAJOR)
+        double[] c1v1 = {1.0,2.0,3.0};
+        SharedVector c1sv1 = new SharedVector(c1v1, VectorOrientation.ROW_MAJOR);
+        c1sv1.transpose();
+        if (c1sv1.getOrientation() == VectorOrientation.COLUMN_MAJOR) {
+            System.out.println("Success!");
+        } else {
+            System.out.println("Fail...");
+        }
     }
 }
