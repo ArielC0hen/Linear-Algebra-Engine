@@ -38,7 +38,7 @@ public class testEngine {
         List<ComputationNode> c3children = Arrays.asList(c2resNode);
         ComputationNode c3r = new ComputationNode(ComputationNodeType.NEGATE, c3children);
         ComputationNode c3resNode = engine.run(c3r);
-
+        // {{-20,-16},{-32,-24}}
         List<ComputationNode> c4children = Arrays.asList(c3resNode);
         ComputationNode c4r = new ComputationNode(ComputationNodeType.TRANSPOSE, c4children);
         double[][] c4res = engine.run(c4r).getMatrix();
