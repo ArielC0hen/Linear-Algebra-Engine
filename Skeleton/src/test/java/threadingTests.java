@@ -26,7 +26,7 @@ public class threadingTests {
         thread.join();
     }
 
-    public void CompareToTester() throws InterruptedException {
+    public void compareToTester() throws InterruptedException {
         System.out.println("Testing compareTo in TiredThread");
         TiredThread thread1 = new TiredThread(1, 1.0);
         TiredThread thread2 = new TiredThread(2, 1.0);
@@ -57,7 +57,7 @@ public class threadingTests {
         thread2.join();
     }
 
-    public void FatigueCalculationTester() throws InterruptedException {
+    public void fatigueCalculationTester() throws InterruptedException {
         System.out.println("Testing fatigue calculation in TiredThread");
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start();
@@ -79,7 +79,7 @@ public class threadingTests {
         thread.join();
     }
 
-    public void ShutdownTester() throws InterruptedException {
+    public void shutdownTester() throws InterruptedException {
         System.out.println("Testing shutdown in TiredThread");
         TiredThread thread = new TiredThread(1, 1.0);
         thread.start(); 
