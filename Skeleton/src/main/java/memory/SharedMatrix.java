@@ -72,6 +72,7 @@ public class SharedMatrix {
 
     public SharedVector get(int index) {
         // TODO: return vector at index
+        if ()
         return vectors[index];
     }
 
