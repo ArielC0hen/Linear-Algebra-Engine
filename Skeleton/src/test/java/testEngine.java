@@ -35,7 +35,7 @@ public class testEngine {
         ComputationNode c1cn1 = new ComputationNode(c1m1);
         ComputationNode c1cn2 = new ComputationNode(c1m2);
         List<ComputationNode> c1children = Arrays.asList(c1cn1, c1cn2);
-        ComputationNode root = new ComputationNode("ADD", c1children);
+        ComputationNode c1r = new ComputationNode("ADD", c1children);
         leafA.setMatrix(matrixA); // Assuming you have a setter for leaf values
         
         ComputationNode leafB = new ComputationNode("MATRIX", new ArrayList<>());
