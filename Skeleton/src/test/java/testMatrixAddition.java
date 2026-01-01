@@ -235,7 +235,7 @@ public class testMatrixAddition {
             System.out.println("Fail...");
         }
 
-        System.out.println("---Check 2 (column -> row)---");
+        System.out.println("---Check 2 (empty vector)---");
         double[] c2v1 = {1.0,2.0,3.0};
         SharedVector c2sv1 = new SharedVector(c2v1, VectorOrientation.COLUMN_MAJOR);
         c2sv1.transpose();
