@@ -1,4 +1,4 @@
-import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram, isProcExp, isIfExp } from "./L3-ast";
+import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram, isProcExp, isIfExp, makeProgram } from "./L3-ast";
 import { makeSymbolSExp } from "./L3-value";
 import { bind, makeOk, Result } from "../shared/result";
 import { map } from "ramda";
@@ -49,7 +49,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     // program
     if (isProgram(exp)) {
         const transformed = map(transform, exp.exps);
-        return mapv(transformed, );
+        return mapv(transformed, (exps: Exp[]) => makeProgram(exps));
     }
     //others
     if (isIfExp(exp)) {
