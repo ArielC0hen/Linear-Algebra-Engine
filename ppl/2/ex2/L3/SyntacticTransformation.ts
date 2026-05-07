@@ -10,10 +10,7 @@ export const class2proc = (exp: ClassExp): ProcExp =>
     //@TODO
     return makeProcExp(
         exp.fields,
-        makeAppExp(
-            makePrimOp("list"),
-            exp.methods
-        )
+        
     );
 
 
