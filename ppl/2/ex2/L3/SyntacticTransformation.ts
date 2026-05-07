@@ -66,7 +66,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     if (isDefineExp(exp)) {
-        
+        return mapv(
+            
+        )
     }
 
     // atomics
