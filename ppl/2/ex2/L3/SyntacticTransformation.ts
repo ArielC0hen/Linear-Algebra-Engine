@@ -19,9 +19,9 @@ export const class2proc = (exp: ClassExp): ProcExp => {
                     makeVarRef("msg"),
                     makeLitExp(makeSymbolSExp(methods[0].var.var.var))
                 ]
-            )
+            ),
             methods[0].val,
-            
+            ifs(methods.slice(1))
 
         );
     makeProcExp(fields)
