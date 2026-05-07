@@ -26,7 +26,9 @@ export const class2proc = (exp: ClassExp): ProcExp => {
         );
     makeProcExp(
         fields,
-        
+        [makeProcExp(
+            
+        )]
 }
 
 
