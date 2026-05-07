@@ -9,11 +9,14 @@ Type: ClassExp => ProcExp
 export const class2proc = (exp: ClassExp): ProcExp =>
     //@TODO
     return makeProcExp(
-        exp.fields,
-        makeAppExp(
-            makePrimOp("list"),
-            exp.methods
-        )
+        map(v => v.var, exp.fields),
+        [
+            makeAppExp(
+                makePrimOp("list"),
+                map(b => b.val, exp.methods)
+            )
+        ]
+    );
     );
 
 
