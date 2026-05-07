@@ -1,4 +1,4 @@
-import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding } from "./L3-ast";
+import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp } from "./L3-ast";
 import { Result, makeFailure } from "../shared/result";
 import { makeSymbolSExp } from "./L3-value";
 
@@ -17,7 +17,7 @@ export const class2proc = (exp: ClassExp): ProcExp => {
                 makePrimOp("eq?"),
                 [
                     makeVarRef("msg"),
-                    makeLitExp(makeSymbolSExp(methods[0].var.var.var))
+                    makeLitExp(makeSymbolSExp(methods[0].var.var))
                 ]
             ),
             methods[0].val,
