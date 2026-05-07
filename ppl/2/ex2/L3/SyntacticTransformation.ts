@@ -1,6 +1,6 @@
 import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram, isProcExp, isIfExp, makeProgram } from "./L3-ast";
 import { makeSymbolSExp } from "./L3-value";
-import { bind, makeOk, Result } from "../shared/result";
+import { bind, makeOk, mapv, Result } from "../shared/result";
 import { map } from "ramda";
 
 /*
