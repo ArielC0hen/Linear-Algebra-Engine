@@ -262,8 +262,7 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
 
 const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
     isArray(vars) && allT(isString, vars) 
-        ? makeClassExp(map(makeVarDecl, vars), map(makeBinding, body))
-            bind(parseLetExp(methods))
+        ? 
 
         : makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
 }
