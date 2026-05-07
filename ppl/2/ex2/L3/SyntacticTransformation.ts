@@ -50,7 +50,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
         return mapv(transformed, (exps: (Exp | Program)[]) => makeProgram(exps as Exp[]));
-        // we know transformed won't contain program var because 
+        // we know transformed won't contain program var because there's only one program
     }
     //others
     if (isIfExp(exp)) {
