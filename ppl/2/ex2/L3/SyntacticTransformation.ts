@@ -14,6 +14,7 @@ export const class2proc = (exp: ClassExp): ProcExp => {
         ? makeLitExp(makeSymbolSExp("error"))
         : makeIfExp( 
             makeAppExp(
+                makePrimOp("eq?"),
                 
             )
 
