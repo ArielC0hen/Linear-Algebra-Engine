@@ -43,5 +43,5 @@ Type: [Exp | Program] => Result<Exp | Program>
 export const transform = (exp: Exp | Program): Result<Exp | Program> =>
     //@TODO
     if (isClassExp(exp)) {
-        return class2proc;
+        return class2proc(exp);
     }
