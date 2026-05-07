@@ -50,7 +50,7 @@ import { Sexp, Token } from "s-expression";
 
 export type Exp = DefineExp | CExp;
 export type AtomicExp = NumExp | BoolExp | StrExp | PrimOp | VarRef;
-export type CompoundExp = AppExp | IfExp | ProcExp | LetExp | LitExp;
+export type CompoundExp = AppExp | IfExp | ProcExp | LetExp | LitExp | ClassExp;
 export type CExp =  AtomicExp | CompoundExp;
 
 export type Program = {tag: "Program"; exps: Exp[]; }
