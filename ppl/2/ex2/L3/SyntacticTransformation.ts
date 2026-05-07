@@ -20,6 +20,7 @@ export const class2proc = (exp: ClassExp): ProcExp => {
                     makeLitExp(makeSymbolSExp(methods[0].var.var.var))
                 ]
             )
+            
 
         );
     makeProcExp(fields)
