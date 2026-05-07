@@ -97,6 +97,8 @@ export const makeLetExp = (bindings: Binding[], body: CExp[]): LetExp =>
 export const makeLitExp = (val: SExpValue): LitExp =>
     ({tag: "LitExp", val: val});
 // dlc
+export type ClassExp = {tag: "ClassExp"; fields: VarDecl[]; methods: Binding[]; }
+
 export const makeClassExp = (test: CExp, then: CExp, alt: CExp): IfExp =>
     ({tag: "IfExp", test: test, then: then, alt: alt});
 
