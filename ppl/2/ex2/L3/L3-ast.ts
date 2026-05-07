@@ -242,7 +242,7 @@ const parseProcExp = (vars: Sexp, body: Sexp[]): Result<ProcExp> =>
 
 const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ClassExp> =>
     isArray(vars) && allT(isString, vars) ? mapv(mapResult(parseL3CExp, body), (cexps: CExp[]) => 
-                                                 makeClassExp(map(makeVarDecl, vars), cexps)) :
+                                                 makeClassExp(map(makeVarDecl, vars), body)) :
     makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
 
 const isGoodBindings = (bindings: Sexp): bindings is [string, Sexp][] =>
