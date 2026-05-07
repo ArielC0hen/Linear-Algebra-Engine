@@ -54,11 +54,16 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
     //others
     if (isIfExp(exp)) {
-        return bind(transform(exp.test), (exp1: exp1) =>
-            bind(transform(exp.then), (exp2: exp2) => 
-                bind(transform(exp.alt), (exp3: exp3) =>
-                    makeOk(makeIfExp(test,then,alt))
-        )))
+        return mapv(
+            mapResult(transform, [exp.test, exp.then, exp.alt]),
+            ([test, then, alt]) =>
+                makeOk({
+                    tag: "IfExp",
+                    test,
+                    then,
+                    alt
+                })
+        );
     }
 }
     //@TODO
