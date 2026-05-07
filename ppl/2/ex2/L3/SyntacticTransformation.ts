@@ -56,8 +56,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isIfExp(exp)) {
         return mapv(
             mapResult(transform, [exp.test, exp.then, exp.alt]),
-            ([test, then, alt]) =>
-                makeOk(makeIfExp(test,then,alt))
+            ([test, then, alt]) => makeIfExp(test,then,alt)
         );
     }
 }
