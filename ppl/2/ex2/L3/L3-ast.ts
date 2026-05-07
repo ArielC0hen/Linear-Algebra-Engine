@@ -161,7 +161,7 @@ export const parseL3CompoundExp = (op: Sexp, params: Sexp[]): Result<Exp> =>
     op === "define"? parseDefine(params) :
     parseL3CompoundCExp(op, params);
 
-// CompoundCExp -> IfExp | ProcExp | LetExp | LitExp | AppExp
+// CompoundCExp -> IfExp | ProcExp | LetExp | LitExp | AppExp | ClassExp
 export const parseL3CompoundCExp = (op: Sexp, params: Sexp[]): Result<CExp> =>
     isString(op) && isSpecialForm(op) ? parseL3SpecialForm(op, params) :
     parseAppExp(op, params);
