@@ -298,7 +298,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     // 2. CRITICAL FIX: Extract the actual bindings list
     // 'methods' is [[method1, method2, ...]] 
     // We need [method1, method2, ...]
-    const methodsList = first(methods);
+    const methodsList = map(first,methods);
 
     if (!isGoodBindings(methodsList)) {
         return makeFailure('Malformed methods in "class" expression');
