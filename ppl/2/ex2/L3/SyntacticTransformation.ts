@@ -42,4 +42,4 @@ Type: [Exp | Program] => Result<Exp | Program>
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> =>
     //@TODO
-    if (isExp)
+    if (is)
