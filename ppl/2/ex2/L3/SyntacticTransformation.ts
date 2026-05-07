@@ -58,11 +58,6 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             mapResult(transform, [exp.test, exp.then, exp.alt]),
             ([test, then, alt]) =>
                 makeOk(makeIfExp(test,then,alt))
-                    tag: "IfExp",
-                    test,
-                    then,
-                    alt
-                })
         );
     }
 }
