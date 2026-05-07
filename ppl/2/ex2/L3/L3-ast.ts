@@ -270,7 +270,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
 
     const vars = map(b => b[0], methods);
     const valsResult = mapResult(parseL3CExp, map(second, methods));
-    const methodsResult = mapv(valsResult, (vals: CExp[]) => zipWith(makeBinding, vars, vals));
+    const methodsResult = map(valsResult, (vals: CExp[]) => zipWith(makeBinding, vars, vals));
     return bind(valsResult, (vals: CExp[]) => 
         makeOk(
             makeClassExp(
