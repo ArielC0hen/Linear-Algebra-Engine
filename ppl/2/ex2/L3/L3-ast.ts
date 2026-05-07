@@ -283,10 +283,34 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     return mapv(methodsResult,
         (methods: Binding[]) => makeClassExp(map(makeVarDecl, fields), methods) //  gets methods (methodsResult), returns the final ClassExp
     );
-    */
+    
 }
 */
 
+const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
+    if (!(isArray(fields) && allT(isString, fields))) {
+        return makeFailure(`Invalid fields for ClassExp ${format(fields)}`);
+    }
+
+    // each method must be (name exp)
+    if (!allT(isNonEmptyList, methods)) {
+        return makeFailure("Malformed methods in class");
+    }
+
+    const methodPairs = methods as Sexp[][];
+
+    const methodNames = map(m => m[0] as string, methodPairs);
+    const methodValsSexp = map(m => m[1], methodPairs);
+
+    const valsResult = mapResult(parseL3CExp, methodValsSexp);
+
+    return mapv(valsResult, (vals: CExp[]) =>
+        makeClassExp(
+            map(makeVarDecl, fields),
+            zipWith(makeBinding, methodNames, vals)
+        )
+    );
+};
 
 // sexps has the shape (quote <sexp>)
 export const parseLitExp = (param: Sexp): Result<LitExp> =>
