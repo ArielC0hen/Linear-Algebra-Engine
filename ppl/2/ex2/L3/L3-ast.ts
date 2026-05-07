@@ -295,7 +295,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`);
     }
 
-    // 2. Type Guard: Prove to TS that methods is not empty
+    // TS is annoying
     if (!isNonEmptyList<Sexp>(methods)) {
         return makeFailure('Class expression must have a methods list');
     }
