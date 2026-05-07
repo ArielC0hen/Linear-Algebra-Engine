@@ -60,7 +60,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     if (isProcExp(exp))  {
-        
+        exp.
     }
 }
     //@TODO
