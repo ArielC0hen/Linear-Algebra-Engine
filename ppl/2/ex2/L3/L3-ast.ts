@@ -96,6 +96,9 @@ export const makeLetExp = (bindings: Binding[], body: CExp[]): LetExp =>
 // L3
 export const makeLitExp = (val: SExpValue): LitExp =>
     ({tag: "LitExp", val: val});
+// dlc
+export const makeClassExp = (test: CExp, then: CExp, alt: CExp): IfExp =>
+    ({tag: "IfExp", test: test, then: then, alt: alt});
 
 // Type predicates for disjoint types
 export const isProgram = (x: any): x is Program => x.tag === "Program";
