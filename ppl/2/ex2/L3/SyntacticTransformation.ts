@@ -66,6 +66,10 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     
+
+    // atomics
+    return makeOk(exp);
+
 }
     //@TODO
 
