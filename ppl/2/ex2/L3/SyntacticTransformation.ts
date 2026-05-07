@@ -1,5 +1,6 @@
-import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp } from "./L3-ast";
+import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp } from "./L3-ast";
 import { Result, makeFailure } from "../shared/result";
+import { makeSymbolSExp } from "./L3-value";
 
 /*
 Purpose: Transform ClassExp to ProcExp
@@ -10,7 +11,10 @@ export const class2proc = (exp: ClassExp): ProcExp => {
     const fields = exp.fields;
     const methods = exp.fields;
     const ifs = (methods: Binding[]): CExp => methods.length === 0 
-        ? makeLitExp(make)
+        ? makeLitExp(makeSymbolSExp("error"))
+        : makeIfExp(
+            
+        )
     makeProcExp(fields)
 }
 
