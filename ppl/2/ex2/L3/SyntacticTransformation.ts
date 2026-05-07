@@ -9,7 +9,7 @@ Type: ClassExp => ProcExp
 export const class2proc = (exp: ClassExp): ProcExp => {
     const fields = exp.fields;
     const methods = exp.fields;
-    const innnerLambda = 
+    const 
     makeProcExp(fields)
 }
 
