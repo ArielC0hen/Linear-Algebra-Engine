@@ -295,7 +295,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
 }
 
 
-
+/*
 const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!(isArray(fields) && allT(isString, fields))) {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`);
@@ -317,6 +317,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         )
     );
 }
+*/
 
 
 
