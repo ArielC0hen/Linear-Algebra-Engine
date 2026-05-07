@@ -12,7 +12,10 @@ export const class2proc = (exp: ClassExp): ProcExp => {
     const methods = exp.fields;
     const ifs = (methods: Binding[]): CExp => methods.length === 0 
         ? makeLitExp(makeSymbolSExp("error"))
-        : makeIfExp(
+        : makeIfExp( 
+            makeAppExp(
+                
+            )
 
         );
     makeProcExp(fields)
