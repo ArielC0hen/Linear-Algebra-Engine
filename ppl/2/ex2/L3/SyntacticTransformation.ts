@@ -24,7 +24,7 @@ export const class2proc = (exp: ClassExp): ProcExp => {
             ifs(methods.slice(1))
 
         );
-    makeProcExp(
+    return makeProcExp(
         fields,
         [makeProcExp(
             [makeVarDecl("msg")],
