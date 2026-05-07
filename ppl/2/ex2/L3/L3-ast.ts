@@ -297,8 +297,6 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!isNonEmptyList<Sexp>(methods)) {
         return makeFailure('Class expression must have a methods list');
     }
-
-    // 3. Now 'methods' is treated as a NonEmptyList, so first() works
     const methodsList = first(methods);
 
     // 4. Validate the extracted list (the bindings)
