@@ -29,7 +29,9 @@ import { Sexp, Token } from "s-expression";
 ;;         |  <boolean>                     / BoolExp(val:boolean)
 ;;         |  <string>                      / StrExp(val:string)
 ;;         |  ( lambda ( <var>* ) <cexp>+ ) / ProcExp(args:VarDecl[], body:CExp[]))
+//////////////////////////////////////////////////////////////////////////
 ;;         | ( class ( <var>+ ) ( <binding>+ ) ) / ClassExp(fields:VarDecl[], methods:Binding[]))
+//////////////////////////////////////////////////////////////////////////
 ;;         |  ( if <cexp> <cexp> <cexp> )   / IfExp(test: CExp, then: CExp, alt: CExp)
 ;;         |  ( let ( binding* ) <cexp>+ )  / LetExp(bindings:Binding[], body:CExp[]))
 ;;         |  ( quote <sexp> )              / LitExp(val:SExp)
