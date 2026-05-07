@@ -240,7 +240,7 @@ const parseProcExp = (vars: Sexp, body: Sexp[]): Result<ProcExp> =>
                                                  makeProcExp(map(makeVarDecl, vars), cexps)) :
     makeFailure(`Invalid vars for ProcExp ${format(vars)}`);
 
-const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ProcExp> =>
+const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ClassExp> =>
     isArray(vars) && allT(isString, vars) ? mapv(mapResult(parseL3CExp, body), (cexps: CExp[]) => 
                                                  makeClassExp(map(makeVarDecl, vars), cexps)) :
     makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
