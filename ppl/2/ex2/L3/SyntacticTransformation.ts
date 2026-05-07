@@ -59,6 +59,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             ([test, then, alt]) => makeIfExp(test as CExp,then as CExp,alt as CExp)
         );
     }
+    if (isProcExp(exp))  {
+        
+    }
 }
     //@TODO
 
