@@ -1,4 +1,4 @@
-import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl } from "./L3-ast";
+import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp } from "./L3-ast";
 import { Result, makeFailure } from "../shared/result";
 import { makeSymbolSExp } from "./L3-value";
 
@@ -42,4 +42,4 @@ Type: [Exp | Program] => Result<Exp | Program>
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> =>
     //@TODO
-    if (is)
+    if (isClassExp(exp))
