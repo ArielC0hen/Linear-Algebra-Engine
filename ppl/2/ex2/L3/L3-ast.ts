@@ -264,9 +264,8 @@ const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!(isArray(vars) && allT(isString, vars))) {
         return makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
     }
-
-    if (!isGoodBindings(bindings)) {
-        return makeFailure('Malformed bindings in "let" expression');
+    if (!isGoodBindings(methods)) {
+        return makeFailure('Malformed methods in "class" expression');
     }
 
 
