@@ -269,8 +269,11 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     } 
     const methodNames = map(first,methods) as string[]; // string[]
     const valsResult = mapResult(parseL3CExp, map(second, methods)); // Result<CExp[]>
-    return mapv(valsResult,
-        (methods: Binding[]) => makeClassExp(map(makeVarDecl, fields), methods) //  gets methods (methodsResult), returns the final ClassExp
+    return mapv(valsResult, (vals: CExp[]) =>
+        makeClassExp(
+            map(makeVarDecl, fields),
+            zipWith(makeBinding, methodNames, vals)
+        )
     );
     /*
     //const methodNames = map(b => b[0],methods); // string[]
