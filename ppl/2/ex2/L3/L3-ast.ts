@@ -339,8 +339,7 @@ const unparseLetExp = (le: LetExp) : string =>
 
 
 const unparseClassExp = (ce: ClassExp) : string => 
-    `(class (${map(p => p.var, ce.fields).join(" ")})  
-    (${map(b => `(${b.var.var} ${unparseL3(b.val)})`, ce.methods).join(" ")}))`;
+    `(class (${map(p => p.var, ce.fields).join(" ")})  (${map(b => `(${b.var.var} ${unparseL3(b.val)})`, ce.methods).join(" ")}))`;
 
 
 /*
