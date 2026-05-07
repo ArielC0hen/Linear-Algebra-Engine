@@ -49,11 +49,11 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     // program
     if (isProgram(exp)) {
         const transformed = map(transform, exp.exps);
-        return makeOk(transformed);
+        return mapv();
     }
     //others
     if (isIfExp(exp)) {
-        
+
     }
 }
     //@TODO
