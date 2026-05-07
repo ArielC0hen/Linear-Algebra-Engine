@@ -295,23 +295,22 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`);
     }
 
-    // 2. Guard against empty methods list and extract it
-    if (isEmpty(methods)) {
+    // 2. Type Guard: Prove to TS that methods is not empty
+    if (!isNonEmptyList<Sexp>(methods)) {
         return makeFailure('Class expression must have a methods list');
     }
 
-    // Now TypeScript knows methods is a NonEmptyList
+    // 3. Now 'methods' is treated as a NonEmptyList, so first() works
     const methodsList = first(methods);
 
-    // 3. Validate the structure of the bindings list
+    // 4. Validate the extracted list (the bindings)
     if (!isGoodBindings(methodsList)) {
         return makeFailure('Malformed methods in "class" expression');
     }
 
-    // 4. Map and Parse
     const methodNames = map(first, methodsList) as string[];
     const valsResult = mapResult(parseL3CExp, map(second, methodsList));
-
+    
     return mapv(valsResult, (vals: CExp[]) =>
         makeClassExp(
             map(makeVarDecl, fields),
