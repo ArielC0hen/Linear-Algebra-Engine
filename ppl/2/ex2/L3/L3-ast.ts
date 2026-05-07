@@ -179,7 +179,8 @@ export const parseL3SpecialForm = (op: Sexp, params: Sexp[]): Result<CExp> =>
         isNonEmptyList<Sexp>(params) ? parseLitExp(first(params)) :
         makeFailure(`Bad quote exp: ${params}`) :
     op === "class" ? 
-    :
+        isNonEmptyList<Sexp>(params) ? parseProcExp(first(params), rest(params)) :
+        makeFailure(`Bad proc: ${params}`) :
     makeFailure("Never");
 
 // DefineExp -> (define <varDecl> <CExp>)
