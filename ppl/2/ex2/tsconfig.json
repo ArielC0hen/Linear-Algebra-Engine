@@ -63,5 +63,9 @@
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
+
+
+    "types": ["node", "mocha", "chai"],
+    "typeRoots": ["./node_modules/@types"]
   }
 }
