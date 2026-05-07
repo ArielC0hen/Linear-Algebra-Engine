@@ -265,12 +265,9 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if(!(isArray(fields) && allT(isString, fields))) {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`)
     } 
-    if (!isGoodBindings(methods)) {
-        return makeFailure('Malformed methodss in "class" expression');
-    } 
     
 
-        // TS is annoying
+    // TS is annoying
     if (!isNonEmptyList<Sexp>(methods)) {
         return makeFailure('Class expression must have a methods list');
     }
