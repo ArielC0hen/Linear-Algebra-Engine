@@ -41,7 +41,7 @@ Type: [Exp | Program] => Result<Exp | Program>
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isProcExp(exp)) {
-        return bind(class2proc,exp);
+        return bind(exp,class2proc);
     }
     if (isProgram(exp)) {
         return bind(class2proc,exp);
