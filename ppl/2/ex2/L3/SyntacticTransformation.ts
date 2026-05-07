@@ -49,7 +49,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     // program
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
-        return mapv(transformed, (exps: Exp[]) => makeProgram(exps));
+        return mapv(mapResult(transform, exp.exps), (exps: Exp[]) => makeProgram(exps));
     }
     //others
     if (isIfExp(exp)) {
