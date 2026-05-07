@@ -1,5 +1,5 @@
 import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp } from "./L3-ast";
-import { Result, makeFailure } from "../shared/result";
+import { Result, bind, makeFailure } from "../shared/result";
 import { makeSymbolSExp } from "./L3-value";
 
 /*
