@@ -1,4 +1,4 @@
-import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp } from "./L3-ast";
+import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp } from "./L3-ast";
 import { Result, makeFailure } from "../shared/result";
 
 /*
@@ -11,6 +11,7 @@ export const class2proc = (exp: ClassExp): ProcExp =>
     return makeProcExp(
         exp.fields,
         makeAppExp(
+            makePrimOp("list"),
             
         )
     );
