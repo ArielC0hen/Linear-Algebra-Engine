@@ -29,7 +29,7 @@ export const class2proc = (exp: ClassExp): ProcExp => {
         [makeProcExp(
             [makeVarDecl("msg")],
             [ifs(methods)]
-        )])
+        )]);
 }
 
 
