@@ -267,7 +267,6 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!isGoodBindings(methods)) {
         return makeFailure('Malformed methodss in "class" expression');
     } 
-
     const vars = map(b => b[0], methods);
     const valsResult = mapResult(parseL3CExp, map(second, methods));
     return bind(valsResult, (vals: CExp[]) => 
