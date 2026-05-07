@@ -9,7 +9,7 @@ Type: ClassExp => ProcExp
 */
 export const class2proc = (exp: ClassExp): ProcExp => {
     const fields = exp.fields;
-    const methods = exp.fields;
+    const methods = exp.methods;
     const ifs = (methods: Binding[]): CExp => methods.length === 0 
         ? makeLitExp(makeSymbolSExp("error"))
         : makeIfExp( 
