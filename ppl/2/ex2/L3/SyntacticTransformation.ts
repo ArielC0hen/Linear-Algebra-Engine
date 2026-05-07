@@ -46,6 +46,12 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const proc = class2proc(exp);
         return makeOk(proc);
     }
+        if (isProgram(exp)) {
+        return mapv(
+            mapResult(transform, exp.exps),
+            (exps: Exp[]) => makeOk(makeProgram(exps))
+        );
+    }
     // program
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
