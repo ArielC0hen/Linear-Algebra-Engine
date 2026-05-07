@@ -45,21 +45,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return makeOk(proc);
     }
     if (isProgram(exp)) {
-        const exps = exp.exps;
-        const transformed = (methods: Binding[]): CExp => methods.length === 0 
-        ? makeLitExp(makeSymbolSExp("error"))
-        : makeIfExp( 
-            makeAppExp(
-                makePrimOp("eq?"),
-                [
-                    makeVarRef("msg"),
-                    makeLitExp(makeSymbolSExp(methods[0].var.var)) // Binding --var--> VarDecl --var--> string
-                ]
-            ),
-            methods[0].val,
-            transform(methods.slice(1))
-        );
-        return transformed;
+        return map 
     }
 }
     //@TODO
