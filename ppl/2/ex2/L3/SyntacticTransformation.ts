@@ -45,7 +45,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return makeOk(proc);
     }
     if (isProgram(exp)) {
-        return bind(class2proc,exp);
+        const exps = exp.exps;
+        
     }
 }
     //@TODO
