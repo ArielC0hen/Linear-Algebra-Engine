@@ -12,7 +12,7 @@ export const class2proc = (exp: ClassExp): ProcExp =>
         exp.fields,
         makeAppExp(
             makePrimOp("list"),
-            
+            exp.methods
         )
     );
 
