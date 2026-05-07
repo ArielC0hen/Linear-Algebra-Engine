@@ -297,7 +297,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         return makeFailure(`Class missing methods list`);
     }
     
-    const methodsList = first(methods); 
+    const methodsList = map(b => b[0], methods); 
 
     if (!isGoodBindings(methodsList)) {
         return makeFailure(`Malformed methods in "class" expression`);
