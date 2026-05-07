@@ -240,10 +240,6 @@ const parseProcExp = (vars: Sexp, body: Sexp[]): Result<ProcExp> =>
                                                  makeProcExp(map(makeVarDecl, vars), cexps)) :
     makeFailure(`Invalid vars for ProcExp ${format(vars)}`);
 
-const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ClassExp> =>
-    isArray(vars) && allT(isString, vars) ? makeClassExp(map(makeVarDecl, vars), map(makeBinding, body)) :
-    makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
-
 const isGoodBindings = (bindings: Sexp): bindings is [string, Sexp][] =>
     isArray(bindings) &&
     allT(isNonEmptyList<Sexp>, bindings) &&
@@ -263,6 +259,12 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
                 mapv(mapResult(parseL3CExp, body), (body: CExp[]) =>
                      makeLetExp(bindings, body)));
 }
+
+const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ClassExp> => {
+    isArray(vars) && allT(isString, vars) ? makeClassExp(map(makeVarDecl, vars), map(makeBinding, body)) :
+    makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
+}
+
 
 // sexps has the shape (quote <sexp>)
 export const parseLitExp = (param: Sexp): Result<LitExp> =>
