@@ -70,7 +70,7 @@ export type LetExp = {tag: "LetExp"; bindings: Binding[]; body: CExp[]; }
 // L3
 export type LitExp = {tag: "LitExp"; val: SExpValue; }
 // dlc
-export type classExp = {tag: "IfExp"; test: CExp; then: CExp; alt: CExp; }
+export type ClassExp = {tag: "ClassExp"; test: CExp; then: CExp; alt: CExp; }
 
 // Type value constructors for disjoint types
 export const makeProgram = (exps: Exp[]): Program => ({tag: "Program", exps: exps});
