@@ -59,6 +59,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             methods[0].val,
             transform(methods.slice(1))
         );
+        return transformed;
     }
 }
     //@TODO
