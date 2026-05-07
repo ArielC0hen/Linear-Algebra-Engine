@@ -260,11 +260,11 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
                      makeLetExp(bindings, body)));
 }
 
-const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ClassExp> => {
+const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!(isArray(vars) && allT(isString, vars))) {
         return makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
     }
-    
+
 
 
 
