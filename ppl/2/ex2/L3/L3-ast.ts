@@ -275,7 +275,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         makeOk(
             makeClassExp(
                 map(makeVarDecl,fields),
-                methodsResult
+                zipWith(makeBinding, vars, vals)
             )
         )
     /*
