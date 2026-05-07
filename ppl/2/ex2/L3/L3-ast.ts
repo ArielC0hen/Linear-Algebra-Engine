@@ -265,8 +265,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if(!(isArray(fields) && allT(isString, fields))) {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`)
     } 
-    // TS is annoying
-    if (!isNonEmptyList<Sexp>(methods)) {
+    if (!isNonEmptyList<Sexp>(methods)) {     // TS is annoying
         return makeFailure('Class expression must have a methods list');
     }
     const methodsList = first(methods); // unwrap rest ([[*methods*]] -> [*methods*])
