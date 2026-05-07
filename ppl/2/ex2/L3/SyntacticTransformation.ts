@@ -60,7 +60,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     if (isProcExp(exp))  {
-        return mapv()
+        return mapv(
+            mapResult(transform, [exp.test, exp.then, exp.alt]),
+        );
     }
 }
     //@TODO
