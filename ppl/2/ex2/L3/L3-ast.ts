@@ -260,6 +260,7 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
                      makeLetExp(bindings, body)));
 }
 
+/*
 const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if(!(isArray(fields) && allT(isString, fields))) {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`)
@@ -284,6 +285,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     );
     */
 }
+*/
 
 
 // sexps has the shape (quote <sexp>)
