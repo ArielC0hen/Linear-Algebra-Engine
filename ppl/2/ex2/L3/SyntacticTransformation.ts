@@ -1,6 +1,6 @@
 import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram } from "./L3-ast";
 import { makeSymbolSExp } from "./L3-value";
-import { Result } from "../shared/result";
+import { bind, Result } from "../shared/result";
 
 /*
 Purpose: Transform ClassExp to ProcExp
@@ -40,8 +40,10 @@ Signature: transform(AST)
 Type: [Exp | Program] => Result<Exp | Program>
 */
 
-export const transform = (exp: Exp | Program): Result<Exp | Program> =>
-    //@TODO
+export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isProgram(exp)) {
-        return class2proc(exp);
+        return bind(class2proc,exp);
     }
+}
+    //@TODO
+
