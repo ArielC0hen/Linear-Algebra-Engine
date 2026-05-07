@@ -260,7 +260,7 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
                      makeLetExp(bindings, body)));
 }
 
-/*
+
 const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if(!(isArray(fields) && allT(isString, fields))) {
         return makeFailure(`Invalid vars for ClassExp ${format(fields)}`)
@@ -268,7 +268,16 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!isGoodBindings(methods)) {
         return makeFailure('Malformed methodss in "class" expression');
     } 
-    /*
+    
+
+        // TS is annoying
+    if (!isNonEmptyList<Sexp>(methods)) {
+        return makeFailure('Class expression must have a methods list');
+    }
+    const methodsList = first(methods); // unwrap rest ([[*methods*]] -> [*methods*])
+    if (!isGoodBindings(methodsList)) {
+        return makeFailure('Malformed methods in "class" expression');
+    }
     const methodNames = map(first,methods) as string[]; // string[]
     const valsResult = mapResult(parseL3CExp, map(second, methods)); // Result<CExp[]>
     return mapv(valsResult, (vals: CExp[]) =>
@@ -278,15 +287,16 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         )
     );
     
-    
+    /*
     const methodNames = map(b => b[0],methods); // string[]
     const valsResult = mapResult(parseL3CExp, map(second, methods)); // Result<CExp[]>
     const methodsResult = mapv(valsResult, (vals: CExp[]) => zipWith(makeBinding, methodNames, vals)); // Result<Binding[]>
     return mapv(methodsResult,
         (methods: Binding[]) => makeClassExp(map(makeVarDecl, fields), methods) //  gets methods (methodsResult), returns the final ClassExp
     );
+    */
 }
-*/
+
 
 
 const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
