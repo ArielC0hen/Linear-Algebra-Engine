@@ -267,6 +267,7 @@ const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
     if (!isGoodBindings(methods)) {
         return makeFailure('Malformed methods in "class" expression');
     }
+    
 
 
 
