@@ -17,7 +17,7 @@ export const class2proc = (exp: ClassExp): ProcExp => {
                 makePrimOp("eq?"),
                 [
                     makeVarRef("msg"),
-                    makeLitExp(makeSymbolSExp(methods[0].var.var))
+                    makeLitExp(makeSymbolSExp(methods[0].var.var)) // binding -var->
                 ]
             ),
             methods[0].val,
