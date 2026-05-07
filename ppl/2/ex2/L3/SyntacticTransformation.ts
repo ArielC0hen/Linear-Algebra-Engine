@@ -55,7 +55,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     //others
     if (isIfExp(exp)) {
         return bind(transform(exp.test), (exp1: exp1) =>
-        )
+        bind)
     }
 }
     //@TODO
