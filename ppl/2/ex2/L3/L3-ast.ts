@@ -260,21 +260,12 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
                      makeLetExp(bindings, body)));
 }
 
-const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
+const parseClassExp = (vars: Sexp, body: Sexp[]): Result<ClassExp> => {
     if (!(isArray(vars) && allT(isString, vars))) {
-        return makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
+        return 
     }
-    if (!isGoodBindings(methods)) {
-        return makeFailure('Malformed methods in "class" expression');
-    }
-    
-
-
-
-
-
     isArray(vars) && allT(isString, vars) ? makeClassExp(map(makeVarDecl, vars), map(makeBinding, body)) :
-
+    makeFailure(`Invalid vars for ClassExp ${format(vars)}`);
 }
 
 
