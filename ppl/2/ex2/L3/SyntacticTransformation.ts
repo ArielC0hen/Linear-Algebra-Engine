@@ -69,7 +69,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return mapv(
             transform(exp.val),
             (val) => makeDefineExp(exp.var, val as CExp)
-        )
+        );
     }
 
     // atomics
