@@ -6,9 +6,11 @@ Purpose: Transform ClassExp to ProcExp
 Signature: class2proc(classExp)
 Type: ClassExp => ProcExp
 */
-export const class2proc = (exp: ClassExp): ProcExp =>
-    //@TODO
+export const class2proc = (exp: ClassExp): ProcExp => {
     
+}
+    //@TODO
+
 
 
 /*
