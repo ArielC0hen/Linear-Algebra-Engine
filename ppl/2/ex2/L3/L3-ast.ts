@@ -299,7 +299,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
     // 'methods' is [[method1, method2, ...]] 
     // We need [method1, method2, ...]
         const methodNames = map(first,methods) as string[];
-    const methodsList = map(first,methods) as string[];
+
 
     if (!isGoodBindings(methodsList)) {
         return makeFailure('Malformed methods in "class" expression');
