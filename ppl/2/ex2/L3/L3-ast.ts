@@ -302,7 +302,7 @@ const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
         return makeFailure('Malformed methods in "class" expression');
     }
     const methodNames = map(first, methodsList) as string[];
-    const valsResult = mapResult(parseL3CExp, map(second, methodsList));
+    const valsResult= mapResult(parseL3CExp, map(second, methodsList));
     return mapv(valsResult, (vals: CExp[]) =>
         makeClassExp(
             map(makeVarDecl, fields),
