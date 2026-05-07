@@ -40,13 +40,16 @@ Type: [Exp | Program] => Result<Exp | Program>
 */
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> => {
+    // class
     if (isClassExp(exp)) {
         const proc = class2proc(exp);
         return makeOk(proc);
     }
+    // program
     if (isProgram(exp)) {
-        return map 
+        return mapResult()
     }
+    //others
 }
     //@TODO
 
