@@ -62,7 +62,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isProcExp(exp))  {
         return mapv(
             mapResult(transform, exp.body),
-            ()
+            (body) => 
         );
     }
 }
