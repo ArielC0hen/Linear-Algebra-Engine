@@ -57,7 +57,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                 ]
             ),
             methods[0].val,
-            ifs(methods.slice(1))
+            transform(methods.slice(1))
         );
     }
 }
