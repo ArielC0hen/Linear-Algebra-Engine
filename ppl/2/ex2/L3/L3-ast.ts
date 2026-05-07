@@ -260,9 +260,9 @@ const parseLetExp = (bindings: Sexp, body: Sexp[]): Result<LetExp> => {
                      makeLetExp(bindings, body)));
 }
 
-const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
-    if(!(isArray(vars) && allT(isString, vars))) {
-        return makeFailure(`Invalid vars for ClassExp ${format(vars)}`)
+const parseClassExp = (fields: Sexp, methods: Sexp[]): Result<ClassExp> => {
+    if(!(isArray(fields) && allT(isString, fields))) {
+        return makeFailure(`Invalid vars for ClassExp ${format(fields)}`)
     } 
     if (!isGoodBindings(methods)) {
         return makeFailure('Malformed methodss in "class" expression');
@@ -271,7 +271,7 @@ const parseClassExp = (vars: Sexp, methods: Sexp[]): Result<ClassExp> => {
     const valsResult = mapResult(parseL3CExp, map(second, methods));
     const methodsResult = mapv(valsResult, (vals: CExp[]) => zipWith(makeBinding, methodNames, vals));
     return mapv(methodsResult,
-        (methods: Binding[]) => makeClassExp(map(makeVarDecl, vars), methods)
+        (methods: Binding[]) => makeClassExp(map(makeVarDecl, fields), methods)
     );
 }
 
