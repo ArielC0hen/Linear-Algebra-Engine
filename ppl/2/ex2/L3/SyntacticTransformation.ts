@@ -1,4 +1,4 @@
-import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram, isProcExp, isIfExp, makeProgram } from "./L3-ast";
+import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram, isProcExp, isIfExp, makeProgram, isDefineExp } from "./L3-ast";
 import { makeSymbolSExp } from "./L3-value";
 import { bind, makeOk, mapResult, mapv, Result } from "../shared/result";
 import { map } from "ramda";
@@ -65,7 +65,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             (body) => makeProcExp(exp.args, body as CExp[])
         );
     }
-    
+    if (isDefineExp(exp)) {
+        
+    }
 
     // atomics
     return makeOk(exp);
