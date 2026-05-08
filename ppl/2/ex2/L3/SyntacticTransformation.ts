@@ -67,8 +67,6 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                 }
                 return m;
             });
-
-            // Step 4: Reconstruct the ClassExp and pass it to your conversion helper
             const updatedClass = {
                 tag: exp.tag,
                 fields: exp.fields,
