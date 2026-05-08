@@ -57,7 +57,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                      (newVal) => makeBinding(method.var.var, newVal as CExp)
                 );
             }, 
-            exp.methods);
+            exp.methods
+        );
         return bind(transformedMethodsResult, (tMethods: Binding[]) => {
             const methodsWithoutThunks = tMethods.map((m: Binding) => {
                 const methodVal = m.val;
