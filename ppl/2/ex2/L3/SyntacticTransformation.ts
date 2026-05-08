@@ -77,7 +77,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             (val) => makeDefineExp(exp.var, val as CExp)
         );
     }
-    if (isLetExp)
+    if (isLetExp(exp)) {
+        
+    }
     // atomics
     return makeOk(exp);
 
