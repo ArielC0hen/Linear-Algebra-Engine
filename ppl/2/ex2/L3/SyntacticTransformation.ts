@@ -58,10 +58,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                 );
             }, 
             exp.methods);
-
         return bind(transformedMethodsResult, (tMethods: Binding[]) => {
-            
-
             const methodsWithoutThunks = tMethods.map((m: Binding) => {
                 const methodVal = m.val;
                 if (isProcExp(methodVal) && methodVal.args.length === 0) {
