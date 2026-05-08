@@ -84,7 +84,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const newVals = mapResult(transform, vals);
         return mapv(
             mapv(
-                
+                exp.body,
+                (body) => 
             )
         )
 
