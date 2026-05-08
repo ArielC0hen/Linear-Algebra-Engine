@@ -68,38 +68,6 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             return makeOk(class2proc({ ...exp, methods: finalMethods }));
         });
     }
-    /*
-    if (isClassExp(exp)) {
-        // 1. Transform all method bodies (this catches nested classes!)
-        const transformedMethods = mapResult((method: Binding) => {
-            return mapv(transform(method.val), (transformedVal) => 
-                makeBinding(method.var.var, transformedVal as CExp)
-            );
-        }, exp.methods);
-
-        // 2. Once methods are transformed, convert the class to a proc
-        return mapv(transformedMethods, (methods: Binding[]) => 
-            class2proc({ ...exp, methods })
-        );
-    }
-        */
-    /*
-    // inside transform...
-    if (isClassExp(exp)) {
-        // 1. Transform the method values first (in case they contain classes!)
-        const transformedMethodsResult = mapResult(
-            (b: Binding) => mapv(transform(b.val), (transformedVal) => makeBinding(b.var.var, transformedVal as CExp)),
-            exp.methods
-        );
-
-        // 2. Use bind to get the transformed methods and pass them to class2proc
-        return bind(transformedMethodsResult, (transformedMethods: Binding[]) => {
-            // Create a new ClassExp with transformed methods
-            const transformedClass = { ...exp, methods: transformedMethods };
-            return makeOk(class2proc(transformedClass));
-        });
-    }
-        */
     // program
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
