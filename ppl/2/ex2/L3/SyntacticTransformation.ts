@@ -43,10 +43,27 @@ Type: [Exp | Program] => Result<Exp | Program>
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     // class
+    /*
     if (isClassExp(exp)) {
         const proc = class2proc(exp);
         return makeOk(proc);
     }
+        */
+// inside transform...
+if (isClassExp(exp)) {
+    // 1. Transform the method values first (in case they contain classes!)
+    const transformedMethodsResult = mapResult(
+        (b: Binding) => mapv(transform(b.val), (transformedVal) => makeBinding(b.var.var, transformedVal as CExp)),
+        exp.methods
+    );
+
+    // 2. Use bind to get the transformed methods and pass them to class2proc
+    return bind(transformedMethodsResult, (transformedMethods: Binding[]) => {
+        // Create a new ClassExp with transformed methods
+        const transformedClass = { ...exp, methods: transformedMethods };
+        return makeOk(class2proc(transformedClass));
+    });
+}
     // program
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
