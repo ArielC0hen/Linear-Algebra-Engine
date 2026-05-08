@@ -43,12 +43,11 @@ Type: [Exp | Program] => Result<Exp | Program>
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     // class
-    /*
     if (isClassExp(exp)) {
         const proc = class2proc(exp);
         return makeOk(proc);
     }
-        */
+    /*
     // inside transform...
     if (isClassExp(exp)) {
         // 1. Transform the method values first (in case they contain classes!)
@@ -64,6 +63,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             return makeOk(class2proc(transformedClass));
         });
     }
+        */
     // program
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
