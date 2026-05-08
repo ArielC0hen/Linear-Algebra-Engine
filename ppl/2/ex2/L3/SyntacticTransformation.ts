@@ -49,37 +49,37 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return makeOk(proc);
     }
         */
-if (isClassExp(exp)) {
-    // Step 1: Transform each method's value recursively to handle nested classes
-    const transformedMethodsResult = mapResult((method: Binding) => {
-        return mapv(transform(method.val), (transformedVal: Exp | Program) => 
-            makeBinding(method.var.var, transformedVal as CExp)
-        );
-    }, exp.methods);
+    if (isClassExp(exp)) {
+        // Step 1: Transform each method's value recursively to handle nested classes
+        const transformedMethodsResult = mapResult((method: Binding) => {
+            return mapv(transform(method.val), (transformedVal: Exp | Program) => 
+                makeBinding(method.var.var, transformedVal as CExp)
+            );
+        }, exp.methods);
 
-    // Step 2: Process the transformed methods and convert the class
-    return bind(transformedMethodsResult, (tMethods: Binding[]) => {
-        
-        // Step 3: Strip the (lambda () ...) wrapper from methods 
-        // because the test expects the body directly (e.g., 'a' instead of '(lambda () a)')
-        const methodsWithoutThunks = tMethods.map((m: Binding) => {
-            const methodVal = m.val;
-            if (isProcExp(methodVal) && methodVal.args.length === 0) {
-                return makeBinding(m.var.var, methodVal.body[0] as CExp);
-            }
-            return m;
+        // Step 2: Process the transformed methods and convert the class
+        return bind(transformedMethodsResult, (tMethods: Binding[]) => {
+            
+            // Step 3: Strip the (lambda () ...) wrapper from methods 
+            // because the test expects the body directly (e.g., 'a' instead of '(lambda () a)')
+            const methodsWithoutThunks = tMethods.map((m: Binding) => {
+                const methodVal = m.val;
+                if (isProcExp(methodVal) && methodVal.args.length === 0) {
+                    return makeBinding(m.var.var, methodVal.body[0] as CExp);
+                }
+                return m;
+            });
+
+            // Step 4: Reconstruct the ClassExp and pass it to your conversion helper
+            const updatedClass = {
+                tag: exp.tag,
+                fields: exp.fields,
+                methods: methodsWithoutThunks
+            };
+
+            return makeOk(class2proc(updatedClass as ClassExp));
         });
-
-        // Step 4: Reconstruct the ClassExp and pass it to your conversion helper
-        const updatedClass = {
-            tag: exp.tag,
-            fields: exp.fields,
-            methods: methodsWithoutThunks
-        };
-
-        return makeOk(class2proc(updatedClass as ClassExp));
-    });
-}
+    }
     // program
     if (isProgram(exp)) {
         const transformed = mapResult(transform, exp.exps);
