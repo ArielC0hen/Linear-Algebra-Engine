@@ -66,10 +66,19 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             (body) => makeProcExp(exp.args, body as CExp[])
         );
     }
+    /*
     if(isAppExp(exp)) {
         return mapv(
             mapResult(transform, exp.rands),
             (rands) => makeAppExp(exp.rator,rands as CExp[])
+        );
+    }
+        */
+    if (isAppExp(exp)) {
+        return bind(transform(exp.rator), (rator: Exp) =>
+            mapv(mapResult(transform, exp.rands), (rands: (Exp | Program)[]) =>
+                makeAppExp(rator as CExp, rands as CExp[])
+            )
         );
     }
     if (isDefineExp(exp)) {
