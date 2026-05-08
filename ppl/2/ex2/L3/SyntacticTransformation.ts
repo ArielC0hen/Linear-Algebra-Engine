@@ -56,7 +56,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             return mapv(transform(method.val), (transformedVal: Exp | Program) => 
                 makeBinding(method.var.var, transformedVal as CExp)
             );
-        }, exp.methods);
+        },
+        );
 
         // Step 2: Process the transformed methods and convert the class
         return bind(transformedMethodsResult, (tMethods: Binding[]) => {
