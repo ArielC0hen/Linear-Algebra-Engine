@@ -85,7 +85,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const newBindings = mapv(
             vars,
             (vars) => mapv(
-                
+                newVals,
+                (vals) => make
             )
         )
         return mapv(
