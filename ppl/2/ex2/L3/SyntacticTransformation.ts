@@ -79,7 +79,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
     if (isLetExp(exp)) {
         const vals = exp.bindings.map(b=> b.val);
-        const  
+        const newVals = map
     }
     // atomics
     return makeOk(exp);
