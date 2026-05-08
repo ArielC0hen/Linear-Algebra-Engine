@@ -81,7 +81,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isLetExp(exp)) {
         const vars = map(b=> b.var.var, exp.bindings);
         const vals = map(b=> b.val, exp.bindings);
-        reutrn bind (
+        return bind (
             mapv(
                 mapResult(transform, vals),
                 (vals) => zipWith(makeBinding, vars, vals as CExp[])
@@ -91,16 +91,6 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                 (newBody) => makeLetExp(newBindings,newBody as CExp[])
             )
         )
-        /*
-        const newBindings = mapv(
-            mapResult(transform, vals),
-            (vals) => zipWith(makeBinding, vars, vals as CExp[])
-        )
-        return mapv(
-            mapResult(transform,exp.body),
-            (newBody) => makeLetExp(newBindings,newBody)
-        )
-            */
     }
     // atomics
     return makeOk(exp);
