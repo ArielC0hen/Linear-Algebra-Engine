@@ -81,7 +81,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isLetExp(exp)) {
         const vars = map(b=> b.var.var, exp.bindings);
         const vals = map(b=> b.val, exp.bindings);
-        return bind (
+        return bind ( // newBindings would normally be Result<Binding[]> instead of Binding[] for makeLetExp, so we unwrap
             mapv(
                 mapResult(transform, vals),
                 (vals) => zipWith(makeBinding, vars, vals as CExp[])
