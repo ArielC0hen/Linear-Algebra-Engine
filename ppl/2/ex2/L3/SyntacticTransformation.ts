@@ -78,11 +78,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     if (isLetExp(exp)) {
-        return bind(visit(exp.rator, addresses), 
-           (rator: CExpLA) =>
-               mapv(mapResult(rand => visit(rand, addresses), exp.rands), 
-                      (rands: CExpLA[]) =>
-                             makeAppExpLA(rator, rands)))
+        exp.
     }
     // atomics
     return makeOk(exp);
