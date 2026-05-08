@@ -83,7 +83,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const vals = map(b=> b.val, exp.bindings);
         const newVals = mapResult(transform, vals);
         return mapv(
-            mapv()
+            mapv(
+                
+            )
         )
 
     }
