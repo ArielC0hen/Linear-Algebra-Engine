@@ -81,7 +81,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isLetExp(exp)) {
         const vars = map(b=> b.var.var, exp.bindings);
         const vals = map(b=> b.val, exp.bindings);
-        const newBindings = map(
+        const newBindings = mapv(
             mapResult(transform, vals),
             (vals) => zipWith(makeBinding, vars, vals as CExp[])
         )
@@ -89,8 +89,6 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             mapResult(transform,exp.body),
             (newBody) => makeLetExp(newBindings,newBody)
         )
-
-
     }
     // atomics
     return makeOk(exp);
