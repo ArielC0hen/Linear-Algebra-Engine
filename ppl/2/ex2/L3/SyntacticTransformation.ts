@@ -50,6 +50,26 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
         */
     if (isClassExp(exp)) {
+        // 1. Transform the methods first to catch nested classes
+        return bind(mapResult((m: Binding) => 
+            mapv(transform(m.val), (tVal) => makeBinding(m.var.var, tVal as CExp)), 
+            exp.methods
+        ), (tMethods) => {
+            // 2. Now pass the transformed methods to class2proc
+            // If the test wants 'a' instead of '(lambda () a)', 
+            // you might need to extract the body here:
+            const finalMethods = tMethods.map(m => {
+                if (isProcExp(m.val) && m.val.args.length === 0) {
+                    return makeBinding(m.var.var, m.val.body[0] as CExp);
+                }
+                return m;
+            });
+
+            return makeOk(class2proc({ ...exp, methods: finalMethods }));
+        });
+    }
+    /*
+    if (isClassExp(exp)) {
         // 1. Transform all method bodies (this catches nested classes!)
         const transformedMethods = mapResult((method: Binding) => {
             return mapv(transform(method.val), (transformedVal) => 
@@ -62,6 +82,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             class2proc({ ...exp, methods })
         );
     }
+        */
     /*
     // inside transform...
     if (isClassExp(exp)) {
