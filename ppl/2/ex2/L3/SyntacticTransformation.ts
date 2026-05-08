@@ -1,7 +1,7 @@
 import { ClassExp, ProcExp, Exp, Program, makeProcExp, makeAppExp, makePrimOp, makeLitExp, makeIfExp, makeVarRef, Binding, CExp, makeVarDecl, isClassExp, isProgram, isProcExp, isIfExp, makeProgram, isDefineExp, makeDefineExp, isAppExp, isLetExp, makeBinding, makeLetExp } from "./L3-ast";
 import { makeSymbolSExp } from "./L3-value";
 import { bind, makeOk, mapResult, mapv, Result } from "../shared/result";
-import { map } from "ramda";
+import { map, zipWith } from "ramda";
 import { first } from "../shared/list";
 
 /*
@@ -84,7 +84,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const newVals = mapResult(transform, vals);
         const newBindings = mapv(
             mapResult(transform, vals),
-            (vals) =>
+            (vals) => zipWith(makeBinding, vars, vals)
         )
 
 
