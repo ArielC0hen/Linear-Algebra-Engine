@@ -79,7 +79,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
     if (isLetExp(exp)) {
         const vals = exp.bindings.map(b=> b.val);
-        return mapv(
+        const newVals = mapv(
+            vals,
             
         )
     }
