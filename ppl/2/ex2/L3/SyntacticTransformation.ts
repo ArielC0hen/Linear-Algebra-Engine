@@ -80,12 +80,14 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isLetExp(exp)) {
         const newVals = mapv(
             exp.bindings.map(b=> b.val),
-            
+            (vals) => 
         );
+        /*
         const newVals = mapv(
             vals,
             (val) => makeBinding(exp.,)
         )
+        */
     }
     // atomics
     return makeOk(exp);
