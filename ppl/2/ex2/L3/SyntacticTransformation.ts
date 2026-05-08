@@ -75,7 +75,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
         */
     if (isAppExp(exp)) {
-        return bind(transform(exp.rator), (rator: Exp) =>
+        return bind(transform(exp.rator), (rator: Exp | Program) =>
             mapv(mapResult(transform, exp.rands), (rands: (Exp | Program)[]) =>
                 makeAppExp(rator as CExp, rands as CExp[])
             )
