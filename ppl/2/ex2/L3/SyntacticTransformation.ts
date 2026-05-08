@@ -79,7 +79,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     if (isLetExp(exp)) {
-        const methodNames = map(first,exp.bindings) as string[];
+        const vars = map(b=> b.var, exp.bindings);
         const vals = map(b=> b.val, exp.bindings);
         //const vars = map(b => b[0] as string, exp.bindings);
         const newVals = mapv(
