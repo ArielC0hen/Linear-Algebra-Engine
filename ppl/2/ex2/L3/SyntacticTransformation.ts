@@ -43,9 +43,24 @@ Type: [Exp | Program] => Result<Exp | Program>
 
 export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     // class
+    /*
     if (isClassExp(exp)) {
         const proc = class2proc(exp);
         return makeOk(proc);
+    }
+        */
+    if (isClassExp(exp)) {
+        // 1. Transform all method bodies (this catches nested classes!)
+        const transformedMethods = mapResult((method: Binding) => {
+            return mapv(transform(method.val), (transformedVal) => 
+                makeBinding(method.var.var, transformedVal as CExp)
+            );
+        }, exp.methods);
+
+        // 2. Once methods are transformed, convert the class to a proc
+        return mapv(transformedMethods, (methods: Binding[]) => 
+            class2proc({ ...exp, methods })
+        );
     }
     /*
     // inside transform...
