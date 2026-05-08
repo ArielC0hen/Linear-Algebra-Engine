@@ -50,7 +50,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
         */
     if (isClassExp(exp)) {
-        const transformedMethodsResult = mapResult((method: Binding) => {
+        const transformedMethodsResult = mapResult(
+            (method: Binding) => {
             return mapv(transform(method.val), (transformedVal: Exp | Program) => 
                 makeBinding(method.var.var, transformedVal as CExp)
             );
