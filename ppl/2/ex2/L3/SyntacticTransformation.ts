@@ -82,12 +82,11 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const vars = map(b=> b.var, exp.bindings);
         const vals = map(b=> b.val, exp.bindings);
         const newVals = mapResult(transform, vals);
-        return 
-        const newVals = mapv(
-            vals,
-            (val) => makeBinding(exp.,)
-        )
-        */
+        return mapv(
+            transform(exp.val),
+            (val) => makeDefineExp(exp.var, val as CExp)
+        );
+
     }
     // atomics
     return makeOk(exp);
