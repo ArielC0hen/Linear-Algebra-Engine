@@ -86,7 +86,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                 mapResult(transform, vals),
                 (vals) => zipWith(makeBinding, vars, vals as CExp[])
             ),
-            (newBindings) => mapv()
+            (newBindings) => mapv(
+                
+            )
         )
         /*
         const newBindings = mapv(
