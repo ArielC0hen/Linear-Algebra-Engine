@@ -50,7 +50,6 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
         */
     if (isClassExp(exp)) {
-        // Step 1: Transform each method's value recursively to handle nested classes
         const transformedMethodsResult = mapResult((method: Binding) => {
             return mapv(transform(method.val), (transformedVal: Exp | Program) => 
                 makeBinding(method.var.var, transformedVal as CExp)
