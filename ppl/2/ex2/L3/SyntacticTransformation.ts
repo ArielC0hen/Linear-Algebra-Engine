@@ -81,7 +81,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     if (isLetExp(exp)) {
         const vars = map(b=> b.var, exp.bindings);
         const vals = map(b=> b.val, exp.bindings);
-        const newVals = mapResult(vals, transform(vals));
+        const newVals = mapResult(transform, vals);
         /*
         const newVals = mapv(
             vals,
