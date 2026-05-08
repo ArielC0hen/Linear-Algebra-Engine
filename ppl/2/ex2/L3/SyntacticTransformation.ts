@@ -87,7 +87,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         )
         return mapv(
             mapResult(transform,exp.body),
-            (newBody) => makeLetExp(exp.rator,)
+            (newBody) => makeLetExp(newBindings,newBody);
         )
 
 
