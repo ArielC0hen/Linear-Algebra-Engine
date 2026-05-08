@@ -80,7 +80,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
     if (isLetExp(exp)) {
         const vars = map(b=> b.var, exp.bindings);
-        const vals = mapResult(b=> b.val, exp.bindings);
+        const vals = mapResult(b=> b.val as CExp, exp.bindings);
         const newVals = mapv(
             vals,
             (vals) => makeBinding(exp.)
