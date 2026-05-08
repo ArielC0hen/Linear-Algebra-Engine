@@ -66,7 +66,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         );
     }
     if(isAppExp(exp)) {
-        
+        exp.
     }
     if (isDefineExp(exp)) {
         return mapv(
