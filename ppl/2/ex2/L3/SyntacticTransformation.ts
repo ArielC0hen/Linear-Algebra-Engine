@@ -57,11 +57,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             );
         }, exp.methods);
 
-        // Step 2: Process the transformed methods and convert the class
         return bind(transformedMethodsResult, (tMethods: Binding[]) => {
             
-            // Step 3: Strip the (lambda () ...) wrapper from methods 
-            // because the test expects the body directly (e.g., 'a' instead of '(lambda () a)')
+
             const methodsWithoutThunks = tMethods.map((m: Binding) => {
                 const methodVal = m.val;
                 if (isProcExp(methodVal) && methodVal.args.length === 0) {
