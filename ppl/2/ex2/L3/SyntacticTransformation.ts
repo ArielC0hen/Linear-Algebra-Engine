@@ -81,7 +81,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         const vals = exp.bindings.map(b=> b.val);
         const newVals = mapv(
             vals,
-            
+            ()
         )
     }
     // atomics
