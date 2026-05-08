@@ -67,7 +67,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
     if(isAppExp(exp)) {
         return mapv(
-            mapResult(transform, exp.rands)
+            mapResult(transform, exp.rands),
+            (rands) => makeAppExp(exp.rator,rands as CExp[])
         );
     }
     if (isDefineExp(exp)) {
