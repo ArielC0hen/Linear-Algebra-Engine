@@ -63,14 +63,14 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             newMethodsResult,
             (newMethods: Binding[]) => {
                 const goodMethods = map(
-                    newMethods,
                     (m: Binding) => {
                         const methodVal = m.val;
                         if (isProcExp(methodVal) && methodVal.args.length === 0) { // fix lambda wrapping
                             return makeBinding(m.var.var, methodVal.body[0] as CExp);
                         }
                         return m;
-                    }
+                    },
+                    newMethods
                 );
                 const newClassExp = makeClassExp(exp.fields,goodMethods);
                 return makeOk(class2proc(newClassExp));
