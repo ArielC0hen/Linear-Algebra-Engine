@@ -62,9 +62,9 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return bind(
             newMethodsResult,
             (newMethods: Binding[]) => {
-                const goodMethods = newMethods.map((m: Binding) => { // fix lambda wrapping
+                const goodMethods = newMethods.map((m: Binding) => {
                     const methodVal = m.val;
-                    if (isProcExp(methodVal) && methodVal.args.length === 0) {
+                    if (isProcExp(methodVal) && methodVal.args.length === 0) { // fix lambda wrapping
                         return makeBinding(m.var.var, methodVal.body[0] as CExp);
                     }
                     return m;
