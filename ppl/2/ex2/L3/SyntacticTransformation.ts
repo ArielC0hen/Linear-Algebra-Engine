@@ -62,19 +62,14 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return bind(
             newMethodsResult,
             (newMethods: Binding[]) => {
-                const methodsWithoutThunks = newMethods.map((m: Binding) => {
+                const goodMethods = newMethods.map((m: Binding) => {
                     const methodVal = m.val;
                     if (isProcExp(methodVal) && methodVal.args.length === 0) {
                         return makeBinding(m.var.var, methodVal.body[0] as CExp);
                     }
                     return m;
                 });
-                const newClassExp = makeClassExp(exp.fields,)
-                const updatedClass = {
-                    tag: exp.tag,
-                    fields: exp.fields,
-                    methods: methodsWithoutThunks
-                };
+                const newClassExp = makeClassExp(exp.fields,goodMethods);
 
                 return makeOk(class2proc(updatedClass as ClassExp));
             });
