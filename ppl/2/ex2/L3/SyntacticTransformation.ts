@@ -50,7 +50,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
     }
         */
     if (isClassExp(exp)) {
-        const transformedMethodsResult = mapResult(
+        const newMethodsResult = mapResult(
             (method: Binding) => {
                 return mapv(
                     transform(method.val),
@@ -60,7 +60,8 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
             exp.methods
         );
         return bind(
-            transformedMethodsResult, (tMethods: Binding[]) => {
+            newMethodsResult,
+            (newMethods: Binding[]) => {
             const methodsWithoutThunks = tMethods.map((m: Binding) => {
                 const methodVal = m.val;
                 if (isProcExp(methodVal) && methodVal.args.length === 0) {
