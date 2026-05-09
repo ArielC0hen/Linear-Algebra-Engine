@@ -69,7 +69,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                     }
                     return m;
                 });
-                const newClassExp = makeClassExp()
+                const newClassExp = makeClassExp(exp.fields,)
                 const updatedClass = {
                     tag: exp.tag,
                     fields: exp.fields,
