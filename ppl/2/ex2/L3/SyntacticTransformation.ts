@@ -70,8 +70,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
                     return m;
                 });
                 const newClassExp = makeClassExp(exp.fields,goodMethods);
-
-                return makeOk(class2proc(updatedClass as ClassExp));
+                return makeOk(class2proc(newClassExp));
             });
     }
     // program
