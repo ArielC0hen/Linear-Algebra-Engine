@@ -62,7 +62,7 @@ export const transform = (exp: Exp | Program): Result<Exp | Program> => {
         return bind(
             newMethodsResult,
             (newMethods: Binding[]) => {
-                const methodsWithoutThunks = tMethods.map((m: Binding) => {
+                const methodsWithoutThunks = newMethods.map((m: Binding) => {
                     const methodVal = m.val;
                     if (isProcExp(methodVal) && methodVal.args.length === 0) {
                         return makeBinding(m.var.var, methodVal.body[0] as CExp);
