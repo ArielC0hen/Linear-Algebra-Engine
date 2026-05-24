@@ -90,7 +90,7 @@ const expToPython = (exp: Exp): Result<string> => {
     if (isDefineExp(exp)) {
         return bind(
             CExpToPython(exp.val),
-            (valStr) => makeOk(`${exp.var.var} = ${valStr}`);
+            (valStr) => makeOk(`${exp.var.var} = ${valStr}`)
         );
     } else {
         return CExpToPython(exp);
