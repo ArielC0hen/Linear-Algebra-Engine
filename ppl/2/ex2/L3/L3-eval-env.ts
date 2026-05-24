@@ -109,7 +109,8 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
          return makeFailure(`Incorrect number of argumetns`);
     }
     // env
-    const fieldsEnv
+    const fieldsEnv = makeExtEnv(proc.fields, proc.vals, proc.env);
+    
     if (fullySubstitutedBody.length === 0) {
         return makeFailure("Method body cant be empty");
     }
