@@ -29,11 +29,10 @@ export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 
 // ========================================================
 // Class dlc.
-// We also use a frame-based representation of closures as opposed to one env per var.
 export type ClassValue = {
     tag: "ClassValue";
-    params: VarDecl[];
-    body: CExp[];
+    fields: String[];
+    methods: CExp[];
     env: Env;
 }
 export const makeClosure = (params: VarDecl[], body: CExp[]): Closure =>
