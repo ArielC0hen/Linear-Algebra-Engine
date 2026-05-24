@@ -40,7 +40,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         );
     }
     else if (isProcExp(exp)) {
-        const params = map (
+        const args = map (
             ()
         );
     }
