@@ -101,6 +101,7 @@ const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
     if (args.length === 0) {
         return makeFailure("Object invocation missing method name symbol arg");
     }
+    
     const methodSymbol = args[0];
     if (!isSymbolSExp(methodSymbol)) {
         return makeFailure(`Method selective routing needs a symbol, received: ${format(methodSymbol)}`);
@@ -117,23 +118,22 @@ const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
          return makeFailure(`Method value binding must be a ProcExp`);
     }
 
-    // Step 1: Bind Object Fields parameters to structural arguments 
-    const litArgs: CExp[] = map(valueToLitExp, proc.vals);
-    const bodyWithFieldsSubstituted = substitute(methodExp.body, proc.fields, litArgs);
-
-    // Step 2: Extract arguments meant for the inner method interface execution loop
-    const methodArgs = rest(args);
+    // Extract method arguments using vanilla array slice
+    const methodArgs = args.slice(1);
     const methodVars = map((v: VarDecl) => v.var, methodExp.args);
 
     if (methodArgs.length !== methodVars.length) {
          return makeFailure(`Method variant parameter length structure mismatch`);
     }
 
-    // Step 3: Inject parameters targeting method interface fields
+    // Step 1: Substitute class fields with object state field values
+    const litArgs: CExp[] = map(valueToLitExp, proc.vals);
+    const bodyWithFieldsSubstituted = substitute(methodExp.body, proc.fields, litArgs);
+
+    // Step 2: Substitute method parameters with provided invocation arguments
     const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
     const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSubstituted), methodVars, litMethodArgs);
 
-    // Explicit type guard to satisfy the strict NonEmptyList compiler checks
     if (fullySubstitutedBody.length === 0) {
         return makeFailure("Method body cannot be empty");
     }
