@@ -59,7 +59,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                     CExpToPython,
                     exp.rands
                 ).join(", "),
-                (randsStr) => {
+                (randsStrs) => {
                     
                 }
             )
