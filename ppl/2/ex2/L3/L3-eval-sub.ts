@@ -128,15 +128,11 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     // substituting
     const litArgs: CExp[] = map(valueToLitExp, proc.vals);
     const bodyWithFieldsSubstituted = substitute(methodExp.body, proc.fields, litArgs);
-
-    // Step 2: Substitute method parameters with provided invocation arguments
     const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
     const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSubstituted), methodVars, litMethodArgs);
-
     if (fullySubstitutedBody.length === 0) {
         return makeFailure("Method body cant be empty");
     }
-
     return evalSequence(fullySubstitutedBody, env);
 };
 ///
