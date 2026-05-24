@@ -89,7 +89,52 @@ const applyClosure = (proc: Closure, args: Value[], env: Env): Result<Value> => 
 }
 
 ///dlc
-const applyClassVal = ()
+const applyClassSub = (proc: any, args: Value[], env: Env): Result<Value> => {
+    if (args.length !== proc.fields.length) {
+        return makeFailure(`Class expected ${proc.fields.length} arguments, received ${args.length}`);
+    }
+    // Instantiates the object state container
+    return makeOk(makeObjectValue(proc.fields, args, proc.methods, env));
+};
+
+const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
+    if (args.length === 0) {
+        return makeFailure("Object invocation missing method name symbol arg");
+    }
+    const methodSymbol = args[0];
+    if (!isSymbolSExp(methodSymbol)) {
+        return makeFailure(`Method selective routing needs a symbol, received: ${format(methodSymbol)}`);
+    }
+    
+    const methodName = methodSymbol.val;
+    const methodBinding = proc.methods.find((m: any) => m.var.var === methodName);
+    if (!methodBinding) {
+        return makeFailure(`Unrecognized method lookup token: ${methodName}`);
+    }
+
+    const methodExp = methodBinding.val;
+    if (!isProcExp(methodExp)) {
+         return makeFailure(`Method value binding must be a ProcExp`);
+    }
+
+    // Step 1: Bind Object Fields parameters to structural arguments 
+    const litArgs: CExp[] = map(valueToLitExp, proc.vals);
+    const bodyWithFieldsSubstituted = substitute(methodExp.body, proc.fields, litArgs);
+
+    // Step 2: Extract arguments meant for the inner method interface execution loop
+    const methodArgs = rest(args);
+    const methodVars = map((v: VarDecl) => v.var, methodExp.args);
+
+    if (methodArgs.length !== methodVars.length) {
+         return makeFailure(`Method variant parameter length structure mismatch`);
+    }
+
+    // Step 3: Inject parameters targeting method interface fields
+    const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
+    const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSubstituted), methodVars, litMethodArgs);
+
+    return evalSequence(fullySubstitutedBody, env);
+};
 ///
 
 // Evaluate a sequence of expressions (in a program)
