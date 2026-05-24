@@ -47,6 +47,16 @@ const evalIf = (exp: IfExp, env: Env): Result<Value> =>
             applicativeEval(exp.alt, env));
 
 ///dlc
+/*
+const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
+    const fieldNames = map (
+        (f : VarDecl) => f.var,
+        exp.fields
+    );
+    return makeOk(makeClassValueEnv(fieldNames, exp.methods,env));
+}
+*/
+
 const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
     const fieldNames = map (
         (f : VarDecl) => f.var,
