@@ -58,11 +58,7 @@ const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
 */
 
 const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
-    const fieldNames = map (
-        (f : VarDecl) => f.var,
-        exp.fields
-    );
-    return makeOk(makeClassValueEnv(fieldNames, exp.methods,env));
+    return makeOk("Class");
 }
 ///
 
