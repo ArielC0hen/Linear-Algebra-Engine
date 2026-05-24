@@ -8,7 +8,7 @@ import { isAppExp, isBoolExp, isDefineExp, isIfExp, isLitExp, isNumExp,
 import { makeBoolExp, makeLitExp, makeNumExp, makeProcExp, makeStrExp } from "./L3-ast";
 import { parseL3Exp } from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeEnv, Env } from "./L3-env-sub";
-import { isClosure, makeClosure, Closure, Value, makeClassValue, isClassValue, isSymbolSExp, makeObjectValue, isObjectValue, ClassValue } from "./L3-value";
+import { isClosure, makeClosure, Closure, Value, makeClassValue, isClassValue, isSymbolSExp, makeObjectValue, isObjectValue, ClassValue, ObjectValue } from "./L3-value";
 import { first, rest, isEmpty, List, isNonEmptyList } from '../shared/list';
 import { isBoolean, isNumber, isString } from "../shared/type-predicates";
 import { Result, makeOk, makeFailure, bind, mapResult, mapv } from "../shared/result";
@@ -100,11 +100,10 @@ const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Resul
     return makeOk(makeObjectValue(proc.fields, args, proc.methods));
 };
 
-const applyObjectMethod = (proc: any, args: Value[], env: Env): Result<Value> => {
+const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<Value> => {
     if (args.length === 0) {
-        return makeFailure("Object invocation missing method name symbol arg");
+        return makeFailure("No method called");
     }
-    
     const methodSymbol = args[0];
     if (!isSymbolSExp(methodSymbol)) {
         return makeFailure(`Method selective routing needs a symbol, received: ${format(methodSymbol)}`);
