@@ -32,7 +32,7 @@ export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 export type ClassValue = {
     tag: "ClassValue";
     fields: String[];
-    methods: CExp[];
+    methods: Binding[];
     env: Env;
 }
 export const makeClosure = (params: VarDecl[], body: CExp[]): Closure =>
