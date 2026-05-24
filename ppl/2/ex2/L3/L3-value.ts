@@ -49,7 +49,7 @@ export type ObjectValue = {
     methods: Binding[]
     env: Env;
 }
-export const makeObjectValue = (fields: string[], methods: Binding[]): ClassValue =>
+export const makeObjectValue = (fields: string[], vals: Value[], methods: Binding[]): ClassValue =>
     ({tag: "ClassValue", fields: fields, methods: methods, env: makeEmptyEnv()});
 export const makeClassValueEnv = (fields: string[], methods: Binding[], env: Env): ClassValue =>
     ({tag: "ClassValue", fields: fields, methods: methods, env: env});
