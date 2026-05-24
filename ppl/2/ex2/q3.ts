@@ -19,11 +19,12 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         return makeOk(exp.val ? "True" : "False");
     }
     else if (isStrExp(exp)) {
-        return makeOk(exp.val)
+        return makeOk(exp.val);
     }
     else if (isVarRef(exp)) {
-        
+        return makeOk(exp.var);
     }
+    else if ()
     return makeOk("");
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
