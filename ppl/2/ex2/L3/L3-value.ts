@@ -30,6 +30,7 @@ export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 // ========================================================
 // Class definition
 // We also use a frame-based representation of closures as opposed to one env per var.
+export type ClassExp = {tag: "ClassExp"; fields: VarDecl[]; methods: Binding[]; }
 export type Class = {
     tag: "Class";
     params: VarDecl[];
