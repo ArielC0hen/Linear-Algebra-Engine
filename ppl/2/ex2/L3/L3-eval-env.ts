@@ -74,6 +74,8 @@ const applyClosure = (proc: Closure, args: Value[]): Result<Value> => {
     return evalSequence(proc.body, makeExtEnv(vars, args, proc.env));
 }
 
+
+
 // Evaluate a sequence of expressions (in a program)
 export const evalSequence = (seq: Exp[], env: Env): Result<Value> =>
     isNonEmptyList<Exp>(seq) ? evalCExps(first(seq), rest(seq), env) : 
