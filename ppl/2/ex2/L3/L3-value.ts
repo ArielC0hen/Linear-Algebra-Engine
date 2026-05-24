@@ -36,7 +36,7 @@ export type ClassValue = {
 }
 export const makeClassValue = (fields: string[], methods: Binding[]): ClassValue =>
     ({tag: "ClassValue", fields: fields, methods: methods});
-export const isClassValue = (x: any): x is Closure => x.tag === "ClassValue";
+export const isClassValue = (x: any): x is ClassValue => x.tag === "ClassValue";
 
 // ========================================================
 // SExp
