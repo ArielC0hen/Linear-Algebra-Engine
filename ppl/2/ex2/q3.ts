@@ -19,7 +19,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         return makeOk(exp.val ? "True" : "False");
     }
     else if (isStrExp(exp)) {
-        return makeOk()
+        return makeOk(exp.val)
     }
     return makeOk("");
 }
