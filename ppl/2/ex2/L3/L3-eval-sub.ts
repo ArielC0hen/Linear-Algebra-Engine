@@ -100,7 +100,7 @@ const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Resul
     return makeOk(makeObjectValue(proc.fields, args, proc.methods));
 };
 
-const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
+const applyObjectMethod = (proc: any, args: Value[], env: Env): Result<Value> => {
     if (args.length === 0) {
         return makeFailure("Object invocation missing method name symbol arg");
     }
