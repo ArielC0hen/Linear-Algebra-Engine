@@ -8,7 +8,7 @@ import { isAppExp, isBoolExp, isDefineExp, isIfExp, isLitExp, isNumExp,
 import { makeBoolExp, makeLitExp, makeNumExp, makeProcExp, makeStrExp } from "./L3-ast";
 import { parseL3Exp } from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeEnv, Env } from "./L3-env-sub";
-import { isClosure, makeClosure, Closure, Value, makeClassValue } from "./L3-value";
+import { isClosure, makeClosure, Closure, Value, makeClassValue, isClassValue } from "./L3-value";
 import { first, rest, isEmpty, List, isNonEmptyList } from '../shared/list';
 import { isBoolean, isNumber, isString } from "../shared/type-predicates";
 import { Result, makeOk, makeFailure, bind, mapResult, mapv } from "../shared/result";
@@ -64,6 +64,7 @@ const evalProc = (exp: ProcExp, env: Env): Result<Closure> =>
 const L3applyProcedure = (proc: Value, args: Value[], env: Env): Result<Value> =>
     isPrimOp(proc) ? applyPrimitive(proc, args) :
     isClosure(proc) ? applyClosure(proc, args, env) :
+    isClassValue(proc) ? apply
     makeFailure(`Bad procedure ${format(proc)}`);
 
 // Applications are computed by substituting computed
