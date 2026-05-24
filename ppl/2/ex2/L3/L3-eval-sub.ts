@@ -65,8 +65,8 @@ const evalProc = (exp: ProcExp, env: Env): Result<Closure> =>
 const L3applyProcedure = (proc: Value, args: Value[], env: Env): Result<Value> =>
     isPrimOp(proc) ? applyPrimitive(proc, args) :
     isClosure(proc) ? applyClosure(proc, args, env) :
-    isClassValue(proc) ? applyClassSub(proc, args, env) :
-    isObjectValue(proc) ? applyObjectSub(proc, args, env) :
+    isClassValue(proc) ? applyClassMethod(proc, args, env) :
+    isObjectValue(proc) ? applyObjectMethod(proc, args, env) :
 
     makeFailure(`Bad procedure ${format(proc)}`);
 
@@ -91,7 +91,7 @@ const applyClosure = (proc: Closure, args: Value[], env: Env): Result<Value> => 
 }
 
 ///dlc
-const applyClassSub = (proc: any, args: Value[], env: Env): Result<Value> => {
+const applyClassMethod = (proc: any, args: Value[], env: Env): Result<Value> => {
     if (args.length !== proc.fields.length) {
         return makeFailure(`Class expected ${proc.fields.length} arguments, received ${args.length}`);
     }
