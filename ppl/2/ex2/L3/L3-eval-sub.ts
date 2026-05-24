@@ -93,7 +93,7 @@ const applyClosure = (proc: Closure, args: Value[], env: Env): Result<Value> => 
 ///dlc
 ///builds an object
 const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Result<Value> => {
-    if (args.length != proc.fields.length) {
+    if (args.length !=proc.fields.length) {
         return makeFailure(`Wrong number of arguments: class expected ${proc.fields.length} arguments, received ${args.length}`);
     }
     //builds an object
