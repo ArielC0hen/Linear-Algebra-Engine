@@ -7,6 +7,8 @@ Signature: l2ToPython(l2AST)
 Type: [Parsed | Error] => Result<string>
 */
 
-const convertPrimOp = (op: string)
+const convertPrimOp = (op: string) : string => {
+    
+}
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
