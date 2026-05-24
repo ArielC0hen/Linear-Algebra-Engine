@@ -95,7 +95,7 @@ const applyClassSub = (proc: any, args: Value[], env: Env): Result<Value> => {
         return makeFailure(`Class expected ${proc.fields.length} arguments, received ${args.length}`);
     }
     // Instantiates the object state container
-    return makeOk(makeObjectValue(proc.fields, args, proc.methods, env));
+    return makeOk(makeObjectValue(proc.fields, args, proc.methods));
 };
 
 const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
