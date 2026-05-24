@@ -64,7 +64,8 @@ const evalProc = (exp: ProcExp, env: Env): Result<Closure> =>
 const L3applyProcedure = (proc: Value, args: Value[], env: Env): Result<Value> =>
     isPrimOp(proc) ? applyPrimitive(proc, args) :
     isClosure(proc) ? applyClosure(proc, args, env) :
-    isClassValue(proc) ? apply :
+    isClassValue(proc) ? applyClassSub(proc, args, env) :
+    
 
     makeFailure(`Bad procedure ${format(proc)}`);
 
