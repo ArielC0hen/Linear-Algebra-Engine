@@ -69,9 +69,9 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                             const toString = randsStrs.join(`${convertPrimOp(op)}`);
                             return makeOk(toString);
                         }
-                        else {
-                            return makeOk(`${ratorStr}(${randsStrs.join(',')})`);
-                        }
+                    }
+                    else {
+                        return makeOk(`${ratorStr}(${randsStrs.join(',')})`);
                     }
                 }
             )
