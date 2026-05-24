@@ -70,7 +70,8 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                             return makeOk(toString);
                         }
                         else {
-                            const 
+                            const converted = convertPrimOp(op);
+                            return makeOk
                         }
                     }
                     else {
