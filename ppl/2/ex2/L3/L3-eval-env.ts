@@ -1,7 +1,7 @@
 // L3-eval.ts
 // Evaluator with Environments model
 
-import { map } from "ramda";
+import { call, map } from "ramda";
 import { isBoolExp, isCExp, isLitExp, isNumExp, isPrimOp, isStrExp, isVarRef,
          isAppExp, isDefineExp, isIfExp, isLetExp, isProcExp,
          Binding, VarDecl, CExp, Exp, IfExp, LetExp, ProcExp, Program,
@@ -110,11 +110,11 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     }
     // env
     const fieldsEnv = makeExtEnv(proc.fields, proc.vals, proc.env);
-    const methodsEnv = makeExtEnv(methodVars, methodArgs, fieldsEnv);
+    const callEnv = makeExtEnv(methodVars, methodArgs, fieldsEnv);
     if (methodExp.body.length === 0) {
         return makeFailure("Method body cant be empty");
     }
-    return evalSequence(methodExp.body, M);
+    return evalSequence(methodExp.body, callEnv);
 };
 ///
 
