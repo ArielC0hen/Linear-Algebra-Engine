@@ -110,7 +110,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     const methodName = methodSymbol.val;
     const methodBinding = proc.methods.find((m: any) => m.var.var === methodName);
     if (!methodBinding) {
-        return makeFailure(`Couldnt find method: ${methodName}`);
+        return makeFailure(`Unrecognized method: ${methodName}`);
     }
     const methodExp = methodBinding.val;
     if (!isProcExp(methodExp)) {
