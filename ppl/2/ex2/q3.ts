@@ -1,4 +1,4 @@
-import { CExp, Exp, Program } from './L3/L3-ast';
+import { CExp, Exp, isNumExp, Program } from './L3/L3-ast';
 import { Result, makeFailure} from './shared/result';
 
 /*
@@ -13,7 +13,7 @@ const convertPrimOp = (op: string) : string => {
 
 const CExpToPython = (exp: CExp) : Result<string> => {
     if (isNumExp(exp)) {
-        
+        return make
     }
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
