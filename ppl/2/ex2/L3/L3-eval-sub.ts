@@ -136,7 +136,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSubstituted), methodVars, litMethodArgs);
 
     if (fullySubstitutedBody.length === 0) {
-        return makeFailure("Method body cannot be empty");
+        return makeFailure("Method body cant be empty");
     }
 
     return evalSequence(fullySubstitutedBody, env);
