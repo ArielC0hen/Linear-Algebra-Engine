@@ -48,7 +48,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         const body = exp.body[0]; // we are allowed to assume body contains a single exp
         return bind(
             CExpToPython(body),
-            (bodyStr) => makeOk(`(lambda))
+            (bodyStr) => makeOk(`(lambda) ${args} : ${})
         )
     }
     return makeOk("");
