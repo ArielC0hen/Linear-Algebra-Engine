@@ -1,5 +1,5 @@
 import { map } from 'ramda';
-import { BoolExp, CExp, Exp, isAppExp, isBoolExp, isDefineExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isAppExp, isBoolExp, isDefineExp, isIfExp, isNumExp, isPrimOp, isProcExp, isProgram, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
 import { Result, bind, makeFailure, makeOk, mapResult} from './shared/result';
 
 /*
@@ -98,5 +98,13 @@ const expToPython = (exp: Exp): Result<string> => {
 }
 
 
-export const l2ToPython = (exp: Exp | Program): Result<string>  => 
-    makeFailure("TODO");
+export const l2ToPython = (exp: Exp | Program): Result<string>  => {
+    if (isProgram(exp)) {
+        return bind(
+            mapResult(expToPython, exp.exps),
+            (expStrs) => makeOk(expStrs.join("\n"))
+        );
+    } else {
+        return expToPython(exp);
+    }
+}
