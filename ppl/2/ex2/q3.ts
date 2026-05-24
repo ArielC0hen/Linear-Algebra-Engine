@@ -22,7 +22,10 @@ const CExpToPython = (exp: CExp) : Result<string> => {
             return makeOk("False");
         }
     }
-    else if (isStrExp)
+    else if (isStrExp) {
+
+    }
+    return "";
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
