@@ -65,8 +65,8 @@ const evalProc = (exp: ProcExp, env: Env): Result<Closure> =>
 const applyProcedure = (proc: Value, args: Value[]): Result<Value> =>
     isPrimOp(proc) ? applyPrimitive(proc, args) :
     isClosure(proc) ? applyClosure(proc, args) :
-    isClassValue(proc) ? applyClassConstructor(proc, args, env) :
-    isObjectValue(proc) ? applyObjectMethod(proc, args, env) :
+    isClassValue(proc) ? applyClassConstructor(proc, args) :
+    isObjectValue(proc) ? applyObjectMethod(proc, args) :
     makeFailure(`Bad procedure ${format(proc)}`);
 
 const applyClosure = (proc: Closure, args: Value[]): Result<Value> => {
@@ -75,12 +75,12 @@ const applyClosure = (proc: Closure, args: Value[]): Result<Value> => {
 }
 
 ///dlc
-const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Result<Value> => {
+const applyClassConstructor = (proc: ClassValue, args: Value[]): Result<Value> => {
     if (args.length !=proc.fields.length) {
         return makeFailure(`Wrong number of arguments: class expected ${proc.fields.length} arguments, but got ${args.length}`);
     }
     //builds an object
-    return makeOk(makeObjectValueEnv(proc.fields, args, proc.methods, env));
+    return makeOk(makeObjectValueEnv(proc.fields, args, proc.methods, proc.env));
 };
 
 const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<Value> => {
