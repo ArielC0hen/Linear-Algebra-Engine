@@ -110,7 +110,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     }
     // env
     const fieldsEnv = makeExtEnv(proc.fields, proc.vals, proc.env);
-    
+    vonst methodsEnv = makeExtEnv()
     if (fullySubstitutedBody.length === 0) {
         return makeFailure("Method body cant be empty");
     }
