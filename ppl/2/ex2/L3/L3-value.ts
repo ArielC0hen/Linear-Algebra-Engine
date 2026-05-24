@@ -28,10 +28,10 @@ export const makeClosureEnv = (params: VarDecl[], body: CExp[], env: Env): Closu
 export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 
 // ========================================================
-// Closure for L4 - the field env is added.
+// Class definition
 // We also use a frame-based representation of closures as opposed to one env per var.
-export type Closure = {
-    tag: "Closure";
+export type Class = {
+    tag: "Class";
     params: VarDecl[];
     body: CExp[];
     env: Env;
