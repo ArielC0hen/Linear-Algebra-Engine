@@ -15,7 +15,11 @@ const CExpToPython = (exp: BoolExp) : Result<string> => {
     if (isNumExp(exp)) {
         return makeOk(exp.val.toString());
     } 
-    else if (isBoolExp(exp))
+    else if (isBoolExp(exp)) {
+        if (exp.val) {
+            return 
+        }
+    }
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
