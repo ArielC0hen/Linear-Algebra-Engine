@@ -8,7 +8,7 @@ import { isAppExp, isBoolExp, isDefineExp, isIfExp, isLitExp, isNumExp,
 import { makeBoolExp, makeLitExp, makeNumExp, makeProcExp, makeStrExp } from "./L3-ast";
 import { parseL3Exp } from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeEnv, Env } from "./L3-env-sub";
-import { isClosure, makeClosure, Closure, Value } from "./L3-value";
+import { isClosure, makeClosure, Closure, Value, makeClassValue } from "./L3-value";
 import { first, rest, isEmpty, List, isNonEmptyList } from '../shared/list';
 import { isBoolean, isNumber, isString } from "../shared/type-predicates";
 import { Result, makeOk, makeFailure, bind, mapResult, mapv } from "../shared/result";
@@ -51,9 +51,10 @@ const evalIf = (exp: IfExp, env: Env): Result<Value> =>
 ///dlc
 const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
     const fieldNames = map (
-        f : VarDecl,
-        
-    )
+        (f : VarDecl) => f.var,
+        exp.fields
+    );
+    return makeClassValue(fieldNames, exp.methods);
 }
     bind(L3applicativeEval(exp.test, env), (test: Value) => 
         isTrueValue(test) ? L3applicativeEval(exp.then, env) : 
