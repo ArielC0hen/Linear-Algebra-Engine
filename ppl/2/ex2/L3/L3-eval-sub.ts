@@ -113,7 +113,6 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     if (!methodBinding) {
         return makeFailure(`Couldnt find method: ${methodName}`);
     }
-
     const methodExp = methodBinding.val;
     if (!isProcExp(methodExp)) {
          return makeFailure(`Method value binding must be a ProcExp`);
