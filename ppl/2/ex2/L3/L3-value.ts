@@ -97,6 +97,7 @@ export const valueToString = (val: Value): string =>
     val === false ? '#f' :
     isString(val) ? `"${val}"` :
     isClosure(val) ? closureToString(val) :
+    isClassValue(val) ? classValueToString(val) :
     isPrimOp(val) ? val.op :
     isSymbolSExp(val) ? val.val :
     isEmptySExp(val) ? "'()" :
