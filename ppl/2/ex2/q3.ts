@@ -58,9 +58,9 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                 mapResult(
                     CExpToPython,
                     exp.rands
-                ).join(", "),
+                ),
                 (randsStrs) => {
-                    
+                    if (isPrimOp(exp.rator))
                 }
             )
         )
