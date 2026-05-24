@@ -43,6 +43,16 @@ const evalIf = (exp: IfExp, env: Env): Result<Value> =>
             isTrueValue(test) ? applicativeEval(exp.then, env) : 
             applicativeEval(exp.alt, env));
 
+///dlc
+const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
+    const fieldNames = map (
+        (f : VarDecl) => f.var,
+        exp.fields
+    );
+    return makeOk(makeClassValue(fieldNames, exp.methods));
+}
+///
+
 const evalProc = (exp: ProcExp, env: Env): Result<Closure> =>
     makeOk(makeClosureEnv(exp.args, exp.body, env));
 
