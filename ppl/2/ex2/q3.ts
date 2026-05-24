@@ -8,7 +8,7 @@ Type: [Parsed | Error] => Result<string>
 */
 
 const convertPrimOp = (op: string) : string => {
-    
+    if (op === )
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
