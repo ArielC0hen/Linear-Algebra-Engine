@@ -133,7 +133,8 @@ const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
     const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
     const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSubstituted), methodVars, litMethodArgs);
 
-    return evalSequence(fullySubstitutedBody, env);
+    // FIX TYPE SYSTEM ERROR: Cast down to Exp[] array types safely
+    return evalSequence(fullySubstitutedBody as Exp[], env);
 };
 ///
 
