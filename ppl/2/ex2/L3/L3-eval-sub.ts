@@ -50,7 +50,9 @@ const evalIf = (exp: IfExp, env: Env): Result<Value> =>
 
 ///dlc
 const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
-    const fieldNames = map 
+    const fieldNames = map (
+        f : VarDecl,
+    )
 }
     bind(L3applicativeEval(exp.test, env), (test: Value) => 
         isTrueValue(test) ? L3applicativeEval(exp.then, env) : 
