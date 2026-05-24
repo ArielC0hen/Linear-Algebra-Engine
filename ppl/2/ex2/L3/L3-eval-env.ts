@@ -9,7 +9,7 @@ import { isBoolExp, isCExp, isLitExp, isNumExp, isPrimOp, isStrExp, isVarRef,
          ClassExp,
          isClassExp} from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeExtEnv, Env } from "./L3-env-env";
-import { isClosure, makeClosureEnv, Closure, Value, makeClassValueEnv, ClassValue, makeObjectValue } from "./L3-value";
+import { isClosure, makeClosureEnv, Closure, Value, makeClassValueEnv, ClassValue, makeObjectValue, makeObjectValueEnv } from "./L3-value";
 import { applyPrimitive } from "./evalPrimitive";
 import { allT, first, rest, isEmpty, isNonEmptyList } from "../shared/list";
 import { Result, makeOk, makeFailure, bind, mapResult } from "../shared/result";
@@ -80,7 +80,7 @@ const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Resul
         return makeFailure(`Wrong number of arguments: class expected ${proc.fields.length} arguments, but got ${args.length}`);
     }
     //builds an object
-    return makeOk(makeObjectValue(proc.fields, args, proc.methods));
+    return makeOk(makeObjectValueEnv(proc.fields, args, proc.methods, env));
 };
 
 const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<Value> => {
