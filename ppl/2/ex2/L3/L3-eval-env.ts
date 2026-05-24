@@ -108,7 +108,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     if (methodArgs.length !== methodVars.length) {
          return makeFailure(`Incorrect number of argumetns`);
     }
-    // new env 
+    // new env extending the current one with fields binding and methods binding
     const fieldsEnv = makeExtEnv(proc.fields, proc.vals, proc.env);
     const methodsEnvAndFieldsEnv = makeExtEnv(methodVars, methodArgs, fieldsEnv);
     if (methodExp.body.length === 0) {
