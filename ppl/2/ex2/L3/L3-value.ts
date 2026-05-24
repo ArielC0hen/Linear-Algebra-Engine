@@ -115,6 +115,7 @@ export const valueToString = (val: Value): string =>
     isString(val) ? `"${val}"` :
     isClosure(val) ? closureToString(val) :
     isClassValue(val) ? classValueToString(val) :
+    isObjectValue(val) ? ObjectValueToString(val) :
     isPrimOp(val) ? val.op :
     isSymbolSExp(val) ? val.val :
     isEmptySExp(val) ? "'()" :
