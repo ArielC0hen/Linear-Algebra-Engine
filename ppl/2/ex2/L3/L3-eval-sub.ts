@@ -54,11 +54,8 @@ const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
         (f : VarDecl) => f.var,
         exp.fields
     );
-    return makeClassValue(fieldNames, exp.methods);
+    return makeOk(makeClassValue(fieldNames, exp.methods));
 }
-    bind(L3applicativeEval(exp.test, env), (test: Value) => 
-        isTrueValue(test) ? L3applicativeEval(exp.then, env) : 
-        L3applicativeEval(exp.alt, env));
 ///
 
 const evalProc = (exp: ProcExp, env: Env): Result<Closure> =>
