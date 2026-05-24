@@ -21,11 +21,8 @@ export type Closure = {
     body: CExp[];
     env: Env;
 }
-export const makeClosure = (params: VarDecl[], body: CExp[]): Closure =>
+export const makeClassValue = (params: VarDecl[], body: CExp[]): Closure =>
     ({tag: "Closure", params: params, body: body, env : makeEmptyEnv()});
-export const makeClosureEnv = (params: VarDecl[], body: CExp[], env: Env): Closure =>
-    ({tag: "Closure", params: params, body: body, env: env});
-export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 
 // ========================================================
 // Class dlc.
