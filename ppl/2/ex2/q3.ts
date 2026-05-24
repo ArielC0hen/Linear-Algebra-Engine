@@ -53,7 +53,14 @@ const CExpToPython = (exp: CExp) : Result<string> => {
     }
     else if (isAppExp(exp)) {
         return bind(
-            CExpToPython(exp.rator)
+            CExpToPython(exp.rator),
+            (ratorStr) => bind(
+                mapResult(
+                    CExpToPython,
+                    exp.rands
+                ),
+                (randsStr)
+            )
         )
     }
     return makeOk("");
