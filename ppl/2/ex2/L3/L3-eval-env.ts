@@ -74,7 +74,51 @@ const applyClosure = (proc: Closure, args: Value[]): Result<Value> => {
     return evalSequence(proc.body, makeExtEnv(vars, args, proc.env));
 }
 
+///dlc
+const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Result<Value> => {
+    if (args.length !=proc.fields.length) {
+        return makeFailure(`Wrong number of arguments: class expected ${proc.fields.length} arguments, but got ${args.length}`);
+    }
+    //builds an object
+    return makeOk(makeObjectValue(proc.fields, args, proc.methods));
+};
 
+const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<Value> => {
+    if (args.length === 0) {
+        return makeFailure("No method called");
+    }
+    const methodSymbol = args[0];
+    if (!isSymbolSExp(methodSymbol)) {
+        return makeFailure("Received a non-symbol");
+    }
+    const methodName = methodSymbol.val;
+    const methodBinding = proc.methods.find((m: any) => m.var.var === methodName);
+    if (!methodBinding) {
+        return makeFailure(`Unrecognized method: ${methodName}`);
+    }
+    const methodExp = methodBinding.val;
+    if (!isProcExp(methodExp)) {
+         return makeFailure(`Method value binding must be a ProcExp`);
+    }
+    const methodArgs = args.slice(1);
+    const methodVars = map(
+        (v: VarDecl) => v.var,
+         methodExp.args
+    );
+    if (methodArgs.length !== methodVars.length) {
+         return makeFailure(`Incorrect number of argumetns`);
+    }
+    // substituting
+    const litArgs: CExp[] = map(valueToLitExp, proc.vals);
+    const bodyWithFieldsSub= substitute(methodExp.body, proc.fields, litArgs);
+    const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
+    const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSub), methodVars, litMethodArgs);
+    if (fullySubstitutedBody.length === 0) {
+        return makeFailure("Method body cant be empty");
+    }
+    return evalSequence(fullySubstitutedBody, env);
+};
+///
 
 // Evaluate a sequence of expressions (in a program)
 export const evalSequence = (seq: Exp[], env: Env): Result<Value> =>
