@@ -42,6 +42,13 @@ export const makeClassValueEnv = (fields: string[], methods: Binding[], env: Env
 export const isClassValue = (x: any): x is ClassValue => x.tag === "ClassValue";
 
 // Instance of a class
+export type ObjectValue = {
+    tag: "ObjectValue";
+    fields: string[]
+    vals: Value[]
+    methods: Binding[]
+    env: Env;
+}
 
 
 
