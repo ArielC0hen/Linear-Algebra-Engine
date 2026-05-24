@@ -106,9 +106,8 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     }
     const methodSymbol = args[0];
     if (!isSymbolSExp(methodSymbol)) {
-        return makeFailure(`Method selective routing needs a symbol, received: ${format(methodSymbol)}`);
+        return makeFailure("Received a non-symbol");
     }
-    
     const methodName = methodSymbol.val;
     const methodBinding = proc.methods.find((m: any) => m.var.var === methodName);
     if (!methodBinding) {
