@@ -1,6 +1,6 @@
 import { map } from 'ramda';
 import { BoolExp, CExp, Exp, isAppExp, isBoolExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
-import { Result, bind, makeFailure, makeOk} from './shared/result';
+import { Result, bind, makeFailure, makeOk, mapResult} from './shared/result';
 
 /*
 Purpose: Transform L2 AST to Python program string
@@ -58,8 +58,10 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                 mapResult(
                     CExpToPython,
                     exp.rands
-                ),
-                (randsStr)
+                ).join(", "),
+                (randsStr) => {
+                    
+                }
             )
         )
     }
