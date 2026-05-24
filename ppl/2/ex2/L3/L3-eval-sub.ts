@@ -1,6 +1,6 @@
 // L3-eval.ts
 import { map } from "ramda";
-import { isCExp, isClassExp, isLetExp } from "./L3-ast";
+import { ClassExp, isCExp, isClassExp, isLetExp } from "./L3-ast";
 import { BoolExp, CExp, Exp, IfExp, LitExp, NumExp,
          PrimOp, ProcExp, Program, StrExp, VarDecl } from "./L3-ast";
 import { isAppExp, isBoolExp, isDefineExp, isIfExp, isLitExp, isNumExp,
@@ -49,7 +49,7 @@ const evalIf = (exp: IfExp, env: Env): Result<Value> =>
         L3applicativeEval(exp.alt, env));
 
 ///dlc
-const evalClass = (exp: IfExp, env: Env): Result<Value> =>
+const evalClass = (exp: ClassExp, env: Env): Result<Value> =>
     bind(L3applicativeEval(exp.test, env), (test: Value) => 
         isTrueValue(test) ? L3applicativeEval(exp.then, env) : 
         L3applicativeEval(exp.alt, env));
