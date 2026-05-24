@@ -16,11 +16,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         return makeOk(exp.val.toString());
     } 
     else if (isBoolExp(exp)) {
-        if (exp.val) {
-            return makeOk("True");
-        } else {
-            return makeOk("False");
-        }
+        return makeOk(exp.val ? "True" : "False");
     }
     else if (isStrExp(exp)) {
         return makeOk()
