@@ -8,7 +8,7 @@ import { isBoolExp, isCExp, isLitExp, isNumExp, isPrimOp, isStrExp, isVarRef,
          parseL3Exp,  DefineExp,
          ClassExp} from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeExtEnv, Env } from "./L3-env-env";
-import { isClosure, makeClosureEnv, Closure, Value } from "./L3-value";
+import { isClosure, makeClosureEnv, Closure, Value, makeClassValueEnv } from "./L3-value";
 import { applyPrimitive } from "./evalPrimitive";
 import { allT, first, rest, isEmpty, isNonEmptyList } from "../shared/list";
 import { Result, makeOk, makeFailure, bind, mapResult } from "../shared/result";
