@@ -1,5 +1,5 @@
 import { BoolExp, CExp, Exp, isBoolExp, isIfExp, isNumExp, isPrimOp, isStrExp, isVarRef, Program } from './L3/L3-ast';
-import { Result, makeFailure, makeOk} from './shared/result';
+import { Result, bind, makeFailure, makeOk} from './shared/result';
 
 /*
 Purpose: Transform L2 AST to Python program string
