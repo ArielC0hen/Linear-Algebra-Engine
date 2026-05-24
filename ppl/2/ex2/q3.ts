@@ -49,7 +49,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         return bind(
             CExpToPython(body),
             (bodyStr) => makeOk(`(lambda) ${args} : ${bodyStr}`)
-        )
+        );
     }
     return makeOk("");
 }
