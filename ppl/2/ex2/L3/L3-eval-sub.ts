@@ -65,7 +65,7 @@ const L3applyProcedure = (proc: Value, args: Value[], env: Env): Result<Value> =
     isPrimOp(proc) ? applyPrimitive(proc, args) :
     isClosure(proc) ? applyClosure(proc, args, env) :
     isClassValue(proc) ? apply :
-    
+
     makeFailure(`Bad procedure ${format(proc)}`);
 
 // Applications are computed by substituting computed
@@ -87,6 +87,10 @@ const applyClosure = (proc: Closure, args: Value[], env: Env): Result<Value> => 
     return evalSequence(substitute(body, vars, litArgs), env);
     //return evalSequence(substitute(proc.body, vars, litArgs), env);
 }
+
+///dlc
+const applyClassVal = ()
+///
 
 // Evaluate a sequence of expressions (in a program)
 export const evalSequence = (seq: List<Exp>, env: Env): Result<Value> =>
