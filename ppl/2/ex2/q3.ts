@@ -32,7 +32,10 @@ const CExpToPython = (exp: CExp) : Result<string> => {
             CExpToPython(exp.test),
             (testStr) => bind(
                 CExpToPython(exp.then),
-                (thenStr) => bind()
+                (thenStr) => bind(
+                    CExpToPython(exp.alt),
+                    (altStr) => makeOk('')
+                )
             )
         );
     }
