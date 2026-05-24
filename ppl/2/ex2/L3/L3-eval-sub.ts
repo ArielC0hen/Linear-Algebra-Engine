@@ -122,7 +122,6 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
         (v: VarDecl) => v.var,
          methodExp.args
     );
-
     if (methodArgs.length !== methodVars.length) {
          return makeFailure(`Method variant parameter length structure mismatch`);
     }
