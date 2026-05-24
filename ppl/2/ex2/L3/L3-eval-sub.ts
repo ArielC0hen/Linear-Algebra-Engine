@@ -54,7 +54,7 @@ const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
         (f : VarDecl) => f.var,
         exp.fields
     );
-    return makeOk(makeClassValue(fieldNames, exp.methods));
+    return makeOk(makeClassValue(fieldNames, exp.methods, env));
 }
 ///
 
