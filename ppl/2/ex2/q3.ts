@@ -1,4 +1,4 @@
-import { BoolExp, CExp, Exp, isBoolExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isBoolExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
 import { Result, bind, makeFailure, makeOk} from './shared/result';
 
 /*
@@ -41,7 +41,8 @@ const CExpToPython = (exp: CExp) : Result<string> => {
     }
     else if (isProcExp(exp)) {
         const args = map (
-            ()
+            (a : VarDecl) => a.var,
+            exp.args
         );
     }
     return makeOk("");
