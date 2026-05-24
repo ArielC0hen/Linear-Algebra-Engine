@@ -35,8 +35,8 @@ export type ClassValue = {
     methods: Binding[];
     env: Env;
 }
-export const makeClassValue = (params: VarDecl[], body: CExp[]): Closure =>
-    ({tag: "Closure", params: params, body: body, env : makeEmptyEnv()});
+export const makeClassValue = (fields: String[], methods: Binding[]): ClassValue =>
+    ({tag: "ClassValue", fields: fields, body: body, env : makeEmptyEnv()});
 export const isClassValue = (x: any): x is Closure => x.tag === "ClassValue";
 
 // ========================================================
