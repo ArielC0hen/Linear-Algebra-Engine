@@ -70,8 +70,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                             return makeOk(toString);
                         }
                         else {
-                            const toString = 
-                            return
+                            return makeOk(`${ratorStr}(${randsStrs.join(',')})`);
                         }
                     }
                 }
