@@ -125,7 +125,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     if (methodArgs.length !== methodVars.length) {
          return makeFailure(`Incorrect number of argumetns`);
     }
-    // substit
+    // substituting
     const litArgs: CExp[] = map(valueToLitExp, proc.vals);
     const bodyWithFieldsSubstituted = substitute(methodExp.body, proc.fields, litArgs);
 
