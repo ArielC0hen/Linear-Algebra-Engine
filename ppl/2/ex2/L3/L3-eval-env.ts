@@ -109,10 +109,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
          return makeFailure(`Incorrect number of argumetns`);
     }
     // env
-    const litArgs: CExp[] = map(valueToLitExp, proc.vals);
-    const bodyWithFieldsSub= substitute(methodExp.body, proc.fields, litArgs);
-    const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
-    const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSub), methodVars, litMethodArgs);
+    
     if (fullySubstitutedBody.length === 0) {
         return makeFailure("Method body cant be empty");
     }
