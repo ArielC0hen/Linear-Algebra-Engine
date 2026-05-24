@@ -1,5 +1,5 @@
 import { map } from 'ramda';
-import { BoolExp, CExp, Exp, isAppExp, isBoolExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isAppExp, isBoolExp, isDefineExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
 import { Result, bind, makeFailure, makeOk, mapResult} from './shared/result';
 
 /*
@@ -84,6 +84,10 @@ const CExpToPython = (exp: CExp) : Result<string> => {
     else {
         return makeFailure("Unknown expression");
     }
+}
+
+const expToPython = (exp: Exp): Result<string> => {
+    if (isDefineExp)
 }
 
 
