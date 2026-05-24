@@ -1,5 +1,5 @@
 // L3-eval.ts
-import { map } from "ramda";
+import { find, map } from "ramda";
 import { ClassExp, isCExp, isClassExp, isLetExp } from "./L3-ast";
 import { BoolExp, CExp, Exp, IfExp, LitExp, NumExp,
          PrimOp, ProcExp, Program, StrExp, VarDecl } from "./L3-ast";
