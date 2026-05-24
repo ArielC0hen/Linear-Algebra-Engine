@@ -1,4 +1,4 @@
-import { BoolExp, CExp, Exp, isBoolExp, isNumExp, isPrimOp, isStrExp, isVarRef, Program } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isBoolExp, isIfExp, isNumExp, isPrimOp, isStrExp, isVarRef, Program } from './L3/L3-ast';
 import { Result, makeFailure, makeOk} from './shared/result';
 
 /*
@@ -27,7 +27,9 @@ const CExpToPython = (exp: CExp) : Result<string> => {
     else if (isVarRef(exp)) {
         return makeOk(exp.var);
     }
-    else if ()
+    else if (isIfExp(exp)) {
+        
+    }
     return makeOk("");
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
