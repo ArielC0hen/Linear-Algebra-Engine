@@ -1,4 +1,4 @@
-import { CExp, Exp, isBoolExp, isNumExp, Program } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isBoolExp, isNumExp, Program } from './L3/L3-ast';
 import { Result, makeFailure, makeOk} from './shared/result';
 
 /*
@@ -11,7 +11,7 @@ const convertPrimOp = (op: string) : string => {
     return op;
 }
 
-const CExpToPython = (exp: CExp) : Result<string> => {
+const CExpToPython = (exp: BoolExp) : Result<string> => {
     if (isNumExp(exp)) {
         return makeOk(exp.val.toString());
     } 
