@@ -9,7 +9,9 @@ Type: [Parsed | Error] => Result<string>
 */
 
 const convertPrimOp = (op: string) : string => {
-    if (op === "=")
+    if (op === "=") {
+        return "==";
+    }
     return op;
 }
 
