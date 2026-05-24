@@ -30,7 +30,7 @@ const L3applicativeEval = (exp: CExp, env: Env): Result<Value> =>
     isLitExp(exp) ? makeOk(exp.val) :
     isIfExp(exp) ? evalIf(exp, env) :
     isClassExp(exp) ? evalClass(exp, env) :
-    
+
     isProcExp(exp) ? evalProc(exp, env) :
     isAppExp(exp) ? bind(L3applicativeEval(exp.rator, env), (rator: Value) =>
                         bind(mapResult(param => 
@@ -66,7 +66,7 @@ const L3applyProcedure = (proc: Value, args: Value[], env: Env): Result<Value> =
     isPrimOp(proc) ? applyPrimitive(proc, args) :
     isClosure(proc) ? applyClosure(proc, args, env) :
     isClassValue(proc) ? applyClassSub(proc, args, env) :
-    isObjectValue(proc) ? applyClassSub(proc, args, env) :
+    isObjectValue(proc) ? applyObjectSub(proc, args, env) :
 
     makeFailure(`Bad procedure ${format(proc)}`);
 
