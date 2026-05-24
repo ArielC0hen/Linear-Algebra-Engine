@@ -1,4 +1,4 @@
-import { Exp, Program } from './L3/L3-ast';
+import { CExp, Exp, Program } from './L3/L3-ast';
 import { Result, makeFailure} from './shared/result';
 
 /*
@@ -9,6 +9,10 @@ Type: [Parsed | Error] => Result<string>
 
 const convertPrimOp = (op: string) : string => {
     return op;
+}
+
+const CExpToPython(exp: CExp) : Result<string> => {
+    
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
