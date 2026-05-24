@@ -92,6 +92,8 @@ const expToPython = (exp: Exp): Result<string> => {
             CExpToPython(exp.val),
             (valStr) => makeOk(`${exp.var.var} = ${valStr}`);
         );
+    } else {
+        return CExpToPython(exp);
     }
 }
 
