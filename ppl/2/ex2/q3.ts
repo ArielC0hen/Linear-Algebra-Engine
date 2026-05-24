@@ -71,7 +71,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                         }
                         else {
                             const converted = convertPrimOp(op);
-                            return makeOk(`${randsStrs.join(` ${converted} `)}`);
+                            return makeOk(`(${randsStrs.join(` ${converted} `)}`);
                         }
                     }
                     else {
