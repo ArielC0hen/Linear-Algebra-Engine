@@ -5,7 +5,8 @@ import { map } from "ramda";
 import { isBoolExp, isCExp, isLitExp, isNumExp, isPrimOp, isStrExp, isVarRef,
          isAppExp, isDefineExp, isIfExp, isLetExp, isProcExp,
          Binding, VarDecl, CExp, Exp, IfExp, LetExp, ProcExp, Program,
-         parseL3Exp,  DefineExp} from "./L3-ast";
+         parseL3Exp,  DefineExp,
+         ClassExp} from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeExtEnv, Env } from "./L3-env-env";
 import { isClosure, makeClosureEnv, Closure, Value } from "./L3-value";
 import { applyPrimitive } from "./evalPrimitive";
@@ -49,7 +50,7 @@ const evalClass = (exp: ClassExp, env: Env): Result<Value> => {
         (f : VarDecl) => f.var,
         exp.fields
     );
-    return makeOk(makeClassValue(fieldNames, exp.methods));
+    return makeOk(makeClassValueEnv(fieldNames, exp.methods,env));
 }
 ///
 
