@@ -133,8 +133,12 @@ const applyObjectSub = (proc: any, args: Value[], env: Env): Result<Value> => {
     const litMethodArgs: CExp[] = map(valueToLitExp, methodArgs);
     const fullySubstitutedBody = substitute(renameExps(bodyWithFieldsSubstituted), methodVars, litMethodArgs);
 
-    // FIX TYPE SYSTEM ERROR: Cast down to Exp[] array types safely
-    return evalSequence(fullySubstitutedBody as Exp[], env);
+    // Explicit type guard to satisfy the strict NonEmptyList compiler checks
+    if (fullySubstitutedBody.length === 0) {
+        return makeFailure("Method body cannot be empty");
+    }
+
+    return evalSequence(fullySubstitutedBody, env);
 };
 ///
 
