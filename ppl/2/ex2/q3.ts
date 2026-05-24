@@ -1,5 +1,5 @@
 import { map } from 'ramda';
-import { BoolExp, CExp, Exp, isBoolExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isAppExp, isBoolExp, isIfExp, isNumExp, isPrimOp, isProcExp, isStrExp, isVarRef, Program, VarDecl } from './L3/L3-ast';
 import { Result, bind, makeFailure, makeOk} from './shared/result';
 
 /*
@@ -51,8 +51,11 @@ const CExpToPython = (exp: CExp) : Result<string> => {
             (bodyStr) => makeOk(`(lambda) ${args} : ${bodyStr}`)
         );
     }
-
-    
+    else if (isAppExp(exp)) {
+        return bind(
+            CExpToPython(exp.rator)
+        )
+    }
     return makeOk("");
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
