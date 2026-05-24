@@ -83,7 +83,7 @@ const applyClassConstructor = (proc: ClassValue, args: Value[]): Result<Value> =
     return makeOk(makeObjectValueEnv(proc.fields, args, proc.methods, proc.env));
 };
 
-const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<Value> => {
+const applyObjectMethod = (proc: ObjectValue, args: Value[]): Result<Value> => {
     if (args.length === 0) {
         return makeFailure("No method called");
     }
