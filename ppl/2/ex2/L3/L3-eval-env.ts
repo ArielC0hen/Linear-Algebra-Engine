@@ -114,7 +114,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     if (methodExp.body.length === 0) {
         return makeFailure("Method body cant be empty");
     }
-    return evalSequence(fullySubstitutedBody, env);
+    return evalSequence(methodExp.body, M);
 };
 ///
 
