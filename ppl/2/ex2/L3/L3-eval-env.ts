@@ -6,7 +6,8 @@ import { isBoolExp, isCExp, isLitExp, isNumExp, isPrimOp, isStrExp, isVarRef,
          isAppExp, isDefineExp, isIfExp, isLetExp, isProcExp,
          Binding, VarDecl, CExp, Exp, IfExp, LetExp, ProcExp, Program,
          parseL3Exp,  DefineExp,
-         ClassExp} from "./L3-ast";
+         ClassExp,
+         isClassExp} from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeExtEnv, Env } from "./L3-env-env";
 import { isClosure, makeClosureEnv, Closure, Value, makeClassValueEnv } from "./L3-value";
 import { applyPrimitive } from "./evalPrimitive";
@@ -26,6 +27,7 @@ const applicativeEval = (exp: CExp, env: Env): Result<Value> =>
     isVarRef(exp) ? applyEnv(env, exp.var) :
     isLitExp(exp) ? makeOk(exp.val) :
     isIfExp(exp) ? evalIf(exp, env) :
+    isClassExp(exp) ? evalClass(exp, env) :
     isProcExp(exp) ? evalProc(exp, env) :
     isLetExp(exp) ? evalLet(exp, env) :
     isAppExp(exp) ? bind(applicativeEval(exp.rator, env),
