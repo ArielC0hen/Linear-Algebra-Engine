@@ -34,7 +34,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                 CExpToPython(exp.then),
                 (thenStr) => bind(
                     CExpToPython(exp.alt),
-                    (altStr) => makeOk(`(${thenStr} if ${testStr} `)
+                    (altStr) => makeOk(`(${thenStr} if ${testStr} else ${altStr}`)
                 )
             )
         );
