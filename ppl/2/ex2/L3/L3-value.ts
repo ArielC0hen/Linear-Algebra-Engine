@@ -53,7 +53,7 @@ export const makeObjectValue = (fields: string[], vals: Value[], methods: Bindin
     ({tag: "ObjectValue", fields: fields, vals: vals, methods: methods, env: makeEmptyEnv()});
 export const makeObjectValueEnv = (fields: string[], vals: Value[], methods: Binding[], env: Env): ObjectValue =>
     ({tag: "ObjectValue", fields: fields, vals: vals, methods: methods, env: env});
-export const isClassValue = (x: any): x is ClassValue => x.tag === "ClassValue";
+export const isObjectValue = (x: any): x is ObjectValue => x.tag === "ObjectValue";
 
 
 // ========================================================
