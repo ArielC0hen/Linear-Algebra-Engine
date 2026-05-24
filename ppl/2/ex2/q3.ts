@@ -30,7 +30,9 @@ const CExpToPython = (exp: CExp) : Result<string> => {
     else if (isIfExp(exp)) {
         return bind(
             CExpToPython(exp.test),
-            (testStr) =>
+            (testStr) => bind(
+                
+            )
         )
     }
     return makeOk("");
