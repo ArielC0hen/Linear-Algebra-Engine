@@ -80,7 +80,7 @@ export const closureToString = (c: Closure): string =>
 
 export const classValueToString = (c: ClassValue): string =>
     // `<Closure ${c.params} ${L3unparse(c.body)}>`
-    `<ClassValue ${c.fields} ${c.methods}>'
+    `<ClassValue ${c.fields} ${c.methods}>`
 
 export const compoundSExpToArray = (cs: CompoundSExp, res: string[]): string[] | { s1: string[], s2: string } =>
     isEmptySExp(cs.val2) ? append(valueToString(cs.val1), res) :
