@@ -28,7 +28,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         return makeOk(exp.var);
     }
     else if (isIfExp(exp)) {
-        
+        return bind(CExpToPython(exp.test))
     }
     return makeOk("");
 }
