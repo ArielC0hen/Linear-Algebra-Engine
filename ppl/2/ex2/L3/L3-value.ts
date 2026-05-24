@@ -36,7 +36,7 @@ export type ClassValue = {
     env: Env;
 }
 export const makeClassValue = (fields: String[], methods: Binding[]): ClassValue =>
-    ({tag: "ClassValue", fields: fields, body: body, env : makeEmptyEnv()});
+    ({tag: "ClassValue", fields: fields, methods: methods});
 export const isClassValue = (x: any): x is Closure => x.tag === "ClassValue";
 
 // ========================================================
