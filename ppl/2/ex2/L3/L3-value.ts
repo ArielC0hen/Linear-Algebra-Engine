@@ -7,7 +7,7 @@ import { append } from 'ramda';
 import { isArray, isNumber, isString } from '../shared/type-predicates';
 
 
-export type Value = SExpValue;
+export type Value = SExpValue || ClassValue;
 
 export type Functional = PrimOp | Closure;
 export const isFunctional = (x: any): x is Functional => isPrimOp(x) || isClosure(x);
