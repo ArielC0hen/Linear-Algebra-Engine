@@ -1,4 +1,4 @@
-import { Exp, Program } from './L3/L3-ast';
+import { Exp, isProgram, Program } from './L3/L3-ast';
 import { Result, makeFailure} from './shared/result';
 
 /*
@@ -7,5 +7,7 @@ Signature: l2ToPython(l2AST)
 Type: [Parsed | Error] => Result<string>
 */
 export const l2ToPython = (exp: Exp | Program): Result<string>  => {
-
+    if (isProgram(exp)) {
+        
+    }
 }
