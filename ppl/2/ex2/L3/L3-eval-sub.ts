@@ -91,7 +91,7 @@ const applyClosure = (proc: Closure, args: Value[], env: Env): Result<Value> => 
 }
 
 ///dlc
-const applyClassMethod = (proc: any, args: Value[], env: Env): Result<Value> => {
+const applyClassMethod = (proc: Class, args: Value[], env: Env): Result<Value> => {
     if (args.length !== proc.fields.length) {
         return makeFailure(`Class expected ${proc.fields.length} arguments, received ${args.length}`);
     }
