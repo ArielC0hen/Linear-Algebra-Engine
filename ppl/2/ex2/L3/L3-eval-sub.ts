@@ -96,7 +96,7 @@ const applyClassConstructor = (proc: ClassValue, args: Value[], env: Env): Resul
     if (args.length != proc.fields.length) {
         return makeFailure(`Class expected ${proc.fields.length} arguments, received ${args.length}`);
     }
-    //
+    //builds an object
     return makeOk(makeObjectValue(proc.fields, args, proc.methods));
 };
 
