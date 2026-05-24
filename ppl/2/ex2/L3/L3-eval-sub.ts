@@ -109,11 +109,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
         return makeFailure("Received a non-symbol");
     }
     const methodName = methodSymbol.val;
-    const methodBinding = find(
-        proc.methods,
-        (m) => m.var.var === methodName
-    );
-    proc.methods.find((m: any) => m.var.var === methodName);
+    const methodBinding = proc.methods.find((m: any) => m.var.var === methodName);
     if (!methodBinding) {
         return makeFailure(`Unrecognized method lookup token: ${methodName}`);
     }
