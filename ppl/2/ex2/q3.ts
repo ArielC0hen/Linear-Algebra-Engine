@@ -1,4 +1,4 @@
-import { BoolExp, CExp, Exp, isBoolExp, isNumExp, Program } from './L3/L3-ast';
+import { BoolExp, CExp, Exp, isBoolExp, isNumExp, isStrExp, Program } from './L3/L3-ast';
 import { Result, makeFailure, makeOk} from './shared/result';
 
 /*
@@ -11,7 +11,7 @@ const convertPrimOp = (op: string) : string => {
     return op;
 }
 
-const CExpToPython = (exp: BoolExp) : Result<string> => {
+const CExpToPython = (exp: CExp) : Result<string> => {
     if (isNumExp(exp)) {
         return makeOk(exp.val.toString());
     } 
@@ -22,7 +22,7 @@ const CExpToPython = (exp: BoolExp) : Result<string> => {
             return makeOk("False");
         }
     }
-    else if ()
+    else if (isStrExp)
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
