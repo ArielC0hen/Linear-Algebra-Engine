@@ -8,7 +8,7 @@ import { isAppExp, isBoolExp, isDefineExp, isIfExp, isLitExp, isNumExp,
 import { makeBoolExp, makeLitExp, makeNumExp, makeProcExp, makeStrExp } from "./L3-ast";
 import { parseL3Exp } from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeEnv, Env } from "./L3-env-sub";
-import { isClosure, makeClosure, Closure, Value, makeClassValue, isClassValue, isSymbolSExp, makeObjectValue, isObjectValue } from "./L3-value";
+import { isClosure, makeClosure, Closure, Value, makeClassValue, isClassValue, isSymbolSExp, makeObjectValue, isObjectValue, ClassValue } from "./L3-value";
 import { first, rest, isEmpty, List, isNonEmptyList } from '../shared/list';
 import { isBoolean, isNumber, isString } from "../shared/type-predicates";
 import { Result, makeOk, makeFailure, bind, mapResult, mapv } from "../shared/result";
@@ -91,7 +91,7 @@ const applyClosure = (proc: Closure, args: Value[], env: Env): Result<Value> => 
 }
 
 ///dlc
-const applyClassMethod = (proc: Class, args: Value[], env: Env): Result<Value> => {
+const applyClassMethod = (proc: ClassValue, args: Value[], env: Env): Result<Value> => {
     if (args.length !== proc.fields.length) {
         return makeFailure(`Class expected ${proc.fields.length} arguments, received ${args.length}`);
     }
