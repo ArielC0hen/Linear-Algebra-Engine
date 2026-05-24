@@ -75,7 +75,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                     }
                 }
             )
-        )
+        );
     }
     return makeOk("");
 }
