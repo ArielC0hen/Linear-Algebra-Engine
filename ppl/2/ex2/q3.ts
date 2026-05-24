@@ -1,5 +1,5 @@
 import { CExp, Exp, isNumExp, Program } from './L3/L3-ast';
-import { Result, makeFailure} from './shared/result';
+import { Result, makeFailure, makeOk} from './shared/result';
 
 /*
 Purpose: Transform L2 AST to Python program string
@@ -13,8 +13,8 @@ const convertPrimOp = (op: string) : string => {
 
 const CExpToPython = (exp: CExp) : Result<string> => {
     if (isNumExp(exp)) {
-        return make
-    }
+        return makeOk(exp.val.toString());
+    } else if ()
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
