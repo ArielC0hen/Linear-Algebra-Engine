@@ -118,7 +118,10 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
          return makeFailure(`Method value binding must be a ProcExp`);
     }
     const methodArgs = args.slice(1);
-    const methodVars = map((v: VarDecl) => v.var, methodExp.args);
+    const methodVars = map(
+        (v: VarDecl) => v.var,
+         methodExp.args
+    );
 
     if (methodArgs.length !== methodVars.length) {
          return makeFailure(`Method variant parameter length structure mismatch`);
