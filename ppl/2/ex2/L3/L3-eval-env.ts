@@ -9,7 +9,7 @@ import { isBoolExp, isCExp, isLitExp, isNumExp, isPrimOp, isStrExp, isVarRef,
          ClassExp,
          isClassExp} from "./L3-ast";
 import { applyEnv, makeEmptyEnv, makeExtEnv, Env } from "./L3-env-env";
-import { isClosure, makeClosureEnv, Closure, Value, makeClassValueEnv, ClassValue, makeObjectValue, makeObjectValueEnv, isClassValue, isObjectValue } from "./L3-value";
+import { isClosure, makeClosureEnv, Closure, Value, makeClassValueEnv, ClassValue, makeObjectValue, makeObjectValueEnv, isClassValue, isObjectValue, ObjectValue } from "./L3-value";
 import { applyPrimitive } from "./evalPrimitive";
 import { allT, first, rest, isEmpty, isNonEmptyList } from "../shared/list";
 import { Result, makeOk, makeFailure, bind, mapResult } from "../shared/result";
