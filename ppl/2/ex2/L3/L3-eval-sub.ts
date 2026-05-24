@@ -123,7 +123,7 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
          methodExp.args
     );
     if (methodArgs.length !== methodVars.length) {
-         return makeFailure(`Method variant parameter length structure mismatch`);
+         return makeFailure(`Incorrect number of argumetns`);
     }
 
     // Step 1: Substitute class fields with object state field values
