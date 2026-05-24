@@ -31,10 +31,10 @@ export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 // Class dlc.
 export type ClassValue = {
     tag: "ClassValue";
-    fields: String[];
+    fields: string[];
     methods: Binding[];
 }
-export const makeClassValue = (fields: String[], methods: Binding[]): ClassValue =>
+export const makeClassValue = (fields: string[], methods: Binding[]): ClassValue =>
     ({tag: "ClassValue", fields: fields, methods: methods});
 export const isClassValue = (x: any): x is Closure => x.tag === "ClassValue";
 
