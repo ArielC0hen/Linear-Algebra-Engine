@@ -61,7 +61,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                 ),
                 (randsStrs) => {
                     if (isPrimOp(exp.rator) && exp.rator.op === "not") {
-                        return makeOk(`(not ${randsStrs}))
+                        return makeOk(`(not ${randsStrs[0]}))
                     }
                 }
             )
