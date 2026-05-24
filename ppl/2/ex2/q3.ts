@@ -66,7 +66,8 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                             return makeOk(`(not ${randsStrs[0]})`);
                         }
                         if (op === "number?" || op === "boolean") {
-                            return makeOk(`(${}))
+                            const toString = 
+                            return makeOk(`(${ra}))
                         }
                     }
                 }
