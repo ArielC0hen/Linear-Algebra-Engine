@@ -30,8 +30,8 @@ export const isClosure = (x: any): x is Closure => x.tag === "Closure";
 // ========================================================
 // Class dlc.
 // We also use a frame-based representation of closures as opposed to one env per var.
-export type Class = {
-    tag: "Class";
+export type ClassValue = {
+    tag: "ClassValue";
     params: VarDecl[];
     body: CExp[];
     env: Env;
@@ -57,7 +57,7 @@ export type SymbolSExp = {
     val: string;
 }
 
-export type SExpValue = number | boolean | string | PrimOp | Closure | SymbolSExp | EmptySExp | CompoundSExp | Class;
+export type SExpValue = number | boolean | string | PrimOp | Closure | SymbolSExp | EmptySExp | CompoundSExp | ClassValue;
 export const isSExp = (x: any): x is SExpValue =>
     typeof(x) === 'string' || typeof(x) === 'boolean' || typeof(x) === 'number' ||
     isSymbolSExp(x) || isCompoundSExp(x) || isEmptySExp(x) || isPrimOp(x) || isClosure(x);
