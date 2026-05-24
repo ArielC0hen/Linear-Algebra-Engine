@@ -12,7 +12,9 @@ const convertPrimOp = (op: string) : string => {
 }
 
 const CExpToPython = (exp: CExp) : Result<string> => {
-    
+    if (isNumExp(exp)) {
+        
+    }
 }
 export const l2ToPython = (exp: Exp | Program): Result<string>  => 
     makeFailure("TODO");
