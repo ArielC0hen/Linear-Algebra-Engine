@@ -65,7 +65,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                         if (op === "not") {
                             return makeOk(`(not ${randsStrs[0]})`);
                         }
-                        if (op === "number?" || op === "boolean") {
+                        else if (op === "number?" || op === "boolean") {
                             const toString = randsStrs.join(`${convertPrimOp(op)}`);
                             return makeOk(toString);
                         }
