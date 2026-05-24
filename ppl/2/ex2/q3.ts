@@ -60,9 +60,15 @@ const CExpToPython = (exp: CExp) : Result<string> => {
                     exp.rands
                 ),
                 (randsStrs) => {
-                    if (isPrimOp(exp.rator) && exp.rator.op === "not") {
-                        return makeOk(`(not ${randsStrs[0]})`);
-                    } else if ()
+                    if (isPrimOp(exp.rator)) {
+                        const op = exp.rator.op;
+                        if (op === "not") {
+                            return makeOk(`(not ${randsStrs[0]})`);
+                        }
+                        if (op === "number?" || op === "boolean") {
+                            return makeOk()
+                        }
+                    }
                 }
             )
         )
