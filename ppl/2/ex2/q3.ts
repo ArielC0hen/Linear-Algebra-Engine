@@ -48,7 +48,7 @@ const CExpToPython = (exp: CExp) : Result<string> => {
         const body = exp.body[0]; // we are allowed to assume body contains a single exp
         return bind(
             CExpToPython(body),
-            (bodyStr) => makeOk(`(lambda) ${args} : ${bodyStr}`)
+            (bodyStr) => makeOk(`(lambda ${args} : ${bodyStr})`)
         );
     }
     else if (isAppExp(exp)) {
