@@ -117,8 +117,6 @@ const applyObjectMethod = (proc: ObjectValue, args: Value[], env: Env): Result<V
     if (!isProcExp(methodExp)) {
          return makeFailure(`Method value binding must be a ProcExp`);
     }
-
-    // Extract method arguments using vanilla array slice
     const methodArgs = args.slice(1);
     const methodVars = map((v: VarDecl) => v.var, methodExp.args);
 
