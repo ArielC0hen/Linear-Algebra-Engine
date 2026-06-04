@@ -218,7 +218,7 @@ export const typeofLetrec = (exp: LetrecExp, tenv: TEnv): Result<TExp> => {
 //   If typeof(exp.val, tenv) = texp
 //   Then typeof(exp) = void
 export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
-    
+    const varTE = typeofExp()
     const AreEqual = checkEqualType()
 
     const testTE = typeofExp(ifExp.test, tenv);
