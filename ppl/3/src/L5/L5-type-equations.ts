@@ -82,7 +82,7 @@ export const expToPool = (exp: A.Exp): Pool => {
         A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
             const headLit = A.makeLitExp(e.val.val1); // car
             const tailLit = A.makeLitExp(e.val.val2); // cdr
-            
+            pool
             return extendPool(e, pool);
         }) () :
         makeEmptyPool();
