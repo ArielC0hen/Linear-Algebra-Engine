@@ -107,8 +107,10 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
         const genericT = T(); // so we use the same T
         return makeOk(makeProcTExp([genericT, makeListTExp(genericT) ] , makeListTExp(genericT)));
     }) ():
-    (p.op === 'car') ?
-        makeFailure("HW3 3.1 - Implement this branch") :
+    (p.op === 'car') ? (() => {
+        const genericT = T(); // so we use the same T
+        return makeOk(makeProcTExp([genericT, makeListTExp(genericT) ] , makeListTExp(genericT)));
+    }) ():
     (p.op === 'cdr') ?
         makeFailure("HW3 3.1 - Implement this branch") :
     makeFailure(`Primitive not yet implemented: ${p.op}`);
