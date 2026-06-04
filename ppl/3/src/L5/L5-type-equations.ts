@@ -80,11 +80,11 @@ export const expToPool = (exp: A.Exp): Pool => {
         A.isLitExp(e) && V.isEmptySExp(e.val) ?
             extendPool(e, pool) : // empty list just give it a generic type and move on
         A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
-            const ListToArray = (val: V.SExpValue) : V.SExpValue[] => 
+            const ListToArray = (val: V.SExpValue) : A.Exp[] => 
                 V.isEmptySExp(val) ? [] :
-                V.isCompoundSExp(val) ? [val.val1].concat(ListToArray(val.val2))
+                V.isCompoundSExp(val) ? [val.val1 as A.Exp].concat(ListToArray(val.tail))
                 : [];
-            return reducePool(findVars, ListToArray(e.val) as A.Exp, extendPool(e, pool));
+            return reducePool(findVars, ListToArray(e.val), extendPool(e, pool));
         }) () :
            
         makeEmptyPool();
