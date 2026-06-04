@@ -234,9 +234,8 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 // for the expressions that follow it; the program type is the type of the
 // last expression.
 export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
-    const exps = exp.exps;
     // we need to extend the tenv for every define
-
+    return typeofProgramExps(exp.exps, tenv);
 }
 
 //helper
