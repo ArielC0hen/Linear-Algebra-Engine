@@ -220,9 +220,6 @@ export const typeofLetrec = (exp: LetrecExp, tenv: TEnv): Result<TExp> => {
 export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
     const varTE = exp.var.texp;
     const valTE = typeofExp(exp.val, tenv);
-    
-
-
     return bind(
         valTE,
         (valTE : TExp) => bind (
@@ -230,18 +227,7 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
             () => makeOk(makeVoidTExp())
         )
     );
-
-    const testTE = typeofExp(ifExp.test, tenv);
-    const thenTE = typeofExp(ifExp.then, tenv);
-    const altTE = typeofExp(ifExp.alt, tenv);
-    const constraint1 = bind(testTE, testTE => checkEqualType(testTE, makeBoolTExp(), ifExp));
-    const constraint2 = bind(thenTE, (thenTE: TExp) =>
-                            bind(altTE, (altTE: TExp) =>
-                                checkEqualType(thenTE, altTE, ifExp)));
-    return bind(constraint1, (_c1: true) =>
-                bind(constraint2, (_c2: true) =>
-                    thenTE));
-}
+};
 
 // Purpose: compute the type of a program
 // Thread the TEnv through top-level expressions. A define extends the TEnv
