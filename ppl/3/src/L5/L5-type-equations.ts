@@ -41,8 +41,7 @@ export const inPool = (pool: Pool, e: A.Exp): Opt.Optional<T.TExp> => {
     const exp = R.find((item) => 
         item.e === e
         || (A.isVarRef(item.e) && A.isVarRef(e) && item.e.var === e.var)
-        || (A.isLitExp(item.e) && A.isLitExp(e) && item.e.val === e.val)
-        // (modified for HW3 - no need to edit!)
+        || (A.isLitExp(item.e) && A.isLitExp(e) && item.e.val === e.val) // <--- Structural objects failed reference equality (===)
     , pool);
     return exp ? Opt.makeSome(R.prop('te')(exp)) : Opt.makeNone();
 }
