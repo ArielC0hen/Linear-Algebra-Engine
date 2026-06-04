@@ -91,7 +91,7 @@ A.isAppExp(e) ? extendPool(e,
                  reducePool(findVars,
                             cons(e.rator, e.rands),
                             pool)) :
-        makeEmptyPool();
+        extendPool(e, pool);
     return findVars(exp, makeEmptyPool());
 };
 
