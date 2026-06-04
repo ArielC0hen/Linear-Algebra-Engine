@@ -104,7 +104,7 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
     (p.op === 'display') ? makeOk(makeProcTExp([T()] , makeVoidTExp())) :
     (p.op === 'newline') ? makeOk(makeProcTExp([] , makeVoidTExp())) :
     (p.op === 'cons') ? (() => {
-        const genericT = T(); // so we use the same T
+        const  = T(); // so we use the same T
         return makeOk(makeProcTExp([genericT, makeListTExp(genericT) ] , makeListTExp(genericT)));
     }) ():
     (p.op === 'car') ? (() => {
