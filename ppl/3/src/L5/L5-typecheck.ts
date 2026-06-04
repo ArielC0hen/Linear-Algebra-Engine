@@ -235,6 +235,7 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 // last expression.
 export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
     const exps = exp.exps;
+    // we need to extend the T
     const lastExpression = exp.exps[exp.exps.length - 1];
     const lastTE = typeofExp(lastExpression, tenv);
     return bind (
