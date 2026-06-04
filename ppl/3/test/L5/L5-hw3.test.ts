@@ -162,3 +162,90 @@ describe('L5-typecheck - Program final return type', () => {
             .toEqual(makeOk("number"));
     });
 });
+
+
+describe('L5-type-equations - list inference debugging', () => {
+    const src1 = "((lambda ((xs : (list number))) (cons 0 xs)) '(1 2 3))";
+    const src2 = "((lambda ((xs : (list number))) (car xs)) '(1 2 3))";
+
+    // Helper to unwrap Result and Optional safely
+    const getOk = <T>(r: Result<T>): T => { if (r.tag === "Ok") return r.value; throw new Error("Result is Failure"); };
+    const getSome = <T>(o: Optional<T>): T => { if (isSome(o)) return o.value; throw new Error("Optional is None"); };
+
+    describe('Step 1: AST Parsing & Pool Generation', () => {
+        it('generates a non-empty pool for expression 1', () => {
+            const exp = getOk(p(src1));
+            const pool = expToPool(exp);
+            expect(pool.length).toBeGreaterThan(0);
+            
+            // Check if the root expression is tracked in the pool
+            const rootTExp = inPool(pool, exp);
+            expect(isSome(rootTExp)).toBe(true);
+        });
+
+        it('generates a non-empty pool for expression 2', () => {
+            const exp = getOk(p(src2));
+            const pool = expToPool(exp);
+            expect(pool.length).toBeGreaterThan(0);
+
+            const rootTExp = inPool(pool, exp);
+            expect(isSome(rootTExp)).toBe(true);
+        });
+    });
+
+    describe('Step 2: Pool to Equations Mapping', () => {
+        it('successfully extracts equations for expression 1 without dropping into None', () => {
+            const exp = getOk(p(src1));
+            const pool = expToPool(exp);
+            const equations = poolToEquations(pool);
+            
+            expect(isSome(equations)).toBe(true);
+            expect(getSome(equations).length).toBeGreaterThan(0);
+        });
+
+        it('successfully extracts equations for expression 2 without dropping into None', () => {
+            const exp = getOk(p(src2));
+            const pool = expToPool(exp);
+            const equations = poolToEquations(pool);
+            
+            expect(isSome(equations)).toBe(true);
+            expect(getSome(equations).length).toBeGreaterThan(0);
+        });
+    });
+
+    describe('Step 3: Equation Solving (Unification)', () => {
+        it('unifies equations for expression 1 successfully', () => {
+            const exp = getOk(p(src1));
+            const pool = expToPool(exp);
+            const equations = getSome(poolToEquations(pool));
+            const substitution = solveEquations(equations);
+
+            expect(substitution.tag).toBe("Ok");
+        });
+
+        it('unifies equations for expression 2 successfully', () => {
+            const exp = getOk(p(src2));
+            const pool = expToPool(exp);
+            const equations = getSome(poolToEquations(pool));
+            const substitution = solveEquations(equations);
+
+            expect(substitution.tag).toBe("Ok");
+        });
+    });
+
+    describe('Step 4: Final Type Application', () => {
+        it('returns an unparsed type matching (list number) or number via unparse string check', () => {
+            const res1 = infer(src1);
+            expect(res1.tag).toBe("Ok");
+            if (res1.tag === "Ok") {
+                expect(res1.value).toBe("(list number)");
+            }
+
+            const res2 = infer(src2);
+            expect(res2.tag).toBe("Ok");
+            if (res2.tag === "Ok") {
+                expect(res2.value).toBe("number");
+            }
+        });
+    });
+});
