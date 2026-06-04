@@ -80,8 +80,7 @@ export const expToPool = (exp: A.Exp): Pool => {
         A.isLitExp(e) && V.isEmptySExp(e.val) ?
             extendPool(e, pool) : // empty list just give it a generic type and move on
         A.isLitExp(e) && V.isCompoundSExp(e.val) ?
-            pool : // HW3 3.3.a - fix this branch
-        A.isCompoundExp(e) ? extendPool(e, reducePool(findVars, A.expComponents(e), pool)) :
+            extendPool(e, reducePool(findVars, e.body, reducePoolVarDecls(extendPoolVarDecl, e.args, pool))) :
         makeEmptyPool();
     return findVars(exp, makeEmptyPool());
 };
