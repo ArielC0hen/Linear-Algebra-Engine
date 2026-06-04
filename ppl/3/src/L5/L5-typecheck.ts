@@ -220,6 +220,7 @@ export const typeofLetrec = (exp: LetrecExp, tenv: TEnv): Result<TExp> => {
 export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
     const varTE = typeofExp(exp.var.texp, tenv);
     const AreEqual = checkEqualType()
+    
 
 
     return bind(
