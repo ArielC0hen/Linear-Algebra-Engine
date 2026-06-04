@@ -40,7 +40,7 @@ export const checkNoOccurrence = (tvar: TVar, te: TExp): Result<true> => {
         isAtomicTExp(e) ? makeOk(true) :
         isProcTExp(e) ? bind(mapResult(check, e.paramTEs), _ => check(e.returnTE)) :
         isListTExp(e) ? bind(
-            mapResult(check, e.paramTEs),
+            mapResult(check, e.),
              _ => check(e.returnTE)
         ) :
         makeFailure(`Bad type expression ${e} in ${format(te)}`);
