@@ -222,7 +222,10 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
     const AreEqual = checkEqualType()
 
 
-    return bind(exp.var.texp,)
+    return bind(
+        exp.var.texp,
+        ()
+    )
 
     const testTE = typeofExp(ifExp.test, tenv);
     const thenTE = typeofExp(ifExp.then, tenv);
