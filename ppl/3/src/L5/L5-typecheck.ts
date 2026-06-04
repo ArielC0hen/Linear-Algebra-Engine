@@ -258,7 +258,9 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
     return bind (
         firstTE,
         (firstType : TExp) => {
-            if (isDefineExp(firstType))
+            if (isDefineExp(firstType)) { // define, extend tenv
+                const newEnv = makeExtendTEnv(firstExp.var.var)
+            }
         }
 
     )
