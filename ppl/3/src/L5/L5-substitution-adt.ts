@@ -68,7 +68,7 @@ export const applySub = (sub: Sub, te: TExp): TExp =>
     isAtomicTExp(te) ? te :
     isTVar(te) ? subGet(sub, te) :
     isProcTExp(te) ? makeProcTExp(map((te) => applySub(sub, te), te.paramTEs), applySub(sub, te.returnTE)) :
-    isListTExp(te) ?  :
+    isListTExp(te) ? makeListTExp(applySub(te.itemTE)) :
     te;
 
 // ============================================================
