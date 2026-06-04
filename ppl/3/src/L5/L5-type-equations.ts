@@ -148,7 +148,9 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                     const tailVal = compVal.val2; // cdr (the rest)
                     const headLit = A.makeLitExp(headVal);
                     const tailLit = A.makeLitExp(tailVal);
-                    return Opt
+                    return Opt.bind(
+                        inPool(pool, headLit)
+                    )
 
 
                 }
