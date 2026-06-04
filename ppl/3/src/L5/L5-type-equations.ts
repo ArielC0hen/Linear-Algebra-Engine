@@ -144,11 +144,11 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                 inPool(pool, exp),
                 (left: T.TExp) => {
                     const compVal = exp.val as V.CompoundSExp;
-                    const headVal = compVal.val1;
-                    const tailVal = compVal.val2;
+                    const headVal = compVal.val1; // car
+                    const tailVal = compVal.val2; // cdr (the rest)
                     const headLit = A.makeLitExp(headVal);
                     const tailLit = A.makeLitExp(tailVal);
-                    
+
 
                 }
             )
