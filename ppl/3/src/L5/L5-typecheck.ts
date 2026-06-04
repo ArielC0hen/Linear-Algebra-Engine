@@ -224,7 +224,7 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 
 
     return bind(
-        Equa
+        checkEqualType
     )
 
     const testTE = typeofExp(ifExp.test, tenv);
