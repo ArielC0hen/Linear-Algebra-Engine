@@ -87,12 +87,13 @@ export const expToPool = (exp: A.Exp): Pool => {
             return extendPool(e, combinedPool);
         }) () :
         /* FIX
-A.isAppExp(e) ? extendPool(e,
+        A.isAppExp(e) ? extendPool(e,
                  reducePool(findVars,
                             cons(e.rator, e.rands),
                             pool)) :
         extendPool(e, pool);
         */
+       
     return findVars(exp, makeEmptyPool());
 };
 
