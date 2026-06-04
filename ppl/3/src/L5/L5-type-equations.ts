@@ -77,15 +77,16 @@ export const expToPool = (exp: A.Exp): Pool => {
     const findVars = (e: A.Exp, pool: Pool): Pool =>
         A.isAtomicExp(e) ? extendPool(e, pool) :
         A.isProcExp(e) ? extendPool(e, reducePool(findVars, e.body, reducePoolVarDecls(extendPoolVarDecl, e.args, pool))) :
-        A.isLitExp(e) && V.isEmptySExp(e.val) ?
-            extendPool(e, pool) : // empty list just give it a generic type and move on
+        A.isLitExp(e) && V.isEmptySExp(e.val) ? extendPool(e, pool) : 
         A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
             const headLit = A.makeLitExp(e.val.val1); // car
             const tailLit = A.makeLitExp(e.val.val2); // cdr
             const poolTail = findVars(tailLit, pool);
             const combinedPool = findVars(headLit, poolTail);
             return extendPool(e, combinedPool);
-        }) () :
+        })() :
+        // RESTORED BRANCH: Necessary for all function applications/operations to be added to the pool
+        A.isAppExp(e) ? extendPool(e, reducePool(findVars, e.rands, findVars(e.rator, pool))) :
         makeEmptyPool();
     return findVars(exp, makeEmptyPool());
 };
