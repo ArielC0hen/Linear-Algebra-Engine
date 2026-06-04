@@ -258,7 +258,7 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
     return bind (
         firstTE,
         (firstType : TExp) => {
-            if (isDefineExp())
+            if (isDefineExp(firstType))
         }
 
     )
