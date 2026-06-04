@@ -86,7 +86,6 @@ export const expToPool = (exp: A.Exp): Pool => {
                 : [];
             return reducePool(findVars, ListToArray(e.val), extendPool(e, pool));
         }) () :
-           
         makeEmptyPool();
     return findVars(exp, makeEmptyPool());
 };
