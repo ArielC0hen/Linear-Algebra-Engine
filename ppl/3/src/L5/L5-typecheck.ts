@@ -250,5 +250,7 @@ export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
 export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => {
     const firstExp = exps[0];
     const restExps = exps.slice(1);
-    if ()
+    if (restExps.length == 0) { // last expression
+        return typeofExp(firstExp, tenv);
+    }
 }
