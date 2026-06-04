@@ -260,7 +260,7 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
         () => {
             if (isDefineExp(firstExp)) { // define, extend tenv
                 const newEnv = makeExtendTEnv([firstExp.var.var],[firstExp.var.texp], tenv);
-                return type
+                return typeofProgramExps(restExps, tenv);
             }
         }
 
