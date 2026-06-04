@@ -9,7 +9,7 @@ import { typeofPrim, typeofExp, typeofProgram } from "../../src/L5/L5-typecheck"
 import { isBoolTExp, isListTExp, isNumTExp, isProcTExp, isStrTExp, isTVar, makeListTExp, makeNumTExp, makeTVar, parseTE, parseTExp, TExp, unparseTExp } from "../../src/L5/TExp";
 import { checkNoOccurrence } from "../../src/L5/L5-substitution-adt";
 import * as S from "../../src/L5/L5-substitution-adt";
-import { infer, inferType } from "../../src/L5/L5-type-equations";
+import { expToPool, infer, inferType, inPool, poolToEquations, solveEquations } from "../../src/L5/L5-type-equations";
 import { isNone, isSome, Optional } from "../../src/shared/optional";
 import { sub } from "./test-helpers";
 
