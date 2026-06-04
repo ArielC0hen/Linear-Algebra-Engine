@@ -249,11 +249,12 @@ export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
 //helper
 export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => {
     const firstExp = exps[0];
+    const firstTE = typeof()
     const restExps = exps.slice(1);
     if (restExps.length == 0) { // last expression
         return typeofExp(firstExp, tenv);
     }
-    
+
     return bind (
         typeofExp(firstExp, tenv),
 
