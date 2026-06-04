@@ -104,7 +104,7 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
     (p.op === 'display') ? makeOk(makeProcTExp([T()] , makeVoidTExp())) :
     (p.op === 'newline') ? makeOk(makeProcTExp([] , makeVoidTExp())) :
     (p.op === 'cons') ?
-        makeOk(makeProcTExp([T(), makeProcTExp()] , makeBoolTExp())) :
+        makeOk(makeProcTExp([T(), makeProcTExp(List<T> )] , makeBoolTExp())) :
     (p.op === 'car') ?
         makeFailure("HW3 3.1 - Implement this branch") :
     (p.op === 'cdr') ?
