@@ -150,9 +150,9 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                     const tailLit = A.makeLitExp(tailVal);
                     return Opt.bind(
                         inPool(pool, headLit),
-                        (headTE : T.TExp) => {
-                            
-                        }
+                        (headTE : T.TExp) => [
+                            makeEquation(left, tai)
+                        ]
                     )
 
 
