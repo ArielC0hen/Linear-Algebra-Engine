@@ -143,6 +143,7 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
             Opt.bind(
                 inPool(pool, exp),
                 (left: T.TExp) => {
+                    const headVal = exp.val.val;
                     
                 }
             )
