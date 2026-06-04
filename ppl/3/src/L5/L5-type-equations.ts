@@ -154,8 +154,8 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                         (headTE : T.TExp) => Opt.mapv(
                             inPool(pool, tailLit),
                             (tailTE : T.TExp) => [
-                                makeEquation(left, tailTE),
-                                makeEquation(tailTE, T.makeListTExp(headTE))
+                                makeEquation(left, tailTE), // type of list = type of tail
+                                makeEquation(tailTE, T.makeListTExp(headTE)) // 
                             ]
                         )
                     )
