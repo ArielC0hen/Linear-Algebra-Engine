@@ -234,12 +234,13 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 // for the expressions that follow it; the program type is the type of the
 // last expression.
 export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
+    const exps = exp.exps;
     const lastExpression = exp.exps[exp.exps.length - 1];
     const lastTE = typeofExp(lastExpression, tenv);
     return bind (
         lastTE,
         (lastType : TExp) => bind (
-            
+
         )
     )
 }
