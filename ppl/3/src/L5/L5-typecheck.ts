@@ -111,9 +111,10 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
         const T0 = T(); // so we use the same T
         return makeOk(makeProcTExp([makeListTExp(T0)] , T0));
     }) ():
-    (p.op === 'cdr') ?
-        makeFailure("HW3 3.1 - Implement this branch") :
-    makeFailure(`Primitive not yet implemented: ${p.op}`);
+    (p.op === 'cdr') ? (() => {
+        const T0 = T(); // so we use the same T
+        return makeOk(makeProcTExp([makeListTExp(T0)] , T0));
+    }) ():
 
 // Purpose: compute the type of an if-exp
 // Typing rule:
