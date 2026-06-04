@@ -253,4 +253,5 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
     if (restExps.length == 0) { // last expression
         return typeofExp(firstExp, tenv);
     }
+    
 }
