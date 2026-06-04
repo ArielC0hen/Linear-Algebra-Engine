@@ -144,17 +144,16 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
     A.isProcExp(exp) ? Opt.bind(inPool(pool, exp), (left: T.TExp) =>
                             Opt.mapv(Opt.bind(safeLast(exp.body), (last: A.CExp) => inPool(pool, last)), (ret: T.TExp) =>
                                 [makeEquation(left, T.makeProcTExp(R.map((vd) => vd. texp, exp.args), ret))])) :
-    A.isLitExp(exp) ?
+A.isLitExp(exp) ?
         (V.isEmptySExp(exp.val) ?
-            Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeListTExp(T.makeFreshTVar()))]) : // (list T)
+            Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeListTExp(T.makeFreshTVar()))]) :
         V.isCompoundSExp(exp.val) ?
             Opt.bind(
                 inPool(pool, exp),
                 (left: T.TExp) => {
                     const compVal = exp.val as V.CompoundSExp;
-                    const headVal = compVal.val1; // car
-                    const tailVal = compVal.val2; // cdr (the rest)
-                    // we want to get the types of them, so we create them LitExps and then look them up in the pool => TExp
+                    const headVal = compVal.val1;
+                    const tailVal = compVal.val2;
                     const headLit = A.makeLitExp(headVal);
                     const tailLit = A.makeLitExp(tailVal);
                     return Opt.bind(
@@ -162,20 +161,18 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                         (headTE : T.TExp) => Opt.mapv(
                             inPool(pool, tailLit),
                             (tailTE : T.TExp) => [
-                                makeEquation(left, tailTE), // type of list = type of tail
-                                makeEquation(tailTE, T.makeListTExp(headTE)) // type of tail = type of each node
+                                makeEquation(left, tailTE),
+                                makeEquation(tailTE, T.makeListTExp(headTE))
                             ]
                         )
                     )
                 }
             ) :
-        isNumber(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
-            [ makeEquation(left, T.makeNumTExp()) ]) :
-        isBoolean(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
-            [ makeEquation(left, T.makeBoolTExp()) ]) :
-        isString(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
-            [ makeEquation(left, T.makeStrTExp()) ]) :
-        Opt.makeNone()
+        isNumber(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) => [ makeEquation(left, T.makeNumTExp()) ]) :
+        isBoolean(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) => [ makeEquation(left, T.makeBoolTExp()) ]) :
+        isString(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) => [ makeEquation(left, T.makeStrTExp()) ]) :
+        V.isSymbolSExp(exp.val) ? Opt.mapv(inPool(pool, exp), (left: T.TExp) => [ makeEquation(left, T.makeStrTExp()) ]) : // Treat symbols as unique atomic primitives (e.g. String/Symbol)
+        Opt.mapv(inPool(pool, exp), (left: T.TExp) => []) // Safe fallback: register empty equations instead of breaking the chain with None
     ) :
     // The type of a number is Number
     A.isNumExp(exp) ? Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeNumTExp())]) :
