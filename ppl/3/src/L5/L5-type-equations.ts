@@ -281,6 +281,6 @@ const splitEquation = (eq: Equation): Equation[] =>
         R.zipWith(makeEquation,
                   cons(eq.left.returnTE, eq.left.paramTEs),
                   cons(eq.right.returnTE, eq.right.paramTEs)) :
-    (T.isListTExp(eq.left) && T.isProcTExp(eq.right)) ? 
+    (T.isListTExp(eq.left) && T.isListTExp(eq.right)) ? 
     :
     [];
