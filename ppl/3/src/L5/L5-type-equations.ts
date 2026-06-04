@@ -68,4 +68,49 @@ const reducePoolVarDecls = (fun: (e: A.VarDecl, pool: Pool) => Pool, vds: A.VarD
 // Purpose: Traverse the abstract syntax tree L5-exp
 //          and collect all sub-expressions into a Pool of fresh type variables.
 // Example:
-// bind(p('(+ x 1)'), (s) => mapv(parseL5Exp(s), (e) => TE.expToPool(e
+// bind(p('(+ x 1)'), (s) => mapv(parseL5Exp(s), (e) => TE.expToPool(e))) =>
+// Ok([[AppExp(PrimOp(+), [VarRef(x), NumExp(1)]), TVar(16)],
+//     [NumExp(1), TVar(15)],
+//     [VarRef(x), TVar(14)],
+//     [PrimOp(+), TVar(13)]])
+export const expToPool = (exp: A.Exp): Pool => {
+    const findVars = (e: A.Exp, pool: Pool): Pool =>
+        A.isAtomicExp(e) ? extendPool(e, pool) :
+        A.isProcExp(e) ? extendPool(e, reducePool(findVars, e.body, reducePoolVarDecls(extendPoolVarDecl, e.args, pool))) :
+        A.isLitExp(e) && V.isEmptySExp(e.val) ?
+            extendPool(e, pool) : // empty list just give it a generic type and move on
+        A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
+            const headLit = A.makeLitExp(e.val.val1); // car
+            const tailLit = A.makeLitExp(e.val.val2); // cdr
+            const poolTail = findVars(tailLit, pool);
+            const combinedPool = findVars(headLit, poolTail);
+            return extendPool(e, combinedPool);
+        }) () :
+        makeEmptyPool();
+    return findVars(exp, makeEmptyPool());
+};
+
+// ========================================================
+// Equations ADT
+export type Equation = {left: T.TExp, right: T.TExp}
+export const makeEquation = (l: T.TExp, r: T.TExp): Equation => ({left: l, right: r});
+
+export const safeLast = <T extends any>(list: readonly T[]): Opt.Optional<T> => {
+    const last = R.last(list);
+    return last ? Opt.makeSome(last) : Opt.makeNone();
+}
+
+// Purpose: flatten a list of lists into a flat list of items
+// Example:
+// flatten([[1,2], [], [3]]) => [1,2,3]
+// flatten([]) => []
+// flatten([[]]) => []
+export const flatten = <T>(listOfLists: readonly T[][]): T[] => R.chain(R.identity, listOfLists);
+
+// Constructor for equations for a Scheme expression:
+// this constructor implements the second step of the type-inference-equations
+// algorithm -- derive equations for all composite sub expressions of a
+// given L5 expression. Its input is a pool of pairs (L5-exp Tvar).
+// A Scheme expression is mapped to a pool with L5-exp->pool
+
+// Purpose: Return a set of equations for a given Exp encoded as a pool
