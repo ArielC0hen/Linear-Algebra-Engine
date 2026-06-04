@@ -143,8 +143,9 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
             Opt.bind(
                 inPool(pool, exp),
                 (left: T.TExp) => {
-                    const headVal = exp.val.val;
-                    
+                    const headVal = exp.val.val2;
+
+
                 }
             )
         isNumber(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
