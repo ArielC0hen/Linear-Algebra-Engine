@@ -224,7 +224,7 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
         valTE,
         (valTE : TExp) => bind (
             checkEqualType(varTE, valTE, exp),
-            () => makeOk(makeVoidTExp())
+            (c : true) => makeOk(makeVoidTExp())
         )
     );
 };
