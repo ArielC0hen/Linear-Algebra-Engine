@@ -218,9 +218,9 @@ export const typeofLetrec = (exp: LetrecExp, tenv: TEnv): Result<TExp> => {
 //   If typeof(exp.val, tenv) = texp
 //   Then typeof(exp) = void
 export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
-    const varTE = typeofExp(exp.var.texp, tenv);
-    const AreEqual = checkEqualType()
-    
+    const varTE = exp.var.texp;
+    const valTE = typeofApp(exp.val, tenv);
+
 
 
     return bind(
