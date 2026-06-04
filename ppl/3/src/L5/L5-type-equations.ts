@@ -77,6 +77,9 @@ export const expToPool = (exp: A.Exp): Pool => {
     const findVars = (e: A.Exp, pool: Pool): Pool =>
         A.isAtomicExp(e) ? extendPool(e, pool) :
         A.isProcExp(e) ? extendPool(e, reducePool(findVars, e.body, reducePoolVarDecls(extendPoolVarDecl, e.args, pool))) :
+        // --- ADD THIS APPEXP BRANCH ---
+        A.isAppExp(e) ? extendPool(e, reducePool(findVars, cons(e.rator, e.rands), pool)) :
+        // ------------------------------
         A.isLitExp(e) && V.isEmptySExp(e.val) ?
             extendPool(e, pool) : // empty list just give it a generic type and move on
         A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
