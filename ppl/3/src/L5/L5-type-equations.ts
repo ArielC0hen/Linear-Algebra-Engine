@@ -138,7 +138,7 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                                 [makeEquation(left, T.makeProcTExp(R.map((vd) => vd. texp, exp.args), ret))])) :
     A.isLitExp(exp) ?
         (V.isEmptySExp(exp.val) ?
-            Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeListTExp(makeFreshTVar()))]) :
+            Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeListTExp(T.makeFreshTVar()))]) :
         V.isCompoundSExp(exp.val) ?
             Opt.bind(
                 inPool(pool, exp),
