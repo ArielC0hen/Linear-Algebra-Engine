@@ -79,29 +79,13 @@ export const expToPool = (exp: A.Exp): Pool => {
         A.isProcExp(e) ? extendPool(e, reducePool(findVars, e.body, reducePoolVarDecls(extendPoolVarDecl, e.args, pool))) :
         A.isLitExp(e) && V.isEmptySExp(e.val) ?
             extendPool(e, pool) : // empty list just give it a generic type and move on
-        A.isLitExp(e) && V.isCompoundSExp(e.val) ? Opt.bind(
-            inPool(pool, exp),
-            (left: T.TExp) => {
-                const compVal = exp.val as V.CompoundSExp;
-                const headVal = compVal.val1; 
-                const tailVal = compVal.val2; 
-                
-                const headLit = A.makeLitExp(headVal);
-                const tailLit = A.makeLitExp(tailVal);
-                
-                return Opt.bind(
-                    inPool(pool, headLit),
-                    (headTE : T.TExp) => Opt.mapv(
-                        inPool(pool, tailLit),
-                        (tailTE : T.TExp) => [
-                            // FIX HERE:
-                            makeEquation(left, T.makeListTExp(headTE)),
-                            makeEquation(tailTE, left)
-                        ]
-                    )
-                )
-            }
-        ) :
+        A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
+            const headLit = A.makeLitExp(e.val.val1); // car
+            const tailLit = A.makeLitExp(e.val.val2); // cdr
+            const poolTail = findVars(tailLit, pool);
+            const combinedPool = findVars(headLit, poolTail);
+            return extendPool(e, combinedPool);
+        }) () :
         makeEmptyPool();
     return findVars(exp, makeEmptyPool());
 };
