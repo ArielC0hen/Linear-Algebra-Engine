@@ -41,8 +41,7 @@ export const inPool = (pool: Pool, e: A.Exp): Opt.Optional<T.TExp> => {
     const exp = R.find((item) => 
         item.e === e
         || (A.isVarRef(item.e) && A.isVarRef(e) && item.e.var === e.var)
-        || (A.isLitExp(item.e) && A.isLitExp(e) && R.equals(item.e.val, e.val))
-        //|| (A.isLitExp(item.e) && A.isLitExp(e) && item.e.val === e.val) FIX
+        || (A.isLitExp(item.e) && A.isLitExp(e) && item.e.val === e.val)
         // (modified for HW3 - no need to edit!)
     , pool);
     return exp ? Opt.makeSome(R.prop('te')(exp)) : Opt.makeNone();
@@ -87,8 +86,7 @@ export const expToPool = (exp: A.Exp): Pool => {
             const combinedPool = findVars(headLit, poolTail);
             return extendPool(e, combinedPool);
         }) () :
-        extendPool(e, pool);
-        //makeEmptyPool(); FIX
+        makeEmptyPool();
     return findVars(exp, makeEmptyPool());
 };
 
@@ -174,8 +172,7 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
             [ makeEquation(left, T.makeBoolTExp()) ]) :
         isString(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
             [ makeEquation(left, T.makeStrTExp()) ]) :
-        Opt.mapv(inPool(pool, exp), (left: T.TExp) => [])
-        //Opt.makeNone() FIX
+        Opt.makeNone()
     ) :
     // The type of a number is Number
     A.isNumExp(exp) ? Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeNumTExp())]) :
