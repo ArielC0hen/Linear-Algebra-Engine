@@ -254,7 +254,6 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
     if (restExps.length == 0) { // last expression
         return firstTE;
     }
-
     return bind (
         firstTE,
         () => {
@@ -266,5 +265,5 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
             // else, forward
             return typeofProgramExps(restExps, tenv);
         }
-    )
+    );
 };
