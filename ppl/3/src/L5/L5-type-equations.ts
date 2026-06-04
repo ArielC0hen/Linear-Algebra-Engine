@@ -86,7 +86,8 @@ export const expToPool = (exp: A.Exp): Pool => {
             const combinedPool = findVars(headLit, poolTail);
             return extendPool(e, combinedPool);
         }) () :
-        makeEmptyPool();
+        extendPool(e, pool);
+        //makeEmptyPool(); FIX
     return findVars(exp, makeEmptyPool());
 };
 
