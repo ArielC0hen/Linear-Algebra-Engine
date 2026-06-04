@@ -238,7 +238,9 @@ export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
     const lastTE = typeofExp(lastExpression, tenv);
     return bind (
         lastTE,
-        (lastType, )
+        (lastType : TExp) => bind (
+            
+        )
     )
 }
 
