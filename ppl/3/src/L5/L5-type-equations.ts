@@ -93,7 +93,7 @@ export const expToPool = (exp: A.Exp): Pool => {
                             pool)) :
         extendPool(e, pool);
         */
-       
+        makeEmptyPool(); // delete for fix
     return findVars(exp, makeEmptyPool());
 };
 
