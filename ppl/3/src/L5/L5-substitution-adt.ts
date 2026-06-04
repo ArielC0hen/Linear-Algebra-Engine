@@ -42,7 +42,7 @@ export const checkNoOccurrence = (tvar: TVar, te: TExp): Result<true> => {
         isListTExp(e) ? bind(
             mapResult(check, e.paramTEs),
              _ => check(e.returnTE)
-            ) :
+        ) :
         makeFailure(`Bad type expression ${e} in ${format(te)}`);
     return check(te);
 };
