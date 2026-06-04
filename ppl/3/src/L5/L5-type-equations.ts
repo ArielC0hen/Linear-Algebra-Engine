@@ -138,7 +138,7 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                                 [makeEquation(left, T.makeProcTExp(R.map((vd) => vd. texp, exp.args), ret))])) :
     A.isLitExp(exp) ?
         (V.isEmptySExp(exp.val) ?
-            Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeNumTExp())]) :
+            Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeFreshTVar())]) :
         V.isCompoundSExp(exp.val) ?
             Opt.makeNone() : // HW3 3.3.b - fix this branch
         isNumber(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
