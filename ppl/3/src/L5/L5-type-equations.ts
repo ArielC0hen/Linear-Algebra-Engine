@@ -79,8 +79,12 @@ export const expToPool = (exp: A.Exp): Pool => {
         A.isProcExp(e) ? extendPool(e, reducePool(findVars, e.body, reducePoolVarDecls(extendPoolVarDecl, e.args, pool))) :
         A.isLitExp(e) && V.isEmptySExp(e.val) ?
             extendPool(e, pool) : // empty list just give it a generic type and move on
-        A.isLitExp(e) && V.isCompoundSExp(e.val) ? 
-            :
+        A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
+            const headLit = A.makeLitExp(e.val.val1); // car
+            const tailLit = A.makeLitExp(e.val.val2); // cdr
+            
+            return extendPool(e, pool);
+        }) () :
         makeEmptyPool();
     return findVars(exp, makeEmptyPool());
 };
