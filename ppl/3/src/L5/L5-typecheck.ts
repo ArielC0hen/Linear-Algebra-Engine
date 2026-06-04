@@ -226,13 +226,10 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
     return bind(
         valTE,
         (valTE : TExp) => bind (
-            checkEqualType(),
-            (valTE : TExp) => bind (
-                checkEqualType(varTE, valTE, exp),
-                (c : true) => makeOk(makeVoidTExp())
-            )
+            checkEqualType(varTE, valTE, exp),
+            () => makeOk(makeVoidTExp())
         )
-    )
+    );
 
     const testTE = typeofExp(ifExp.test, tenv);
     const thenTE = typeofExp(ifExp.then, tenv);
