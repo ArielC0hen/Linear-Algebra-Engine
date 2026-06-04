@@ -249,8 +249,11 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
     return bind (
         firstTE,
         () => {
-            const newEnv = 
-            isDefineExp(firstExp)
+            // define, extend tenv
+            if (isDefineExp(firstExp)) {
+                const newEnv = makeExtendTEnv([firstExp.var.var],[firstExp.var.texp], tenv);
+                return typeofProgramExps(restExps, newEnv);
+            }
             return typeofProgramExps(restExps, tenv);
         }
     );
