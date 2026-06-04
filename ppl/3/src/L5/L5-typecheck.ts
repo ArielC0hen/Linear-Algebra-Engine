@@ -115,6 +115,7 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
         const T0 = T(); // so we use the same T
         return makeOk(makeProcTExp([makeListTExp(T0)] , makeListTExp(T0)));
     }) () :
+    makeFailure(`Primitive not yet implemented: ${p.op}`);
 
 // Purpose: compute the type of an if-exp
 // Typing rule:
