@@ -83,7 +83,8 @@ export const expToPool = (exp: A.Exp): Pool => {
             const headLit = A.makeLitExp(e.val.val1); // car
             const tailLit = A.makeLitExp(e.val.val2); // cdr
             const poolTail = findVars(tailLit, pool);
-            return extendPool(e, pool);
+            const combinedPool = findVars(headLit, poolTail);
+            return extendPool(e, combinedPool);
         }) () :
         makeEmptyPool();
     return findVars(exp, makeEmptyPool());
