@@ -106,7 +106,6 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
     (p.op === 'cons') ? (() => {
 
     }) :
-        makeOk(makeProcTExp([T(), makeListTExp(T()) ] , makeListTExp(T()))) :
     (p.op === 'car') ?
         makeFailure("HW3 3.1 - Implement this branch") :
     (p.op === 'cdr') ?
