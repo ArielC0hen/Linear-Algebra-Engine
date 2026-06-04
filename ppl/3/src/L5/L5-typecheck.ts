@@ -235,6 +235,6 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 // last expression.
 export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
     const lastExpression = exp.exps[exp.exps.length - 1];
-    const lastType = typeOFExp(lastExpression, )
+    const lastType = typeOfExp(lastExpression, )
 }
 
