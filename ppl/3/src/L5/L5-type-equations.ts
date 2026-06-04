@@ -158,10 +158,8 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                             ]
                         )
                     )
-
-
                 }
-            )
+            ) :
         isNumber(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
             [ makeEquation(left, T.makeNumTExp()) ]) :
         isBoolean(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
