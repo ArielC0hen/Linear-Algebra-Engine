@@ -263,7 +263,7 @@ const solve = (equations: Equation[], sub: S.Sub): Res.Result<S.Sub> => {
 const canUnify = (eq: Equation): boolean =>
     T.isProcTExp(eq.left) && T.isProcTExp(eq.right) ?
         (eq.left.paramTEs.length === eq.right.paramTEs.length) :
-    T.is
+    T.isListTExp(eq.left) && T.
     false;
 
 // Signature: splitEquation(equation)
