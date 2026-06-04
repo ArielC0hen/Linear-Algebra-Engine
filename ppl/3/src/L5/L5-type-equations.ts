@@ -146,6 +146,7 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                     const compVal = exp.val as V.CompoundSExp;
                     const headVal = compVal.val1; // car
                     const tailVal = compVal.val2; // cdr (the rest)
+                    // we want to get the types of them, so we create them LitExps and then look them up in the pool => TExp
                     const headLit = A.makeLitExp(headVal);
                     const tailLit = A.makeLitExp(tailVal);
                     return Opt.bind(
