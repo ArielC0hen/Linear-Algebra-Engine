@@ -173,7 +173,8 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
             [ makeEquation(left, T.makeBoolTExp()) ]) :
         isString(exp.val) ? Opt.mapv(inPool(pool, exp) , (left: T.TExp) =>
             [ makeEquation(left, T.makeStrTExp()) ]) :
-        Opt.makeNone()
+        Opt.mapv(inPool(pool, exp), (left: T.TExp) => [])
+        //Opt.makeNone() FIX
     ) :
     // The type of a number is Number
     A.isNumExp(exp) ? Opt.mapv(inPool(pool, exp), (left: T.TExp) => [makeEquation(left, T.makeNumTExp())]) :
