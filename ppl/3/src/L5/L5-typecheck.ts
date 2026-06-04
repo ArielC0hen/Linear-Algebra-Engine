@@ -246,4 +246,16 @@ export const typeofProgram = (exp: Program, tenv: TEnv): Result<TExp> => {
     )
 }
 
+//helper
+export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => {
+    const exps = exp.exps;
+    // we need to extend the tenv for every define
+    const lastExpression = exp.exps[exp.exps.length - 1];
+    const lastTE = typeofExp(lastExpression, tenv);
+    return bind (
+        lastTE,
+        (lastType : TExp) => bind (
 
+        )
+    )
+}
