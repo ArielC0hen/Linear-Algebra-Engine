@@ -103,7 +103,7 @@ export const typeofPrim = (p: PrimOp): Result<TExp> =>
     (p.op === 'string=?') ? makeOk(makeProcTExp([makeStrTExp(), makeStrTExp()] , makeBoolTExp())) :
     (p.op === 'display') ? makeOk(makeProcTExp([T()] , makeVoidTExp())) :
     (p.op === 'newline') ? makeOk(makeProcTExp([] , makeVoidTExp())) :
-    (p.op === 'cons') ?
+    (p.op === 'cons') ? ()
         makeOk(makeProcTExp([T(), makeListTExp(T()) ] , makeListTExp(T()))) :
     (p.op === 'car') ?
         makeFailure("HW3 3.1 - Implement this branch") :
