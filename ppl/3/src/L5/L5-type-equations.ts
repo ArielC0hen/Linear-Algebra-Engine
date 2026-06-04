@@ -149,7 +149,10 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                     const headLit = A.makeLitExp(headVal);
                     const tailLit = A.makeLitExp(tailVal);
                     return Opt.bind(
-                        inPool(pool, headLit)
+                        inPool(pool, headLit),
+                        (headTE : T.TExp) => {
+                            
+                        }
                     )
 
 
