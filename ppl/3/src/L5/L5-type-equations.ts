@@ -155,7 +155,7 @@ export const makeEquationsFromExp = (exp: A.Exp, pool: Pool): Opt.Optional<Equat
                             inPool(pool, tailLit),
                             (tailTE : T.TExp) => [
                                 makeEquation(left, tailTE), // type of list = type of tail
-                                makeEquation(tailTE, T.makeListTExp(headTE)) // 
+                                makeEquation(tailTE, T.makeListTExp(headTE)) // type of tail = type of the 
                             ]
                         )
                     )
