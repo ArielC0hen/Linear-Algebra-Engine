@@ -252,11 +252,12 @@ export const typeofProgramExps = (exps: List<Exp>, tenv: TEnv): Result<TExp> => 
     const firstTE = typeofExp(firstExp, tenv);
     const restExps = exps.slice(1);
     if (restExps.length == 0) { // last expression
-        return typeofExp(firstExp, tenv);
+        return firstTE;
     }
 
     return bind (
-        typeofExp(firstExp, tenv),
+        firstTE,
+        (firstType: )
 
     )
 }
