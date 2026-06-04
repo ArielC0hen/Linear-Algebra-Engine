@@ -82,7 +82,7 @@ export const expToPool = (exp: A.Exp): Pool => {
         A.isLitExp(e) && V.isCompoundSExp(e.val) ? (() => {
             const ListToArray = (val: V.SExpValue) : A.Exp[] => 
                 V.isEmptySExp(val) ? [] :
-                V.isCompoundSExp(val) ? [val.val1 as A.Exp].concat(ListToArray(val.val2 as A.Exp))
+                V.isCompoundSExp(val) ? [val.val1 as A.Exp].concat(ListToArray(val.val2))
                 : [];
             return reducePool(findVars, ListToArray(e.val), extendPool(e, pool));
         }) () :
