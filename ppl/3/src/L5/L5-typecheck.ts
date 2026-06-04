@@ -225,7 +225,9 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 
     return bind(
         varTE,
-        
+        (varTE : TExp) => bind (
+            
+        )
     )
 
     const testTE = typeofExp(ifExp.test, tenv);
