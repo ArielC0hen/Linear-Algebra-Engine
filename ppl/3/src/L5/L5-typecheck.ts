@@ -224,7 +224,7 @@ export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
 
 
     return bind(
-        varTE,
+        valTE,
         (varTE : TExp) => bind (
             valTE,
             (valTE : TExp) => bind (
