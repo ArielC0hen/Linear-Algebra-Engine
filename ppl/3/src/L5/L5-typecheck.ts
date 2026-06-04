@@ -220,11 +220,12 @@ export const typeofLetrec = (exp: LetrecExp, tenv: TEnv): Result<TExp> => {
 export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
     const varTE = exp.var.texp;
     const valTE = typeofApp(exp.val, tenv);
-    const constraint = bind ()
+    
 
 
     return bind(
-        checkEqualType
+        varTE,
+        
     )
 
     const testTE = typeofExp(ifExp.test, tenv);
