@@ -219,7 +219,7 @@ export const typeofLetrec = (exp: LetrecExp, tenv: TEnv): Result<TExp> => {
 //   Then typeof(exp) = void
 export const typeofDefine = (exp: DefineExp, tenv: TEnv): Result<VoidTExp> => {
     const varTE = exp.var.texp;
-    const valTE = typeofApp(exp.val, tenv);
+    const valTE = typeofExp(exp.val, tenv);
     
 
 
