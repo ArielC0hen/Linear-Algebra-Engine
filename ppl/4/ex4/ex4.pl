@@ -69,4 +69,4 @@ sub_tree(T,tree(_, Left, Right)) :- sub_tree(T,Right).
 % Signature: swap_tree(Tree, InversedTree)/2
 % Purpose: InversedTree is the �mirror� representation of Tree.
 
-swap_tree(T, T) :- 
+swap_tree(tree(Lf,void,void), ) :- 
