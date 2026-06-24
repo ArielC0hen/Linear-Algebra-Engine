@@ -90,7 +90,7 @@
 (define get-value
   (lambda (assoc-list key)
     (if (eq? key (car assoc-list))
-      (cdr assoc-list)
+      (cdr (car assoc-list))
       (get-value (cdr assoc-list) key)
     )
   )
