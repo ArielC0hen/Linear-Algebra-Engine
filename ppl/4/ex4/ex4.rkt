@@ -160,6 +160,6 @@
   )
  )
 )
-; note: the function itself isn't in tail position because of the cons inside succ
+; note: the function itself isn't in tail position because of the cons inside succ but we dont have to make succ itself cps
    
    
