@@ -25,7 +25,7 @@ suffix(Xs, Ys) :- append(_Zs, Xs, Ys).
 % Signature: sub_list(Sublist, List)/2
 % Purpose: All elements in Sublist appear in List in the same order.
 % Precondition: List is fully instantiated (queries do not include variables in their second argument).
-sub_list(Xs,Xs)
+sub_list(Xs,Xs).
 sub_list(Xs,Ys) :- append(Xs,_As,_Bs), suffix(_Bs,Ys)
 
 
