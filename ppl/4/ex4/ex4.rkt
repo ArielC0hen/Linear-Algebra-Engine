@@ -107,7 +107,11 @@
 ;note: get-value is already in tail position, so no restructure is needed!!!!11!1
 (define get-value$
   (lambda (assoc-list key success fail)
-   @TODO
+      'fail
+      (if (eq? key (car (car assoc-list)))
+        (cdr (car assoc-list))
+        (get-value (cdr assoc-list) key)
+      )
   )
 )
 
