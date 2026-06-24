@@ -132,6 +132,7 @@
  (lambda (lists key)
     (if (empty? (car lists))
       (if (empty? (cdr lists))
+        '
       )
     )
  )
