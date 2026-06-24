@@ -128,7 +128,7 @@
 
 (define collect-all-values-1
  (lambda (lists key)
-  @TODO
+    (if (empty? ))
  )
 )
 
