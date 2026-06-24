@@ -11,6 +11,8 @@ maximum_printing_depth(100).
 list([]).
 list([X|Xs]) :- list(Xs).
 
+member(X, [X|_]).
+member(X,[_|Ys]) :- member(X, Ys).
 
 
 append([], Xs, Xs):-list(Xs).
