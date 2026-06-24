@@ -145,17 +145,5 @@
   )
  )
 )
-
-(define get-value$
-  (lambda (assoc-list key success fail)
-    (if (empty? assoc-list)
-      (fail)
-      (if (eq? key (car (car assoc-list)))
-        (success (cdr (car assoc-list)))
-        (get-value$ (cdr assoc-list) key success fail)
-      )
-    )
-  )
-)
    
    
