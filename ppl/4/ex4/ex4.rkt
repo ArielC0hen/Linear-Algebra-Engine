@@ -128,10 +128,10 @@
 
 (define collect-all-values-1
  (lambda (lists key)
-    (if (empty? (car lists))
-      '()
-      (cons (get-value (car lists) key) (collect-all-values-1 (cdr lists) key))
-    )
+  (if (empty? (car lists))
+    '()
+    (cons (get-value (car lists) key) (collect-all-values-1 (cdr lists) key))
+  )
  )
 )
 
@@ -139,10 +139,10 @@
 
 (define collect-all-values-2
  (lambda (lists key)
-    (if (empty? (car lists))
-      '()
-      (cons (get-value (car lists) key) (collect-all-values-1 (cdr lists) key))
-    )
+  (if (empty? (car lists))
+    '()
+    (cons (get-value (car lists) key) (collect-all-values-1 (cdr lists) key))
+  )
  )
 )
    
