@@ -92,7 +92,8 @@
     (if (empty? assoc-list)
       'fail
       (if (eq? key (car (car assoc-list)))
-        
+        (cdr (car assoc-list))
+        (get-value (cdr assoc-list) key)
       )
     )
   )
