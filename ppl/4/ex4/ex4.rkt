@@ -90,7 +90,8 @@
 (define get-value
   (lambda (assoc-list key)
     (if (empty? assoc-list)
-      
+      'fail
+      (if )
     )
   )
 )
