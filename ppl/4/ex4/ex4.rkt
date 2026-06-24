@@ -130,6 +130,10 @@
 ; l2 = (cdr lists)
 (define collect-all-values-1
  (lambda (lists key)
+    (if (empty? car))
+ )
+)
+
     (if (list? (car lists)) 
       ; lists = (l1, l2)
       (if (empty? (cdr lists))
@@ -137,8 +141,6 @@
       )
       ; lists = ('(), l2)
     )
- )
-)
 
 (define get-value
   (lambda (assoc-list key)
