@@ -139,7 +139,10 @@
 
 (define collect-all-values-2
  (lambda (lists key)
-  @TODO
+    (if (empty? (car lists))
+      '()
+      (cons (get-value (car lists) key) (collect-all-values-1 (cdr lists) key))
+    )
  )
 )
    
