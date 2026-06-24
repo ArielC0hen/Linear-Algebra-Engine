@@ -142,7 +142,7 @@
  )
 )
 
-
+; succ will append and continue, fail will just continue
 (define collect-all-values-2
  (lambda (lists key)
   (if (empty? lists)
@@ -150,7 +150,9 @@
     (get-value$ 
       (car lists) 
       key 
-      cons list) (collect-all-values-2 (cdr lists) key)
+      (lambda
+        
+      )
   )
  )
 )
