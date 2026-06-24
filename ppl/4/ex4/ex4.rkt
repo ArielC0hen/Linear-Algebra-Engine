@@ -126,8 +126,6 @@
 ;;(collect-all-values (list l1 l2) 'e) --> '(2 5)
 ;;(collect-all-values (list l1 l2) 'k)--> '()
 
-; l1 = (car lists)
-; l2 = (cdr lists)
 (define collect-all-values-1
  (lambda (lists key)
     (if (empty? (car lists))
