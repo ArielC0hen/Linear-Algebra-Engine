@@ -130,8 +130,11 @@
  (lambda (lists key)
   (if (empty? lists)
     '()
-    (let ()
-
+    (let 
+      (v (get-value (car lists) key))
+      (if (eq? v 'fail)
+        
+      )
     )
     (cons (get-value (car lists) key) (collect-all-values-1 (cdr lists) key))
   )
