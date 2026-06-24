@@ -59,7 +59,7 @@ swap_list1([X|Xs], As, Ys) :- swap_list1(Xs, [X|As], Ys).
 
 % Signature: sub_tree(Subtree, Tree)/2
 % Purpose: Tree contains Subtree.
-sub_tree()
+sub_tree(St,)
 
 
 
