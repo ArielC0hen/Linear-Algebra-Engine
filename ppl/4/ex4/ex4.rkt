@@ -160,5 +160,6 @@
   )
  )
 )
+; note: the function itself isn't in tail position because of the cons inside succ
    
    
