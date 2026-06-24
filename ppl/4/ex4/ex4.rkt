@@ -89,7 +89,9 @@
 ;;Tests: (get-value '((a . 3) (b . 4)) 'b) --> 4,(get-value '((a . 3) (b . 4)) 'c) --> 'fail
 (define get-value
   (lambda (assoc-list key)
-    if ()
+    (if (empty? assoc-list)
+      
+    )
   )
 )
 
