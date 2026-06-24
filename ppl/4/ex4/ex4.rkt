@@ -111,7 +111,7 @@
       (fail)
       (if (eq? key (car (car assoc-list)))
         (success (cdr (car assoc-list)))
-        (get-value (cdr assoc-list) key)
+        (get-value$ (cdr assoc-list) key)
       )
     )
   )
