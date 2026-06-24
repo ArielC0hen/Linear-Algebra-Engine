@@ -84,7 +84,7 @@
 ;;;; Q2
 
 ;;Signature: get-value(assoc-list, key)
-;;Purpose: Find the value of 'key'. If 'key' is not found return �fail.
+;;Purpose: Find the value of 'key'. If 'key' is not found return 'fail.
 ;;Type: [List<Pair(Symbol,T)>*Symbol -> T | 'fail)
 ;;Tests: (get-value '((a . 3) (b . 4)) 'b) --> 4,(get-value '((a . 3) (b . 4)) 'c) --> 'fail
 (define get-value
