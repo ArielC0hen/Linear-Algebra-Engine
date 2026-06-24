@@ -139,7 +139,7 @@
  (lambda (lists key)
   (if (empty? lists)
     '()
-    ((get-value$ (car lists) key cons list) (collect-all-values-2 (cdr lists) key))
+    (get-value$ (car lists) key cons list) (collect-all-values-2 (cdr lists) key)
   )
  )
 )
