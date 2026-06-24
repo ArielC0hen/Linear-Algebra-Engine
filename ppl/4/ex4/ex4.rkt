@@ -91,7 +91,9 @@
   (lambda (assoc-list key)
     (if (empty? assoc-list)
       'fail
-      (if (eq? key (car (car assoc-list))))
+      (if (eq? key (car (car assoc-list)))
+        
+      )
     )
   )
 )
