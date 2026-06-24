@@ -15,8 +15,8 @@ maximum_printing_depth(100).
 % Signature: sub_list(Sublist, List)/2
 % Purpose: All elements in Sublist appear in List in the same order.
 % Precondition: List is fully instantiated (queries do not include variables in their second argument).
-sub_list(X,X)
-
+sub_list(Xs,Xs)
+sub_list(Xs,Ys) :- 
 
 
 
