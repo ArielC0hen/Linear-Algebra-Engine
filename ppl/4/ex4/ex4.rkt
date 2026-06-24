@@ -133,7 +133,7 @@
     (if (empty? (car lists))
       (if (empty? (cdr lists))
         '()
-        
+        (if )
       )
     )
  )
