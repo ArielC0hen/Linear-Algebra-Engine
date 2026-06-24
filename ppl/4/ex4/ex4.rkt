@@ -150,8 +150,8 @@
     (get-value$ 
       (car lists) 
       key 
-      (lambda
-        
+      (lambda (v)
+        (cons v (collect-all-values-2 (cdr lists) key))
       )
   )
  )
