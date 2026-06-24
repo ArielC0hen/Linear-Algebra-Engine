@@ -135,6 +135,7 @@
       (if (empty? (cdr lists))
 
       )
+      ; lists = ()
     )
  )
 )
