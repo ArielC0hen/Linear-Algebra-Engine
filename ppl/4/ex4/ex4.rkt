@@ -99,15 +99,6 @@
   )
 )
 
-(define get-value
-  (lambda (assoc-list key)
-    (if (eq? key (car assoc-list))
-      (cdr (car assoc-list))
-      (get-value (cdr assoc-list) key)
-    )
-  )
-)
-
 ;;Signature: get-value$(assoc-list, key, success, fail)
 ;;Purpose: Find the value of 'key'. If 'key' is found, then apply the continuation 'success' on its value val. Otherwise, apply the continuation 'fail'.
 ;;Type: [List<Pair<Symbol,T>>*Symbol*[T>->T1] * [Empty->T2]] -> T1 | T2)
