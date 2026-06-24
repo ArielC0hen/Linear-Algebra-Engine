@@ -126,6 +126,7 @@
 ;;(collect-all-values (list l1 l2) 'e) --> '(2 5)
 ;;(collect-all-values (list l1 l2) 'k)--> '()
 
+; if get-value fails we want to skip this list
 (define collect-all-values-1
  (lambda (lists key)
   (if (empty? lists)
