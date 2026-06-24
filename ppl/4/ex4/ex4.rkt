@@ -137,7 +137,7 @@
 
 (define collect-all-values-2
  (lambda (lists key)
-  (if (empty? (car lists))
+  (if (empty? lists)
     '()
     (cons (get-value$ (car lists) key cons list) (collect-all-values-2 (cdr lists) key))
   )
