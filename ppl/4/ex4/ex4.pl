@@ -33,7 +33,6 @@ suffix(Xs, Ys) :- append(_Zs, Xs, Ys).
 % Purpose: All elements in Sublist appear in List in the same order.
 % Precondition: List is fully instantiated (queries do not include variables in their second argument).
 
-sub_list([],_).
 sub_list(Xs,Ys) :- suffix(Rs, Ys), prefix(Xs, Rs).
 
 
