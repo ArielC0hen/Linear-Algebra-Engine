@@ -89,10 +89,7 @@
 ;;Tests: (get-value '((a . 3) (b . 4)) 'b) --> 4,(get-value '((a . 3) (b . 4)) 'c) --> 'fail
 (define get-value
   (lambda (assoc-list key)
-    (if (eq? key (car assoc-list))
-      (cdr (car assoc-list))
-      (get-value (cdr assoc-list) key)
-    )
+    if ()
   )
 )
 
