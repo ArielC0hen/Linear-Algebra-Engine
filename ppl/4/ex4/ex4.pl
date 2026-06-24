@@ -7,6 +7,11 @@
  */
 maximum_printing_depth(100).
 
+/* helpers */
+append([], Xs, Xs):-list(Xs).
+append([X | Xs], Ys, [X | Zs]) :- append(Xs, Ys, Zs).
+
+
 :- current_prolog_flag(toplevel_print_options, A),
    (select(max_depth(_), A, B), ! ; A = B),
    maximum_printing_depth(MPD),
