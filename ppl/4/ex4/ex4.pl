@@ -8,6 +8,11 @@
 maximum_printing_depth(100).
 
 /* helpers */
+list([]).
+list([X|Xs]) :- list(Xs).
+
+
+
 append([], Xs, Xs):-list(Xs).
 append([X | Xs], Ys, [X | Zs]) :- append(Xs, Ys, Zs).
 
