@@ -130,7 +130,7 @@
  (lambda (lists key)
     (if (empty? (car lists))
       '()
-      (cons )
+      (cons (get-value (car lists) key) )
     )
  )
 )
