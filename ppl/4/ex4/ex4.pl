@@ -48,6 +48,7 @@ swap_list([],[]).
 swap_list([X|Xs],Ys) :- swap_list(Zs, Xs) , append(Zs,[X],Ys). 
 */
 
+/* the second argument will function as accumalator
 swap_list(Xs,Ys) :- swap_list(Xs,[],)
 
 
