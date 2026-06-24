@@ -154,7 +154,7 @@
         (cons v (collect-all-values-2 (cdr lists) key))
       )
       (lambda (v) ; fail
-        (cons v (collect-all-values-2 (cdr lists) key))
+        (collect-all-values-2 (cdr lists) key)
       )
   )
  )
