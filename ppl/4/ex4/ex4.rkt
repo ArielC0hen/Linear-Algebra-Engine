@@ -153,7 +153,7 @@
       (lambda (v) ; succ
         (cons v (collect-all-values-2 (cdr lists) key))
       )
-      (lambda (v) ; fail
+      (lambda () ; fail
         (collect-all-values-2 (cdr lists) key)
       )
     )
