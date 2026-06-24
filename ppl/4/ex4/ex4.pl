@@ -11,6 +11,11 @@ maximum_printing_depth(100).
 append([], Xs, Xs):-list(Xs).
 append([X | Xs], Ys, [X | Zs]) :- append(Xs, Ys, Zs).
 
+prefix(Xs, Ys) :- append(Xs, _Zs, Ys).
+
+suffix(Xs, Ys) :- append(_Zs, Xs, Ys).
+
+
 
 :- current_prolog_flag(toplevel_print_options, A),
    (select(max_depth(_), A, B), ! ; A = B),
