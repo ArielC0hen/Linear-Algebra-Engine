@@ -20,6 +20,7 @@ sub_list(X,X)
 
 
 
+
 % Signature: swap_list(List, InversedList)/2
 % Purpose: InversedList is the ‘mirror’ representation of List, i.e, each item in the list is recursively replaced with the item at the position, with refers to the beginning and the end of the list.   
 
