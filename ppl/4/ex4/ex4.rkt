@@ -91,7 +91,7 @@
   (lambda (assoc-list key)
     (if (eq? key (car assoc-list))
       (cdr assoc-list)
-      ()
+      (get-value (cdr assoc-list) key)
     )
   )
 )
