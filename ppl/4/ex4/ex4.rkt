@@ -135,17 +135,7 @@
  )
 )
 
-(define get-value
-  (lambda (assoc-list key)
-    (if (empty? assoc-list)
-      'fail
-      (if (eq? key (car (car assoc-list)))
-        (cdr (car assoc-list))
-        (get-value (cdr assoc-list) key)
-      )
-    )
-  )
-)
+(define )
 
 (define collect-all-values-2
  (lambda (lists key)
