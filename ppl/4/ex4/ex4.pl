@@ -44,7 +44,7 @@ sub_list(Xs,Ys) :- suffix(Rs, Ys), prefix(Xs, Rs).
 % Purpose: InversedList is the ‘mirror’ representation of List, i.e, each item in the list is recursively replaced with the item at the position, with refers to the beginning and the end of the list.   
 
 swap_list([],[]).
-swap_list([X|Xs],[Ys|X]) :- 
+swap_list([X|Xs],[Ys|X]) :- swap_list(Xs,Ys)
 
 
 
