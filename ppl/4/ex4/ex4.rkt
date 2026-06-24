@@ -156,6 +156,7 @@
       (lambda (v) ; fail
         (collect-all-values-2 (cdr lists) key)
       )
+    )
   )
  )
 )
