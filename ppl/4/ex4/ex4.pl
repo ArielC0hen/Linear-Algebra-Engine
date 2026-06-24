@@ -71,4 +71,4 @@ sub_tree(T,tree(_, Left, Right)) :- sub_tree(T,Right).
 
 swap_tree(tree(Lf,void,void), tree(Lf,void,void)).
 
-swap_tree(tree(Lf,Left,void), tree(Lf,void,Right)) :-
+swap_tree(tree(Lf,Left,Right), tree(Lf,void,Right)) :-
