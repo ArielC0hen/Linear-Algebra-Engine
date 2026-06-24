@@ -109,7 +109,7 @@
   (lambda (assoc-list key success fail)
       (fail)
       (if (eq? key (car (car assoc-list)))
-        (cdr (car assoc-list))
+        (success (cdr (car assoc-list)))
         (get-value (cdr assoc-list) key)
       )
   )
