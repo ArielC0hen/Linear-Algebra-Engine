@@ -61,8 +61,8 @@ swap_list1([X|Xs], As, Ys) :- swap_list1(Xs, [X|As], Ys).
 % Purpose: Tree contains Subtree.
 
 sub_tree(T,T).
-sub_tree(T,tree(X, Left, Right)) :- sub_tree(T,Left). 
-sub_tree(T,tree(X, Left, Right)) :- sub_tree(T,Right). 
+sub_tree(T,tree(_, Left, Right)) :- sub_tree(T,Left). 
+sub_tree(T,tree(_, Left, Right)) :- sub_tree(T,Right). 
 
 
 
