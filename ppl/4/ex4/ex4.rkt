@@ -70,7 +70,7 @@
 
 (define find-first
   (lambda (lz-lst p)
-    (if empty-lzl? lz-lst
+    (if (empty-lzl? lz-lst)
       'fail
       (if p (head lz-lst)
         (head lz-lst)
