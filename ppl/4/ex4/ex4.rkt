@@ -54,7 +54,7 @@
 (define sqrt-lzl 
   (lambda (x init)
    (cons-lzl
-    (cons init (abs ()))
+    (cons init (abs (square init)))
    )
   )
 )  
