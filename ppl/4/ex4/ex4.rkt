@@ -89,8 +89,8 @@
   (lambda (x init epsilon)
     (find-first 
       (sqrt-lzl x init)
-      (lambda (guess)
-        (good-enough? guess x epsilon)
+      (lambda (pair)
+        (good-enough? (car pair) x epsilon) ; (car pair) is 
       )
     )
   )
