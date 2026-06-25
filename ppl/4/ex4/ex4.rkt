@@ -89,7 +89,7 @@
   (lambda (x init epsilon)
     (find-first 
       (lambda (guess)
-        (good-enough? )
+        (good-enough? guess x epsilon)
       )
     )
   )
