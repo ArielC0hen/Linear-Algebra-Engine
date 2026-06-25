@@ -72,7 +72,7 @@
   (lambda (lz-lst p)
     (if (empty-lzl? lz-lst)
       'fail
-      (if p (head lz-lst)
+      (if (p (head lz-lst))
         (head lz-lst)
         (find-first (tail lz-lst) p)
       )
