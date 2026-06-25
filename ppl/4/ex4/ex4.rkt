@@ -55,7 +55,9 @@
   (lambda (x init)
    (cons-lzl
     (cons init (abs (- (square init) x)))
-    (sqrt-lzl x (improve init x))
+    (lambda ()
+      (sqrt-lzl x (improve init x))
+    )
    )
   )
 )  
