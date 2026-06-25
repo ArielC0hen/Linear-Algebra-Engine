@@ -88,11 +88,10 @@
 (define sqrt2
   (lambda (x init epsilon)
     (find-first 
-      sqrt-lzl
+      (sqrt-lzl x init)
       (lambda (guess)
         (good-enough? guess x epsilon)
       )
-
     )
   )
 )
