@@ -53,7 +53,7 @@
 ;;Tests: (take (sqrt-lzl 2 1) 3) →  '((1 . 1) (3/2 . 1/4) (17/12 . 1/144)) 
 (define sqrt-lzl 
   (lambda (x init)
-   @TODO
+   
   )
 )  
 
