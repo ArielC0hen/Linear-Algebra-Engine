@@ -70,7 +70,7 @@
 
 (define find-first
   (lambda (lz-lst p)
-   @TODO
+   
   )
 )
 
