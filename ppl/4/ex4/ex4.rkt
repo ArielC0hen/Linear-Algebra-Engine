@@ -70,7 +70,7 @@
 
 (define find-first
   (lambda (lz-lst p)
-    
+    (if p ())
 
     (let 
       (v (get-value (car lists) key))
