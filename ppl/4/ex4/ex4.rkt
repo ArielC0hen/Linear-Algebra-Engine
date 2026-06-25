@@ -87,7 +87,9 @@
 ;;Tests: (sqrt2 2 1 0.0001) → 1 169/408
 (define sqrt2
   (lambda (x init epsilon)
-    (find-first (good-enough?) )
+    (find-first 
+      (lambda ())
+    )
   )
 )
 
