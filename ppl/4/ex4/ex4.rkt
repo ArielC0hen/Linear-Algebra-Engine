@@ -70,16 +70,11 @@
 
 (define find-first
   (lambda (lz-lst p)
-    (if p (head lz-lst)
-      (head lz-lst)
-      (find-first (tail lz-lst) p)
-    )
-
-    (let 
-      (v (get-value (car lists) key))
-      (if (eq? v 'fail)
-        (collect-all-values-1 (cdr lists) key)
-        (cons v (collect-all-values-1 (cdr lists) key))
+    (if empty-lzl? lz-lst
+      'fail
+      (if p (head lz-lst)
+        (head lz-lst)
+        (find-first (tail lz-lst) p)
       )
     )
   )
