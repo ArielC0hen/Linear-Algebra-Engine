@@ -152,7 +152,6 @@
         (collect-all-values-1 (cdr lists) key)
         (cons v (collect-all-values-1 (cdr lists) key))
       )
-    )
   )
  )
 )
