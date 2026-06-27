@@ -148,7 +148,7 @@
   (if (empty? lists)
     '()
     (let 
-      (v (get-value (car lists) key))
+      (v (get-value (car lists) key)))
       (if (eq? v 'fail)
         (collect-all-values-1 (cdr lists) key)
         (cons v (collect-all-values-1 (cdr lists) key))
