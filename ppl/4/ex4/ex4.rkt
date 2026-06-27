@@ -87,10 +87,12 @@
 ;;Tests: (sqrt2 2 1 0.0001) → 1 169/408
 (define sqrt2
   (lambda (x init epsilon)
-    (find-first 
-      (sqrt-lzl x init)
-      (lambda (pair)
-        (good-enough? (car pair) x epsilon) ; (car pair) is the actual guess because of how sqrt-lzl returns (guess . accuracy)
+    (car
+      (find-first 
+        (sqrt-lzl x init)
+        (lambda (pair)
+          (good-enough? (car pair) x epsilon) ; (car pair) is the actual guess because of how sqrt-lzl returns (guess . accuracy)
+        )
       )
     )
   )
