@@ -147,8 +147,7 @@
  (lambda (lists key)
   (if (empty? lists)
     '()
-    (let 
-      (v (get-value (car lists) key)))
+    (let (v (get-value (car lists) key)))
       (if (eq? v 'fail)
         (collect-all-values-1 (cdr lists) key)
         (cons v (collect-all-values-1 (cdr lists) key))
