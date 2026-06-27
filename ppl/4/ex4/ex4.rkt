@@ -88,7 +88,7 @@
 (define sqrt2
   (lambda (x init epsilon)
     (find-first 
-      (sqrt-lzl x init)
+      (car (sqrt-lzl x init))
       (lambda (pair)
         (good-enough? (car pair) x epsilon) ; (car pair) is the actual guess because of how sqrt-lzl returns (guess . accuracy)
       )
