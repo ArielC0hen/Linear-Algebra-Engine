@@ -239,10 +239,9 @@
       (if (f (head lz))
         (cons 
           (head lz) 
-        (lambda ()
-          ()
-        )
-
+          (lambda ()
+            (filter1 f (tail lz))
+          )
       )
 
 
