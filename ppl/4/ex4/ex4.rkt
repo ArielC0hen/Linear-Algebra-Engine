@@ -236,6 +236,7 @@
   (lambda (f lz)
     (if (empty-lzl? lz)
       '()
+      (if (f (head lz)))
       (cons 
         (car (f lz1)) 
         (lambda ()
