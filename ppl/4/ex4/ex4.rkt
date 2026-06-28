@@ -218,11 +218,11 @@
 
 ; map:
 (define map
-  (lambda (lz)
+  (lambda (f lz)
     (if (empty-lzl? lz)
       '()
       (cons 
-        (car lz1) 
+        (car (f lz1)) 
         (lambda ()
           (append1 (tail lz1) lz2)
         )
