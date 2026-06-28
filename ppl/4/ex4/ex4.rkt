@@ -192,8 +192,9 @@
       lz2
       (cons 
         (car lz1) 
-        (lambda)
-        (interleave lz2 (tail lz2))
+        (lambda ()
+          (interleave lz2 (tail lz2))
+        )
       )
     )
   )
