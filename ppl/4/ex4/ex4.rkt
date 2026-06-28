@@ -230,3 +230,18 @@
     )
   )
 )
+
+; filter:
+(define map
+  (lambda (f lz)
+    (if (empty-lzl? lz)
+      '()
+      (cons 
+        (car (f lz1)) 
+        (lambda ()
+          (map f (tail lz))
+        )
+      )
+    )
+  )
+)
