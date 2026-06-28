@@ -243,7 +243,7 @@
             (filter1 f (tail lz))
           )
         )
-        
+        (filter1 f (tail lz))
 
 
       (cons 
