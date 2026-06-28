@@ -197,11 +197,11 @@
 
 ; append:
 ; a1,a2,a3,a4,... b1,b2,b3,b4,... -> a1,a2,a3,a4,...,b1,b2,b3,b4,...
-(define interleave
+(define append
   (lambda (lz1 lz2)
     (if (empty-lzl? lz1)
       lz2
-      (cons (car lz1) (interleave lz2 (tail lz2)))
+      (cons (car lz1) (append))
     )
   )
 )
