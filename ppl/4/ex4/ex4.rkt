@@ -189,6 +189,7 @@
   (lambda (lz1 lz2)
     (if (empty-lzl? lz1)
       lz2
+      (cons (car lz1) )
     )
   )
 )
