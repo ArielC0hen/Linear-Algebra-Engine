@@ -217,7 +217,7 @@
 )
 
 ; map:
-(define map
+(define map1
   (lambda (f lz)
     (if (empty-lzl? lz)
       '()
@@ -232,7 +232,7 @@
 )
 
 ; filter:
-(define map
+(define filter1
   (lambda (f lz)
     (if (empty-lzl? lz)
       '()
