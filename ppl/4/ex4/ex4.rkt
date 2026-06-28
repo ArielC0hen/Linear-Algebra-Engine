@@ -224,7 +224,7 @@
       (cons 
         (car (f lz1)) 
         (lambda ()
-          (append1 (tail lz1) lz2)
+          (map (tail lz))
         )
       )
     )
