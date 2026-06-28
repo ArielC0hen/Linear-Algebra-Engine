@@ -206,7 +206,12 @@
   (lambda (lz1 lz2)
     (if (empty-lzl? lz1)
       lz2
-      (cons (car lz1) (append1 (tail lz1) lz2))
+      (cons 
+        (car lz1) 
+        (lambda ()
+          (append1 (tail lz1) lz2)
+        )
+      )
     )
   )
 )
