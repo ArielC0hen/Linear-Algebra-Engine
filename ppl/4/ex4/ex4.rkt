@@ -197,11 +197,11 @@
 
 ; append:
 ; a1,a2,a3,a4,... b1,b2,b3,b4,... -> a1,a2,a3,a4,...,b1,b2,b3,b4,...
-(define append
+(define append1
   (lambda (lz1 lz2)
     (if (empty-lzl? lz1)
       lz2
-      (cons (car lz1) (append))
+      (cons (car lz1) (append1 (tail lz1) lz2))
     )
   )
 )
