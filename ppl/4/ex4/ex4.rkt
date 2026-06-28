@@ -237,7 +237,11 @@
     (if (empty-lzl? lz)
       '()
       (if (f (head lz))
-        (cons (head lz) ()
+        (cons 
+        (head lz) 
+        (lambda ()
+          ()
+        )
 
       )
 
