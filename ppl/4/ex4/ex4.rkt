@@ -233,17 +233,17 @@
 
 ; filter:
 (define filter1
-  (lambda (f lz)
+  (lambda (p lz)
     (if (empty-lzl? lz)
       '()
-      (if (f (head lz))
+      (if (p (head lz))
         (cons 
           (head lz) 
           (lambda ()
-            (filter1 f (tail lz))
+            (filter1 p (tail lz))
           )
         )
-        (filter1 f (tail lz))
+        (filter1 p (tail lz))
       )
     )
   )
