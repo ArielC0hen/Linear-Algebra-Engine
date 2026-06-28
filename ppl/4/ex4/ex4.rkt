@@ -237,8 +237,8 @@
     (if (empty-lzl? lz)
       '()
       (if (f (head lz))
-        (head lz)
-        
+        (cons (head lz) ()
+
       )
 
 
