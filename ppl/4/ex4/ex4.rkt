@@ -217,3 +217,16 @@
 )
 
 ; map:
+(define map
+  (lambda (lz)
+    (if (empty-lzl? lz)
+      '()
+      (cons 
+        (car lz1) 
+        (lambda ()
+          (append1 (tail lz1) lz2)
+        )
+      )
+    )
+  )
+)
