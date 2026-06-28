@@ -244,13 +244,6 @@
           )
         )
         (filter1 f (tail lz))
-
-
-      (cons 
-        (car (f lz1)) 
-        (lambda ()
-          (map f (tail lz))
-        )
       )
     )
   )
