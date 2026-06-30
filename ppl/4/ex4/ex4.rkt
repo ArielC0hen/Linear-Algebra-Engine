@@ -283,7 +283,7 @@
         (lambda ()
           (lambda (res)
             (cons (head lzl) res)
-          ) (take-while$ p (head lzl))
+          ) (take-while$ p (head lzl) cont)
         )
       )
     )
