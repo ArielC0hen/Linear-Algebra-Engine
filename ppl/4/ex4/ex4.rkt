@@ -313,4 +313,4 @@
 ;; [Lzl<T1> * Number -> Lzl<T1>]
 ;; Example:
 ;; (take (take-every-n-lzl (ints-from 1) 7) 3) => '(7 14 21)
-;; 
+;; (take-every-n-lzl (ints-from 1) 7) = '(7 14 21 28 35 42 ...)
