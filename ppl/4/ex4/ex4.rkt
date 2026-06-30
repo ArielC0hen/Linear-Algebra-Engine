@@ -255,3 +255,6 @@
 ;; (take (take-while$ (λ (n) (< n 5)) (ints-from 0) (λ (x) x)) 10)
 ;; => '(0 1 2 3 4))
 
+(define take-while
+  (lambda (p ))
+)
