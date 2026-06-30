@@ -249,3 +249,9 @@
   )
 )
 
+;; Type:
+;; [[T1 -> Boolean] * Lzl<T1> * [Lzl<T1> -> T2] -> T2]
+;; Example:
+;; (take (take-while$ (λ (n) (< n 5)) (ints-from 0) (λ (x) x)) 10)
+;; => '(0 1 2 3 4))
+
