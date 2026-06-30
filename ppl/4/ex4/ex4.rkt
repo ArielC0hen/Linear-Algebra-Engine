@@ -317,6 +317,9 @@
 
 (define take-every-n-lzl
   (lambda (lzl n)
-    (letrec ((loop (λ (lzl counter)
+    (letrec ((loop (λ (lzl counter))))
 
-(loop lzl n))))
+    (loop lzl n)
+    )
+  )
+)
