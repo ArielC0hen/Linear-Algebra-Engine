@@ -283,7 +283,8 @@
         (take-while$
           p
           (tail lzl)
-          (lambda ()
+          (lambda (res)
+            (cont (cons ))
           )
         )
       )
