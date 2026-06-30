@@ -298,6 +298,6 @@
 (define-map 
   (lambda (f tree)
     (if (not (lst? (car lst))
-    )
+    ))
   )
 )
