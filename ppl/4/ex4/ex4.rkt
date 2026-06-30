@@ -324,7 +324,9 @@
           ; need to add
           (cons 
             (head lzl)
-             
+            (lambda ()
+              (loop (tail lzl) (- n 1))
+            ) 
           )
         )
       (loop lzl n))))
