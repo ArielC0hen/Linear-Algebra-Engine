@@ -261,7 +261,11 @@
       empty-lzl
       (if (not (p (head lzl)))
         empty-lzl
-        (cons (head lzl) )
+        (cons 
+          (head lzl) 
+          (lambda ())
+        
+        )
       )
     )
   )
