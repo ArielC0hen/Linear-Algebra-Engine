@@ -284,7 +284,7 @@
           p
           (tail lzl)
           (lambda (res)
-            (cont (cons (head lzl) (lambda () (res))))
+            (cont (cons (head lzl) (lambda () res))
           )
         )
       )
