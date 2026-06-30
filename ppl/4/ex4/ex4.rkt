@@ -287,8 +287,7 @@
             (cont (cons 
               (head lzl) 
               (lambda () res)
-            )
-            )
+            ))
           )
         )
       )
