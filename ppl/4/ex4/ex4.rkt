@@ -301,9 +301,10 @@
       '()
       (if (not (lst? (car lst))) 
         ; leaf
-        (cons (f (car tree)) (define-map f (cdr tree)))
+        (f )
         ; list
         (define-map f (car tree))
+                (cons (f (car tree)) (define-map f (cdr tree)))
       )
     )
 
