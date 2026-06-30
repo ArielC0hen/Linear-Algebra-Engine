@@ -259,7 +259,10 @@
   (lambda (p lzl)
     (if (empty-lzl? lzl)
       empty-lzl
-      (if (not (p )))
+      (if (not (p (head lzl)))
+        empty-lzl
+        
+      )
     )
   )
 )
