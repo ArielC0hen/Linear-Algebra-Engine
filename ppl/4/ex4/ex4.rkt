@@ -274,6 +274,7 @@
 
 ; => cps
 
+; their answer is wrong and doesnt keep the structure of a lazy list
 (define take-while$
   (lambda (p lzl cont)
     (if (empty-lzl? lzl)
@@ -289,3 +290,5 @@
     )
   )
 )
+
+
