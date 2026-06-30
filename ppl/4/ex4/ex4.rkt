@@ -297,9 +297,12 @@
 ;; (deep-map add1 '((1 2) (3 (4 5) 6))) => '((2 3) (4 (5 6) 7))
 (define-map 
   (lambda (f tree)
+    (if (empty? tree)
+      
+    )
     (if (not (lst? (car lst))) ; leaf
       (cons (f (car tree)) (define-map f (cdr tree)))
-      
+
     )
   )
 )
