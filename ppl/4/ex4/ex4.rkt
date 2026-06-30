@@ -322,7 +322,10 @@
         '()
         (if (= counter 1)
           ; need to add
-          (cons (head lzl) )
+          (cons 
+            (head lzl)
+             
+          )
         )
       (loop lzl n))))
     )
