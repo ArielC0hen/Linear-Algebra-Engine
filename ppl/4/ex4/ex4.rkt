@@ -254,7 +254,6 @@
 ;; Example:
 ;; (take (take-while$ (λ (n) (< n 5)) (ints-from 0) (λ (x) x)) 10)
 ;; => '(0 1 2 3 4))
-
 (define take-while
   (lambda (p lzl)
     (if (empty-lzl? lzl)
@@ -292,3 +291,11 @@
 )
 
 
+;; Signature:
+;; [[T1 -> T2] * Tree<T1> -> Tree<T2>]
+;; Example:
+;; (deep-map add1 '((1 2) (3 (4 5) 6))) => '((2 3) (4 (5 6) 7))
+(define-map 
+  (lambda (f tree)
+  )
+)
