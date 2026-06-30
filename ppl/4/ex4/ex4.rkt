@@ -280,8 +280,6 @@
       (cont empty-lzl)
       (if (not (p (head lzl)))
         (cont empty-lzl)
-        (cons 
-          (head lzl) 
           (lambda ()
             (lambda (res)
               (cons (head lzl) res)
