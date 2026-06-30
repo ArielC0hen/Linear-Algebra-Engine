@@ -299,9 +299,11 @@
   (lambda (f tree)
     (if (empty? tree)
       '()
-      (if (not (lst? (car lst))) ; leaf
+      (if (not (lst? (car lst))) 
+        ; leaf
         (cons (f (car tree)) (define-map f (cdr tree)))
-        ()
+        ; list
+        (define-map f (car tree))
       )
     )
 
