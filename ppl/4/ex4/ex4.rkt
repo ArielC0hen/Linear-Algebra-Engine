@@ -282,7 +282,7 @@
         (cont empty-lzl)
         (lambda ()
           (lambda (res)
-            (cons (head lzl) res)
+            (cons (tail lzl) res)
           ) (take-while$ p (head lzl) cont)
         )
       )
