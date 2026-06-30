@@ -256,5 +256,10 @@
 ;; => '(0 1 2 3 4))
 
 (define take-while
-  (lambda (p ))
+  (lambda (p lzl)
+    (if (empty-lzl? lzl)
+      empty-lzl
+      (if (not (p )))
+    )
+  )
 )
