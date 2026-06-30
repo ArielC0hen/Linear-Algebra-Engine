@@ -279,7 +279,7 @@
     (if (empty-lzl? lzl)
       (cont empty-lzl)
       (if (not (p (head lzl)))
-        empty-lzl
+        (cont empty-lzl)
         (cons 
           (head lzl) 
           (lambda ()
