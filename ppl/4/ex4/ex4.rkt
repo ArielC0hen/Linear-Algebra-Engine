@@ -297,6 +297,7 @@
 ;; (deep-map add1 '((1 2) (3 (4 5) 6))) => '((2 3) (4 (5 6) 7))
 (define-map 
   (lambda (f tree)
-    (if (not (lst? (car lst )))
+    (if (not (lst? (car lst))
+    )
   )
 )
