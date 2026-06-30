@@ -295,7 +295,7 @@
 ;; [[T1 -> T2] * Tree<T1> -> Tree<T2>]
 ;; Example:
 ;; (deep-map add1 '((1 2) (3 (4 5) 6))) => '((2 3) (4 (5 6) 7))
-(define-map 
+(define deep-map 
   (lambda (f tree)
     (if (empty? tree)
       '()
@@ -303,7 +303,7 @@
         ; leaf
         (f tree)
         ; list
-        (cons (define-mapf (car tree)))
+        (cons (deep-map f (car tree)) ())
       )
     )
 
