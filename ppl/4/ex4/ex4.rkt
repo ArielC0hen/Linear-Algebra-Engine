@@ -271,3 +271,22 @@
     )
   )
 )
+
+; => cps
+
+(define take-while
+  (lambda (p lzl cont)
+    (if (empty-lzl? lzl)
+      (cont empty-lzl)
+      (if (not (p (head lzl)))
+        empty-lzl
+        (cons 
+          (head lzl) 
+          (lambda ()
+            (take-while p (head lzl))
+          )
+        )
+      )
+    )
+  )
+)
