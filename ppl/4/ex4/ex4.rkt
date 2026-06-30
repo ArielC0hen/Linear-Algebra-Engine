@@ -321,7 +321,8 @@
       (if (empty-lzl? lzl)
         '()
         (if (= counter 1)
-          ; 
+          ; need to add
+          (cons )
         )
       (loop lzl n))))
     )
