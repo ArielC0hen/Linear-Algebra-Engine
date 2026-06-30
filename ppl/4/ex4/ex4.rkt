@@ -318,7 +318,9 @@
 (define take-every-n-lzl
   (lambda (lzl n)
     (letrec ((loop (lambda (lzl counter)
-
+      (if (empty-lzl? lzl)
+        '()
+        ()
       (loop lzl n))))
     )
   )
