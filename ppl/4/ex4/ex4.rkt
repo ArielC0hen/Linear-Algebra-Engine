@@ -329,7 +329,7 @@
             ) 
           )
           ; skip
-          ()
+          (loop (tail lzl) (- n 1))
         )
       (loop lzl n))))
     )
