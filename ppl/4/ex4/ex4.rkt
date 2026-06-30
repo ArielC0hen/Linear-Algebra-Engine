@@ -274,7 +274,7 @@
 
 ; => cps
 
-(define take-while
+(define take-while$
   (lambda (p lzl cont)
     (if (empty-lzl? lzl)
       (cont empty-lzl)
@@ -283,7 +283,7 @@
         (lambda ()
           (lambda (res)
             (cons (head lzl) res)
-          ) (take-while p (head lzl))
+          ) (take-while$ p (head lzl))
         )
       )
     )
