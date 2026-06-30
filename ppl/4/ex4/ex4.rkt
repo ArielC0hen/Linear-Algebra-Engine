@@ -283,7 +283,9 @@
         (cons 
           (head lzl) 
           (lambda ()
-            (take-while p (head lzl))
+            (lambda (res)
+              (cons (head lzl) res
+            )(take-while p (head lzl))
           )
         )
       )
