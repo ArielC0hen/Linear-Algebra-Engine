@@ -303,7 +303,7 @@
         ; leaf
         (f tree)
         ; list
-        (cons (deep-map f (car tree)) ())
+        (cons (deep-map f (car tree)) (deep-map f (cdr tree)))
       )
     )
 
