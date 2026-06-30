@@ -298,7 +298,7 @@
 (define-map 
   (lambda (f tree)
     (if (not (lst? (car lst)))
-      (cons (f (car tree)) (define-map))
+      (cons (f (car tree)) (define-map ))
     )
   )
 )
