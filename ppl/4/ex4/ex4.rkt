@@ -325,9 +325,11 @@
           (cons 
             (head lzl)
             (lambda ()
-              (loop (tail lzl) (- n 1))
+              (loop (tail lzl) n) ; reset the counter
             ) 
           )
+          ; skip
+          ()
         )
       (loop lzl n))))
     )
