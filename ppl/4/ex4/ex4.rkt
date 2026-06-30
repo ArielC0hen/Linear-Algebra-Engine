@@ -263,8 +263,9 @@
         empty-lzl
         (cons 
           (head lzl) 
-          (lambda ())
-        
+          (lambda ()
+            
+          )
         )
       )
     )
