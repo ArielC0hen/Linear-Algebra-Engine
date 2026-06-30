@@ -308,3 +308,8 @@
     )
   )
 )
+
+;; Signature:
+;; [Lzl<T1> * Number -> Lzl<T1>]
+;; Example:
+;; (take (take-every-n-lzl (ints-from 1) 7) 3) => '(7 14 21)
