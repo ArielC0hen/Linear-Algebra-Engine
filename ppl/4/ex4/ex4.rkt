@@ -280,15 +280,10 @@
       (cont empty-lzl)
       (if (not (p (head lzl)))
         (cont empty-lzl)
-        (take-while$
-          p
-          (tail lzl)
+        (lambda ()
           (lambda (res)
-            (cont (cons 
-              (head lzl) 
-              (lambda () res)
-            ))
-          )
+            (cons (head lzl) res)
+          ) (take-while$ p (head lzl) cont)
         )
       )
     )
